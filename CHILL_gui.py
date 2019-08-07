@@ -33,16 +33,20 @@ class App(tk.Tk):
         self.frames["StartPage"] = StartPage(parent=container, controller=self)
         self.frames["BasicPage"] = BasicPage(parent=container, controller=self)
         self.frames["PCSPage"] = PCSPage(parent=container, controller=self)
+        self.frames["CyanaPage"] = CyanaPage(parent=container, controller=self)
         self.frames["CompareFiles"] = CompareFilesPage(parent=container, controller=self)
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
         self.frames["CheckSeries"] = CheckSeriesPage(parent=container, controller=self)
+        self.frames["GetTF"] = GetTFPage(parent=container, controller=self)
 
         self.frames["StartPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["BasicPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["PCSPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["CyanaPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CompareFiles"].grid(row=0, column=0, sticky="nsew")
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
         self.frames["CheckSeries"].grid(row=0, column=0, sticky="nsew")
+        self.frames["GetTF"].grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("StartPage")
 
@@ -61,13 +65,15 @@ class StartPage(tk.Frame):
 
         btn1 = tk.Button(self, text="Basic", command=lambda: controller.show_frame("BasicPage"))
         btn2 = tk.Button(self, text="PCS", command=lambda: controller.show_frame("PCSPage"))
-        #btn3 = tk.Button(self, text="Chemical shifts", command=lambda: controller.show_frame("PCSPage"))
-        #btn4 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("PCSPage"))
+        btn3 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
+        #btn4 = tk.Button(self, text="Chemical shifts", command=lambda: controller.show_frame("PCSPage"))
+        #btn5 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("PCSPage"))
 
-        btn1.pack()
-        btn2.pack()
-        #btn3.pack()
+        btn1.pack(pady=10)
+        btn2.pack(pady=10)
+        btn3.pack(pady=10)
         #btn4.pack()
+        #btn5.pack()
 
 class BasicPage(tk.Frame):
 
@@ -235,10 +241,69 @@ class PCSPage(tk.Frame):
         btnback = tk.Button(self, text="Go back to the main page.", command=lambda: controller.show_frame("StartPage"))
         btnback.pack()
 
+class CyanaPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        label = tk.Label(self, text="Cyana functions.", font=controller.title_font)
+        label.pack(side="top", fill="x", pady=10)
+        btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
+        btn1 = tk.Button(self, text="Get TF and RMSD", command=lambda: controller.show_frame("GetTF"))
+        btnback.pack()
+        btn1.pack()
+
+class GetTFPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        self.filename1 = ""
+        self.filename2 = ""
+        title = tk.Label(self, text="Get TF and RMSD", font=controller.title_font)
+        title.pack(side="top", fill="x", pady=10)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.pack()
+        #description = tk.Label(self, text=Compare_files.file_compare.__doc__)
+        #description.pack(fill="x", pady=10)
+        #btnfile1 = tk.Button(self, text="Choose the first file", command=self.selectfile1)
+        #btnfile1.pack()
+        #self.lab1 = tk.Label(self, text="No file selected")
+        #self.lab1.pack(pady=10)
+        #btnfile2 = tk.Button(self, text="Choose the second file", command=self.selectfile2)
+        #btnfile2.pack()
+        #self.lab2 = tk.Label(self, text="No file selected")
+        #self.lab2.pack(pady=10)
+        #btnfun = tk.Button(self, text="Compare Files", command=self.compare)
+        #btnfun.pack()
+        #self.labfun = tk.Label(self, text="")
+        #self.labfun.pack(pady=10)
+        #self.out = scrolledtext.ScrolledText(self, width=40, height=10)
+        #self.out.pack()
+
+    #def selectfile1(self):
+        #self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
+        #self.lab1.configure(text=self.filename1)
+
+    #def selectfile2(self):
+        #self.filename2 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
+        #self.lab2.configure(text=self.filename2)
+
+    #def compare(self):
+        #if self.filename1 == "":
+            #messagebox.showerror("Warning", "You did not select any file 1.")
+        #elif self.filename2 == "":
+            #messagebox.showerror("Warning", "You did not select any file 2.")
+        #else:
+            #res = Compare_files.file_compare(self.filename1, self.filename2)
+            #output = "Files compared. Output is stored in " + path.splitext(self.filename1)[0] + "_compare_output.txt"
+            #self.labfun.configure(text=output)
+            #for item in res:
+                #self.out.insert('insert', item)
+
 # start
 if __name__ == "__main__":
     start = App()
     start.mainloop()
 
 
-# test for gitasd
