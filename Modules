@@ -1,0 +1,21 @@
+Modules are pre-made sharable code packages that are used to implement default functions faster.
+CHILL will not run unless you download the modules that it uses, visible after the "import" keyword.
+
+
+Modules needed to run CHILL:
+-Pandas
+-tkinter
+-re
+-os
+
+How to install them:
+0) Have python 3 already installed.
+1) Open a terminal
+2) Make sure that pip (the "downloading software") is updated by typing:
+pip3 install --upgrade pip
+3) For every module type:
+pip3 install --user MODULENAME
+(replace MODULENAME with the name of the module)
+
+Example for pandas:
+pip3 install --user pandas
