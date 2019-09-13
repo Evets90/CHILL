@@ -95,9 +95,11 @@ class StartPage(tk.Frame):
         logo2 = tk.Label(self, image=img2)
         logo2.image = img2
         logo2.pack(side="left", fill='both')
+
         # title
         label = tk.Label(self, text="Please select a category", font=controller.title_font)
         label.pack(side='top', fill='x', pady=10)
+        
         # version
         global version
         labversion = tk.Label(self, text=version, anchor='se')
