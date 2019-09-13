@@ -3,10 +3,11 @@ CHILL will not run unless you download the modules that it uses, visible after t
 
 
 Modules needed to run CHILL:
--Pandas
+-pandas
 -tkinter
--re
 -os
+-pillow
+-pathlib
 
 How to install them:
 0) Have python 3 already installed.

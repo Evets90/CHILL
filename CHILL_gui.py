@@ -1,17 +1,39 @@
 # general import
+import sys
 import pandas as pd
 import tkinter as tk
 from tkinter import font as tkfont
 from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import scrolledtext
+from tkinter import PhotoImage
 from tkinter.ttk import Combobox
 from os import path
+from pathlib import Path
+from PIL import Image, ImageTk
 
 # specific functions import
 import Compare_files
 import Clean_spaces
 import Check_series
+
+# version
+version = "Version: 0.001"
+
+# logos paths
+logoSaS = Path.cwd() / "Logos/SaS.gif"
+logochill = Path.cwd() / "Logos/Chill.png"
+
+# print logger used for redirect the print() in python to a window in tkinter
+class PrintLogger():
+    def __init__(self, textbox):
+        self.textbox = textbox
+
+    def write(self, text):
+        self.textbox.insert(tk.END, text)
+
+    def flush(self):
+        pass
 
 # engine app to switch frames
 class App(tk.Tk):
@@ -60,9 +82,28 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="Welcome to CHILL (Computer-Human Interface to Learn Laziness). Please select a category", font=controller.title_font)
+        # logos
+        zoom = 0.2
+        image = Image.open(logoSaS)
+        image2 = Image.open(logochill)
+        pixels_x, pixels_y = tuple([int(zoom * x) for x in image.size])
+        img = ImageTk.PhotoImage(image.resize((pixels_x, pixels_y)))
+        img2 = ImageTk.PhotoImage(image2.resize((300, 600)))
+        logo1 = tk.Label(self, image=img, anchor='nw')
+        logo1.image = img
+        #logo1.pack(side="top", fill='x')
+        logo2 = tk.Label(self, image=img2)
+        logo2.image = img2
+        logo2.pack(side="left", fill='both')
+        # title
+        label = tk.Label(self, text="Please select a category", font=controller.title_font)
         label.pack(side='top', fill='x', pady=10)
+        # version
+        global version
+        labversion = tk.Label(self, text=version, anchor='se')
+        labversion.pack(side='bottom', fill='both')
 
+        # buttons
         btn1 = tk.Button(self, text="Basic", command=lambda: controller.show_frame("BasicPage"))
         btn2 = tk.Button(self, text="PCS", command=lambda: controller.show_frame("PCSPage"))
         btn3 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
@@ -74,6 +115,7 @@ class StartPage(tk.Frame):
         btn3.pack(pady=10)
         #btn4.pack()
         #btn5.pack()
+
 
 class BasicPage(tk.Frame):
 
@@ -118,6 +160,8 @@ class CompareFilesPage(tk.Frame):
         self.labfun.pack(pady=10)
         self.out = scrolledtext.ScrolledText(self, width=40, height=10)
         self.out.pack()
+        pl = PrintLogger(self.out)
+        sys.stdout = pl
 
     def selectfile1(self):
         self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
@@ -136,8 +180,6 @@ class CompareFilesPage(tk.Frame):
             res = Compare_files.file_compare(self.filename1, self.filename2)
             output = "Files compared. Output is stored in " + path.splitext(self.filename1)[0] + "_compare_output.txt"
             self.labfun.configure(text=output)
-            for item in res:
-                self.out.insert('insert', item)
 
 class CleanSpacesPage(tk.Frame):
 
@@ -308,3 +350,9 @@ if __name__ == "__main__":
 
 
 #TODO: add test_files
+#TODO: add version number
+#TODO: implement the super cool terminal (new look + modify subfunctions)
+
+#TODO: IDEAS
+#       1-logo CHILL
+#       2-logo Asimov
