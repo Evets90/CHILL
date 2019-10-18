@@ -16,9 +16,10 @@ from PIL import Image, ImageTk
 import Compare_files
 import Clean_spaces
 import Check_series
+import Journal_club
 
 # version
-version = "Version: 0.001"
+version = "Version: 0.002"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -60,6 +61,8 @@ class App(tk.Tk):
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
         self.frames["CheckSeries"] = CheckSeriesPage(parent=container, controller=self)
         self.frames["GetTF"] = GetTFPage(parent=container, controller=self)
+        self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
+        self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
 
         self.frames["StartPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["BasicPage"].grid(row=0, column=0, sticky="nsew")
@@ -69,6 +72,8 @@ class App(tk.Tk):
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
         self.frames["CheckSeries"].grid(row=0, column=0, sticky="nsew")
         self.frames["GetTF"].grid(row=0, column=0, sticky="nsew")
+        self.frames["WebScrapingPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["JournalClub"].grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("StartPage")
 
@@ -99,7 +104,7 @@ class StartPage(tk.Frame):
         # title
         label = tk.Label(self, text="Please select a category", font=controller.title_font)
         label.pack(side='top', fill='x', pady=10)
-        
+
         # version
         global version
         labversion = tk.Label(self, text=version, anchor='se')
@@ -111,10 +116,12 @@ class StartPage(tk.Frame):
         btn3 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
         #btn4 = tk.Button(self, text="Chemical shifts", command=lambda: controller.show_frame("PCSPage"))
         #btn5 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("PCSPage"))
+        btn6 = tk.Button(self, text="Web Scraping", command=lambda: controller.show_frame("WebScrapingPage"))
 
         btn1.pack(pady=10)
         btn2.pack(pady=10)
         btn3.pack(pady=10)
+        btn6.pack(pady=10)
         #btn4.pack()
         #btn5.pack()
 
@@ -345,6 +352,140 @@ class GetTFPage(tk.Frame):
             #for item in res:
                 #self.out.insert('insert', item)
 
+class WebScrapingPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        label = tk.Label(self, text="Web scraping functions.", font=controller.title_font)
+        label.pack(side="top", fill="x", pady=10)
+        btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
+        btn1 = tk.Button(self, text="Journal Club", command=lambda: controller.show_frame("JournalClub"))
+        btnback.pack()
+        btn1.pack()
+
+class JournalClubPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="Journal Club", font=controller.title_font)
+        title.grid(column=1, columnspan=5)
+        btnback = tk.Button(self, text="Go back to the web scraping functions.", command=lambda: controller.show_frame("WebScrapingPage"))
+        btnback.grid(column=1, columnspan=5, pady=10)
+        description = tk.Label(self, text=Journal_club.general_docstring.__doc__, justify='left')
+        description.grid(column=1, columnspan=5, pady=10)
+
+        lblcomboM = tk.Label(self, text="Select the mode:")
+        lblcomboM.grid(column=1, row=4, padx=10)
+        self.comboM = Combobox(self, width=30, values=Journal_club.modes)
+        self.comboM.grid(column=1, row=5, padx=10)
+
+        lblcomboJ = tk.Label(self, text="Select the journal:")
+        lblcomboJ.grid(column=1, row=6, padx=10)
+        self.comboJ = Combobox(self, values=Journal_club.journals, width=30)
+        self.comboJ.bind('<<ComboboxSelected>>', self.get_journal)
+        self.comboJ.grid(column=1, row=7, padx=10)
+
+        lblcomboV = tk.Label(self, text="Select the volume:")
+        lblcomboV.grid(column=1, row=8, padx=10)
+        self.comboV = Combobox(self, width=30)
+        self.comboV.bind('<<ComboboxSelected>>', self.get_issue)
+        self.comboV.grid(column=1, row=9, padx=10)
+
+        lblcomboI = tk.Label(self, text="Select the issue:")
+        lblcomboI.grid(column=1, row=10, padx=10)
+        self.comboI = Combobox(self, width=30)
+        self.comboI.bind('<<ComboboxSelected>>', self.get_articles)
+        self.comboI.grid(column=1, row=11, padx=10)
+
+        btnM = tk.Button(self, text="Mode Info", command=self.show_keywords, foreground='red')
+        btnM.grid(column=1, row=12, padx=10, pady=10)
+
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(row=4, column=2, padx=50, sticky='w')
+        self.out = scrolledtext.ScrolledText(self, width=100, height=20, font='Lucida')
+        self.out.grid(row=5, column=2, rowspan=50, padx=50)
+        self.out.tag_config('link', foreground='blue')
+
+
+        #TODO: right side -> proper keywords, MOAR JOURNALSSSSS
+
+    def show_keywords(self):
+        if self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.comboM.get() == "All":
+            messagebox.showinfo("All", "List all articles.")
+        else:
+            mode = self.comboM.get()
+            keywords = Journal_club.modes_dictionary[mode]
+            messagebox.showinfo(mode, ", ".join(keywords))
+
+    def get_journal(self, event):
+        self.comboV.set('')
+        if self.comboJ.get() == "Nature":
+            volumes = Journal_club.get_volumes_nature(Journal_club.volumes_url["Nature"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Biophysical Journal":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_biophysj(Journal_club.volumes_url["Biophysical Journal"])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Proteins":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_proteins(Journal_club.volumes_url["Proteins"])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "EMBO":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_EMBO(Journal_club.volumes_url["EMBO"])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Cell":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_cell(Journal_club.volumes_url["Cell"])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Angewandte":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url["Angewandte"])
+            self.comboI['values'] = issues
+
+
+    def get_issue(self, event):
+        if self.comboJ.get() == "Nature":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature(volume_link)
+            self.comboI['values'] = issues
+
+    def get_articles(self, event):
+        if self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        else:
+            issue_link = Journal_club.issues_dictionary[self.comboI.get()]
+            if self.comboJ.get() == "Nature":
+                articles = Journal_club.nature(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Biophysical Journal":
+                articles = Journal_club.biophysj(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Proteins":
+                articles = Journal_club.proteins_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "EMBO":
+                articles = Journal_club.EMBO(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Cell":
+                articles = Journal_club.cell_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Angewandte":
+                articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+
+            total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
+            self.lblout.configure(text=total)
+            self.out.delete('1.0', tk.END)
+            for line in articles:
+                if "http" in line:
+                    self.out.insert('insert', line+"\n\n", 'link')
+                else:
+                    self.out.insert('insert', line+"\n", 'name')
+
+
+
+
+
 # start
 if __name__ == "__main__":
     start = App()
@@ -352,9 +493,7 @@ if __name__ == "__main__":
 
 
 #TODO: add test_files
-#TODO: add version number
 #TODO: implement the super cool terminal (new look + modify subfunctions)
 
 #TODO: IDEAS
-#       1-logo CHILL
 #       2-logo Asimov

@@ -8,6 +8,9 @@ Modules needed to run CHILL:
 -os
 -pillow
 -pathlib
+-bs4
+-requests
+-re
 
 How to install them:
 0) Have python 3 already installed.
