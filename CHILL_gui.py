@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.002"
+version = "Version: 0.003"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -427,6 +427,10 @@ class JournalClubPage(tk.Frame):
             volumes = Journal_club.get_volumes_nature(Journal_club.volumes_url["Nature"])
             self.comboV['state'] = "enabled"
             self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Nature Methods":
+            volumes = Journal_club.get_volumes_nature_methods(Journal_club.volumes_url["Nature Methods"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
         elif self.comboJ.get() == "Biophysical Journal":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_biophysj(Journal_club.volumes_url["Biophysical Journal"])
@@ -454,6 +458,10 @@ class JournalClubPage(tk.Frame):
             volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
             issues = Journal_club.get_issue_nature(volume_link)
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Nature Methods":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature_methods(volume_link)
+            self.comboI['values'] = issues
 
     def get_articles(self, event):
         if self.comboM.get() == "":
@@ -472,6 +480,8 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.cell_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Angewandte":
                 articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Nature Methods":
+                articles = Journal_club.nature_methods(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
@@ -494,6 +504,7 @@ if __name__ == "__main__":
 
 #TODO: add test_files
 #TODO: implement the super cool terminal (new look + modify subfunctions)
+#TODO: button showing functions source code
 
 #TODO: IDEAS
 #       2-logo Asimov
