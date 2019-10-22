@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.003"
+version = "Version: 0.004"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -427,8 +427,24 @@ class JournalClubPage(tk.Frame):
             volumes = Journal_club.get_volumes_nature(Journal_club.volumes_url["Nature"])
             self.comboV['state'] = "enabled"
             self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Nature Biotechnology":
+            volumes = Journal_club.get_volumes_nature_biotechnology(Journal_club.volumes_url["Nature Biotechnology"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
         elif self.comboJ.get() == "Nature Methods":
             volumes = Journal_club.get_volumes_nature_methods(Journal_club.volumes_url["Nature Methods"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Nature Protocols":
+            volumes = Journal_club.get_volumes_nature_protocols(Journal_club.volumes_url["Nature Protocols"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Nature Reviews Drug Discovery":
+            volumes = Journal_club.get_volumes_nature_nrd(Journal_club.volumes_url["Nature Reviews Drug Discovery"])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Nature Structural and Molecular Biology":
+            volumes = Journal_club.get_volumes_nature_nsmb(Journal_club.volumes_url["Nature Structural and Molecular Biology"])
             self.comboV['state'] = "enabled"
             self.comboV['values'] = volumes
         elif self.comboJ.get() == "Biophysical Journal":
@@ -458,9 +474,25 @@ class JournalClubPage(tk.Frame):
             volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
             issues = Journal_club.get_issue_nature(volume_link)
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Nature Biotechnology":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature_biotechnology(volume_link)
+            self.comboI['values'] = issues
         elif self.comboJ.get() == "Nature Methods":
             volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
             issues = Journal_club.get_issue_nature_methods(volume_link)
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Nature Protocols":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature_protocols(volume_link)
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Nature Reviews Drug Discovery":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature_nrd(volume_link)
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Nature Structural and Molecular Biology":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issue_nature_nsmb(volume_link)
             self.comboI['values'] = issues
 
     def get_articles(self, event):
@@ -482,6 +514,14 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Nature Methods":
                 articles = Journal_club.nature_methods(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Nature Protocols":
+                articles = Journal_club.nature_protocols(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Nature Biotechnology":
+                articles = Journal_club.nature_biotechnology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Nature Reviews Drug Discovery":
+                articles = Journal_club.nature_nrd(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Nature Structural and Molecular Biology":
+                articles = Journal_club.nature_nsmb(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)

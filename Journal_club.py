@@ -25,14 +25,14 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery"]
 modes = ['Standard', 'Loose', 'All', 'Funny']
 standard = ['Membranes', 'Sleep', 'protein']
 loose = ['protein', 'response']
 funny = ['Marvel', 'Thanos', 'Batman', 'fun', 'joke']
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
 volumes_dictionary = {}
 issues_dictionary = {}
@@ -313,6 +313,52 @@ def nature(url, mode):
             selected.append(link)
     return selected
 
+def get_volumes_nature_biotechnology(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    mydivs = soup.findAll("li")
+    selected = []
+    for ele in mydivs:
+        h = ele.findAll("a")
+        if "view volume" in str(h):
+            title = re.findall(regex_nature_methods_volumes_title, str(h))[0]
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_volumes_link, str(h))[0]
+            selected.append(title)
+            volumes_dictionary[title] = link
+    return selected
+def get_issue_nature_biotechnology(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    selected = []
+    mydivs = soup.findAll("a", class_="kill-hover flex-box-item")
+    for ele in mydivs:
+        title = "- ".join(re.findall(regex_nature_methods_issues_title, str(ele)))
+        link = "https://www.nature.com" + re.findall(regex_nature_methods_issues_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def nature_biotechnology(url, mode):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    mydivs = soup.findAll("h3", class_="mb10 extra-tight-line-height")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
 def get_volumes_nature_methods(url):
     # preparation
     response = requests.get(url)
@@ -359,16 +405,147 @@ def nature_methods(url, mode):
             selected.append(link)
     return selected
 
+def get_volumes_nature_protocols(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    mydivs = soup.findAll("li")
+    selected = []
+    for ele in mydivs:
+        h = ele.findAll("a")
+        if "view volume" in str(h):
+            title = re.findall(regex_nature_methods_volumes_title, str(h))[0]
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_volumes_link, str(h))[0]
+            selected.append(title)
+            volumes_dictionary[title] = link
+    return selected
+def get_issue_nature_protocols(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    selected = []
+    mydivs = soup.findAll("a", class_="kill-hover flex-box-item")
+    for ele in mydivs:
+        title = "- ".join(re.findall(regex_nature_methods_issues_title, str(ele)))
+        link = "https://www.nature.com" + re.findall(regex_nature_methods_issues_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def nature_protocols(url, mode):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    mydivs = soup.findAll("h3", class_="mb10 extra-tight-line-height")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_volumes_nature_nrd(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    mydivs = soup.findAll("li")
+    selected = []
+    for ele in mydivs:
+        h = ele.findAll("a")
+        if "view volume" in str(h):
+            title = re.findall(regex_nature_methods_volumes_title, str(h))[0]
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_volumes_link, str(h))[0]
+            selected.append(title)
+            volumes_dictionary[title] = link
+    return selected
+def get_issue_nature_nrd(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    selected = []
+    mydivs = soup.findAll("a", class_="kill-hover flex-box-item")
+    for ele in mydivs:
+        title = "- ".join(re.findall(regex_nature_methods_issues_title, str(ele)))
+        link = "https://www.nature.com" + re.findall(regex_nature_methods_issues_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def nature_nrd(url, mode):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    mydivs = soup.findAll("h3", class_="mb10 extra-tight-line-height")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_volumes_nature_nsmb(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    mydivs = soup.findAll("li")
+    selected = []
+    for ele in mydivs:
+        h = ele.findAll("a")
+        if "view volume" in str(h):
+            title = re.findall(regex_nature_methods_volumes_title, str(h))[0]
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_volumes_link, str(h))[0]
+            selected.append(title)
+            volumes_dictionary[title] = link
+    return selected
+def get_issue_nature_nsmb(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    selected = []
+    mydivs = soup.findAll("a", class_="kill-hover flex-box-item")
+    for ele in mydivs:
+        title = "- ".join(re.findall(regex_nature_methods_issues_title, str(ele)))
+        link = "https://www.nature.com" + re.findall(regex_nature_methods_issues_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def nature_nsmb(url, mode):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    mydivs = soup.findAll("h3", class_="mb10 extra-tight-line-height")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_nature_methods_article_title, str(ele))[1].strip()
+            link = "https://www.nature.com" + re.findall(regex_nature_methods_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
 
 
 
 # TODO: journals to be added:
-# Nature Methods
-# Nature Protocols
-# Nature Biotech
-# Nature Structural & Molecular Biology
-# Nature Review Drug Discovery
-# Nature Mol.Struct.Biol.
 # Ann.Rev.Biochemistry
 # Ann.Rev.Biophysics
 # J.Magn.Reson.
