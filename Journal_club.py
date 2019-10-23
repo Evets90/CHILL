@@ -25,19 +25,24 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry"]
 modes = ['Standard', 'Loose', 'All', 'Funny']
 standard = ['Membranes', 'Sleep', 'protein']
 loose = ['protein', 'response']
 funny = ['Marvel', 'Thanos', 'Batman', 'fun', 'joke']
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
 volumes_dictionary = {}
 issues_dictionary = {}
 
 # selection regular expressions
+regex_arb_volumes_title = "\">(.*?)<"
+regex_arb_volumes_link = "href=\"(.*?)\""
+regex_arb_article_title = "\">(.*?)\">(.*?)</span>"
+regex_arb_article_link = "href=\"(.*?)\">"
+
 regex_angewandte_issue_title = "href=\"(.*?)\">(.*?)</a>"
 regex_angewandte_issue_link = "href=\"(.*?)\""
 regex_angewandte_article_title = "h2>(.*?)\s*</h2"
@@ -63,7 +68,6 @@ regex_proteins_issue_link = "href=\"(.*?)\""
 regex_proteins_article_title = "2>(.*?)</"
 regex_proteins_article_link = "href=\"(.*?)\">"
 
-
 regex_nature_volumes_numbers = ">(.*?)<"
 regex_nature_volumes_link = "href=\"(.*?)\">"
 regex_nature_issues_numbers = ">(.*?)<"
@@ -84,6 +88,40 @@ modes.sort()
 standard.sort()
 loose.sort()
 funny.sort()
+
+def get_volumes_arb(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a element with the correct class and select
+    mydivs = soup.findAll("li")
+    selected = []
+    for ele in mydivs:
+        h = ele.findAll("a")
+        if "Vol." in str(h):
+            title = re.findall(regex_arb_volumes_title, str(h))[0]
+            link = "https://www.annualreviews.org" + re.findall(regex_arb_volumes_link, str(h))[0]
+            selected.append(title)
+            volumes_dictionary[title] = link
+    return selected
+def arb(url, mode):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    mydivs = soup.findAll("div", class_="text")
+    selected = []
+    for ele in mydivs:
+        a = ele.findAll("a")
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_arb_article_title, str(a))[0]))[1])
+            link = "https://www.annualreviews.org" + re.findall(regex_arb_article_link, str(a))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_arb_article_title, str(a))[0]))[1])
+            link = "https://www.annualreviews.org" + re.findall(regex_arb_article_link, str(a))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
 
 def get_issues_angewandte(url):
     # preparation
@@ -546,7 +584,6 @@ def nature_nsmb(url, mode):
 
 
 # TODO: journals to be added:
-# Ann.Rev.Biochemistry
 # Ann.Rev.Biophysics
 # J.Magn.Reson.
 # J.Biomol.NMR

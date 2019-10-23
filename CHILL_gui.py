@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.004"
+version = "Version: 0.005"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -423,6 +423,9 @@ class JournalClubPage(tk.Frame):
 
     def get_journal(self, event):
         self.comboV.set('')
+        self.comboV['state'] = "enabled"
+        self.comboI.set('')
+        self.comboI['state'] = "enabled"
         if self.comboJ.get() == "Nature":
             volumes = Journal_club.get_volumes_nature(Journal_club.volumes_url["Nature"])
             self.comboV['state'] = "enabled"
@@ -467,9 +470,15 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url["Angewandte"])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Annual Reviews of Biochemistry":
+            self.comboV['state'] = "enabled"
+            volumes = Journal_club.get_volumes_arb(Journal_club.volumes_url["Annual Reviews of Biochemistry"])
+            self.comboV['values'] = volumes
 
 
     def get_issue(self, event):
+        self.comboI.set('')
+        self.comboI['state'] = "enabled"
         if self.comboJ.get() == "Nature":
             volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
             issues = Journal_club.get_issue_nature(volume_link)
@@ -494,12 +503,19 @@ class JournalClubPage(tk.Frame):
             volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
             issues = Journal_club.get_issue_nature_nsmb(volume_link)
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Annual Reviews of Biochemistry":
+            self.comboI['state'] = "disabled"
+            self.get_articles("event")
 
     def get_articles(self, event):
+        global issue_link
         if self.comboM.get() == "":
             messagebox.showerror("Warning", "You did not select any mode.")
         else:
-            issue_link = Journal_club.issues_dictionary[self.comboI.get()]
+            if self.comboI.get() == "":
+                pass
+            else:
+                issue_link = Journal_club.issues_dictionary[self.comboI.get()]
             if self.comboJ.get() == "Nature":
                 articles = Journal_club.nature(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Biophysical Journal":
@@ -522,6 +538,9 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.nature_nrd(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Nature Structural and Molecular Biology":
                 articles = Journal_club.nature_nsmb(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Annual Reviews of Biochemistry":
+                volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+                articles = Journal_club.arb(volume_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
