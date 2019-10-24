@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.005"
+version = "Version: 0.006"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -474,6 +474,14 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "enabled"
             volumes = Journal_club.get_volumes_arb(Journal_club.volumes_url["Annual Reviews of Biochemistry"])
             self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Annual Reviews of Biophysics":
+            self.comboV['state'] = "enabled"
+            volumes = Journal_club.get_volumes_arbf(Journal_club.volumes_url["Annual Reviews of Biophysics"])
+            self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Journal of Biomolecular NMR":
+            self.comboV['state'] = "disabled"
+            volumes = Journal_club.get_issues_jbnmr(Journal_club.volumes_url["Journal of Biomolecular NMR"])
+            self.comboI['values'] = volumes
 
 
     def get_issue(self, event):
@@ -504,6 +512,9 @@ class JournalClubPage(tk.Frame):
             issues = Journal_club.get_issue_nature_nsmb(volume_link)
             self.comboI['values'] = issues
         elif self.comboJ.get() == "Annual Reviews of Biochemistry":
+            self.comboI['state'] = "disabled"
+            self.get_articles("event")
+        elif self.comboJ.get() == "Annual Reviews of Biophysics":
             self.comboI['state'] = "disabled"
             self.get_articles("event")
 
@@ -541,6 +552,11 @@ class JournalClubPage(tk.Frame):
             elif self.comboJ.get() == "Annual Reviews of Biochemistry":
                 volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
                 articles = Journal_club.arb(volume_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Annual Reviews of Biophysics":
+                volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+                articles = Journal_club.arbf(volume_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Journal of Biomolecular NMR":
+                articles = Journal_club.jbnmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
