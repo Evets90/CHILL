@@ -25,14 +25,14 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Magnetic Resonance", "Journal of Biomolecular NMR"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Magnetic Resonance", "Journal of Biomolecular NMR", "Protein Science"]
 modes = ['Standard', 'Loose', 'All', 'Funny']
 standard = ['Membranes', 'Sleep', 'protein']
 loose = ['protein', 'response']
 funny = ['Marvel', 'Thanos', 'Batman', 'fun', 'joke']
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
 volumes_dictionary = {}
 issues_dictionary = {}
@@ -392,6 +392,40 @@ def proteins_(url, mode):
             selected.append(link)
     return selected
 
+def get_issues_protein_science(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h4", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = "".join(list(zip(re.findall(regex_angewandte_issue_title, str(ele))[0]))[1])
+        link = "https://onlinelibrary.wiley.com" + re.findall(regex_angewandte_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def protein_science(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issue-item__title visitable")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_angewandte_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_angewandte_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+            print(title, link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_angewandte_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_angewandte_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
 def get_volumes_nature(url):
     # preparation
     response = requests.get(url)
@@ -674,7 +708,6 @@ def nature_nsmb(url, mode):
             selected.append(title)
             selected.append(link)
     return selected
-
 
 
 

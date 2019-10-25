@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.006"
+version = "Version: 0.007"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -409,7 +409,7 @@ class JournalClubPage(tk.Frame):
         self.out.tag_config('link', foreground='blue')
 
 
-        #TODO: right side -> proper keywords, MOAR JOURNALSSSSS
+        #TODO: right side -> proper keywords, MOAR JOURNALSSSSS, reference div class, impact factor?
 
     def show_keywords(self):
         if self.comboM.get() == "":
@@ -482,6 +482,10 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             volumes = Journal_club.get_issues_jbnmr(Journal_club.volumes_url["Journal of Biomolecular NMR"])
             self.comboI['values'] = volumes
+        elif self.comboJ.get() == "Protein Science":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_protein_science(Journal_club.volumes_url["Protein Science"])
+            self.comboI['values'] = issues
 
 
     def get_issue(self, event):
@@ -539,6 +543,8 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.cell_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Angewandte":
                 articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Protein Science":
+                articles = Journal_club.protein_science(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Nature Methods":
                 articles = Journal_club.nature_methods(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Nature Protocols":
