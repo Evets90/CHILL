@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.007"
+version = "Version: 0.008"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -486,6 +486,14 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_protein_science(Journal_club.volumes_url["Protein Science"])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "ACS - Biochemistry":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_acs_biochemistry(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Journal of Biological Chemistry":
+            volumes = Journal_club.get_volumes_jbc(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboV['state'] = "enabled"
+            self.comboV['values'] = volumes
 
 
     def get_issue(self, event):
@@ -521,6 +529,10 @@ class JournalClubPage(tk.Frame):
         elif self.comboJ.get() == "Annual Reviews of Biophysics":
             self.comboI['state'] = "disabled"
             self.get_articles("event")
+        elif self.comboJ.get() == "Journal of Biological Chemistry":
+            volume_link = Journal_club.volumes_dictionary[self.comboV.get()]
+            issues = Journal_club.get_issues_jbc(volume_link)
+            self.comboI['values'] = issues
 
     def get_articles(self, event):
         global issue_link
@@ -563,6 +575,10 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.arbf(volume_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Journal of Biomolecular NMR":
                 articles = Journal_club.jbnmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "ACS - Biochemistry":
+                articles = Journal_club.acs_biochemistry(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Journal of Biological Chemistry":
+                articles = Journal_club.jbc(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
