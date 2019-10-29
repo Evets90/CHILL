@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.008"
+version = "Version: 0.009"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -466,6 +466,10 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_cell(Journal_club.volumes_url["Cell"])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Cell - Structure":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_cell_structure(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
         elif self.comboJ.get() == "Angewandte":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url["Angewandte"])
@@ -553,6 +557,8 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.EMBO(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Cell":
                 articles = Journal_club.cell_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Cell - Structure":
+                articles = Journal_club.cell_structure(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Angewandte":
                 articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Protein Science":
