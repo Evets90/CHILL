@@ -25,14 +25,27 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers"]
 modes = ['Standard', 'Loose', 'All', 'Funny']
-standard = ['Membranes', 'Sleep', 'protein']
-loose = ['protein', 'response']
-funny = ['Marvel', 'Thanos', 'Batman', 'fun', 'joke']
+standard = []
+loose = []
+funny = []
+standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine"]
+loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response", "Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine"]
+funny_ini = ["Vietnam", "Paradox", "Police", "Parachute", "Sadness", "Stupidity", "Troll", "Hate", "Marvel", "Thanos", "Batman", "Funny", "Joke"]
+
+def capital(list, new):
+    decapitalize = lambda s: s[:1].lower() + s[1:] if s else ''
+    for word in list:
+        decap = decapitalize(word)
+        new.append(word)
+        new.append(decap)
+capital(standard_ini, standard)
+capital(loose_ini, loose)
+capital(funny_ini, funny)
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
 volumes_dictionary = {}
 issues_dictionary = {}
@@ -59,6 +72,16 @@ regex_angewandte_issue_title = "href=\"(.*?)\">(.*?)</a>"
 regex_angewandte_issue_link = "href=\"(.*?)\""
 regex_angewandte_article_title = "h2>(.*?)\s*</h2"
 regex_angewandte_article_link = "href=\"(.*?)\""
+
+regex_febs_letters_issue_title = "href=\"(.*?)\">(.*?)</a>"
+regex_febs_letters_issue_link = "href=\"(.*?)\""
+regex_febs_letters_article_title = "h2>(.*?)\s*</h2"
+regex_febs_letters_article_link = "href=\"(.*?)\""
+
+regex_biopolymers_issue_title = "href=\"(.*?)\">(.*?)</a>"
+regex_biopolymers_issue_link = "href=\"(.*?)\""
+regex_biopolymers_article_title = "h2>(.*?)\s*</h2"
+regex_biopolymers_article_link = "href=\"(.*?)\""
 
 regex_biophysj_issue_title = ">(.*?)<"
 regex_biophysj_issue_link = "=\"/(.*?)\">"
@@ -98,6 +121,11 @@ regex_proteins_issue_link = "href=\"(.*?)\""
 regex_proteins_article_title = "2>(.*?)</"
 regex_proteins_article_link = "href=\"(.*?)\">"
 
+regex_molecular_cell_issue_title = "<strong> (.*?) </strong> (.*?)</a>"
+regex_molecular_cell_issue_link = "href=\"(.*?)\">"
+regex_molecular_cell_article_title = "href=\"(.*?)\">(.*?)</a>"
+regex_molecular_cell_article_link = "href=\"(.*?)\">"
+
 regex_nature_volumes_numbers = ">(.*?)<"
 regex_nature_volumes_link = "href=\"(.*?)\">"
 regex_nature_issues_numbers = ">(.*?)<"
@@ -111,6 +139,21 @@ regex_nature_methods_issues_title = "\">(.*?)<"
 regex_nature_methods_issues_link = "href=\"(.*?)\">"
 regex_nature_methods_article_title = ">\s*(.*?)\s*<"
 regex_nature_methods_article_link = "href=\"(.*?)\""
+
+regex_tips_issue_title = "<strong> (.*?) </strong> (.*?)</a>"
+regex_tips_issue_link = "href=\"(.*?)\">"
+regex_tips_article_title = "href=\"(.*?)\">(.*?)</a>"
+regex_tips_article_link = "href=\"(.*?)\">"
+
+regex_tibs_issue_title = "<strong> (.*?) </strong> (.*?)</a>"
+regex_tibs_issue_link = "href=\"(.*?)\">"
+regex_tibs_article_title = "href=\"(.*?)\">(.*?)</a>"
+regex_tibs_article_link = "href=\"(.*?)\">"
+
+regex_trends_biotechnology_issue_title = "<strong> (.*?) </strong> (.*?)</a>"
+regex_trends_biotechnology_issue_link = "href=\"(.*?)\">"
+regex_trends_biotechnology_article_title = "href=\"(.*?)\">(.*?)</a>"
+regex_trends_biotechnology_article_link = "href=\"(.*?)\">"
 
 # sorts
 journals.sort()
@@ -254,6 +297,72 @@ def angewandte(url, mode):
             selected.append(link)
     return selected
 
+def get_issues_febs_letters(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h4", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = "".join(list(zip(re.findall(regex_febs_letters_issue_title, str(ele))[0]))[1])
+        link = "https://onlinelibrary.wiley.com" + re.findall(regex_febs_letters_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def febs_letters(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issue-item__title visitable")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_febs_letters_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_febs_letters_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_febs_letters_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_febs_letters_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_biopolymers(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h4", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = "".join(list(zip(re.findall(regex_biopolymers_issue_title, str(ele))[0]))[1])
+        link = "https://onlinelibrary.wiley.com" + re.findall(regex_biopolymers_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def biopolymers(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issue-item__title visitable")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_biopolymers_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_biopolymers_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_biopolymers_article_title, str(ele))[0]
+            link = "https://onlinelibrary.wiley.com" + re.findall(regex_biopolymers_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
 def get_issues_biophysj(url):
     # preparation
     response = requests.get(url)
@@ -320,12 +429,12 @@ def cell_(url, mode):
     for ele in mydivs:
         if mode == "all":
             title = "".join(list(zip(re.findall(regex_cell_article_title, str(ele))[0]))[1])
-            link = "https://www.embopress.org" + re.findall(regex_cell_article_link, str(ele))[0]
+            link = "https://www.cell.com" + re.findall(regex_cell_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
         elif any(a in str(ele) for a in mode):
             title = "".join(list(zip(re.findall(regex_cell_article_title, str(ele))[0]))[1])
-            link = "https://www.embopress.org" + re.findall(regex_cell_article_link, str(ele))[0]
+            link = "https://www.cell.com" + re.findall(regex_cell_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
     return selected
@@ -353,12 +462,12 @@ def cell_structure(url, mode):
     for ele in mydivs:
         if mode == "all":
             title = "".join(list(zip(re.findall(regex_cell_structure_article_title, str(ele))[0]))[1])
-            link = "https://www.embopress.org" + re.findall(regex_cell_structure_article_link, str(ele))[0]
+            link = "https://www.cell.com" + re.findall(regex_cell_structure_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
         elif any(a in str(ele) for a in mode):
-            title = "".join(list(zip(re.findall(regex_cell_article_structure_title, str(ele))[0]))[1])
-            link = "https://www.embopress.org" + re.findall(regex_cell_structure_article_link, str(ele))[0]
+            title = "".join(list(zip(re.findall(regex_cell_structure_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_cell_structure_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
     return selected
@@ -571,6 +680,39 @@ def protein_science(url, mode):
         elif any(a in str(ele) for a in mode):
             title = re.findall(regex_angewandte_article_title, str(ele))[0]
             link = "https://onlinelibrary.wiley.com" + re.findall(regex_angewandte_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_molecular_cell(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issueLinkCon")
+    selected = []
+    for ele in mydivs:
+        title = " - ".join(re.findall(regex_molecular_cell_issue_title, str(ele))[0])
+        link = "https://www.cell.com" + re.findall(regex_molecular_cell_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def molecular_cell(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h3", class_="toc__item__title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_molecular_cell_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_molecular_cell_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_molecular_cell_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_molecular_cell_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
     return selected
@@ -858,32 +1000,116 @@ def nature_nsmb(url, mode):
             selected.append(link)
     return selected
 
+def get_issues_tips(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issueLinkCon")
+    selected = []
+    for ele in mydivs:
+        title = " - ".join(re.findall(regex_tips_issue_title, str(ele))[0])
+        link = "https://www.cell.com" + re.findall(regex_tips_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def tips(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h3", class_="toc__item__title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_tips_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_tips_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_tips_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_tips_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_tibs(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issueLinkCon")
+    selected = []
+    for ele in mydivs:
+        title = " - ".join(re.findall(regex_tibs_issue_title, str(ele))[0])
+        link = "https://www.cell.com" + re.findall(regex_tibs_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def tibs(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h3", class_="toc__item__title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_tibs_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_tibs_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_tibs_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_tibs_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_trends_biotechnology(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="issueLinkCon")
+    selected = []
+    for ele in mydivs:
+        title = " - ".join(re.findall(regex_trends_biotechnology_issue_title, str(ele))[0])
+        link = "https://www.cell.com" + re.findall(regex_trends_biotechnology_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def trends_biotechnology(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h3", class_="toc__item__title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_trends_biotechnology_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_trends_biotechnology_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_trends_biotechnology_article_title, str(ele))[0]))[1])
+            link = "https://www.cell.com" + re.findall(regex_trends_biotechnology_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
 
 
 # TODO: journals to be added:
-# Structure
-# Current opinions in structural biology
-# Journal of Magnetic Resonance
-# Journal of Biomolecular NMR
-# JACS
-# Mol.Cell
-# Chemistry & Biology
-# PLOS ONE
-# Trends in Biotechnology
-# Annual Reviews in Biochemistry
-# Curr.Oppin.Chemical Biol. & Biotech.
-# Biopolymers
-# Annual Reviews in Biophys. & Biomol.Structure
-# PNAS
-# JMB
-# Febs Letters
-# TIBS
-# Science SKTE
-# TIPS
-# Methods in Enzymology
+# JACS (acs)
+# PLOS ONE (boooh)
+# Biopolymers (wiley)
+# PNAS (new - https://www.pnas.org/content/by/year)
+# Science (aaas new - https://science.sciencemag.org/content/by/year)
+
 
 # TODO: journals that does not allow web scraping
-# Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification
+# Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology
 
 # references
 # Wiley: angewandte
@@ -895,3 +1121,4 @@ def nature_nsmb(url, mode):
 
 
 
+get_issues_angewandte(volumes_url['Angewandte'])

@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.009"
+version = "Version: 0.010"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -472,7 +472,15 @@ class JournalClubPage(tk.Frame):
             self.comboI['values'] = issues
         elif self.comboJ.get() == "Angewandte":
             self.comboV['state'] = "disabled"
-            issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url["Angewandte"])
+            issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "FEBS letters":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_febs_letters(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Biopolymers":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_biopolymers(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
         elif self.comboJ.get() == "Annual Reviews of Biochemistry":
             self.comboV['state'] = "enabled"
@@ -498,6 +506,22 @@ class JournalClubPage(tk.Frame):
             volumes = Journal_club.get_volumes_jbc(Journal_club.volumes_url[self.comboJ.get()])
             self.comboV['state'] = "enabled"
             self.comboV['values'] = volumes
+        elif self.comboJ.get() == "Trends in Pharmacological Sciences":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_tips(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Trends in Biochemical Sciences":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_tibs(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Trends in Biotechnology":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_trends_biotechnology(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Molecular Cell":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_molecular_cell(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
 
 
     def get_issue(self, event):
@@ -561,6 +585,10 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.cell_structure(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Angewandte":
                 articles = Journal_club.angewandte(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Biopolymers":
+                articles = Journal_club.biopolymers(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "FEBS letters":
+                articles = Journal_club.febs_letters(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Protein Science":
                 articles = Journal_club.protein_science(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Nature Methods":
@@ -585,6 +613,14 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.acs_biochemistry(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Journal of Biological Chemistry":
                 articles = Journal_club.jbc(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Trends in Pharmacological Sciences":
+                articles = Journal_club.tips(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Trends in Biochemical Sciences":
+                articles = Journal_club.tibs(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Trends in Biotechnology":
+                articles = Journal_club.trends_biotechnology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Molecular Cell":
+                articles = Journal_club.molecular_cell(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
