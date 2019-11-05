@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.010"
+version = "Version: 0.011"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -409,7 +409,7 @@ class JournalClubPage(tk.Frame):
         self.out.tag_config('link', foreground='blue')
 
 
-        #TODO: right side -> proper keywords, MOAR JOURNALSSSSS, reference div class, impact factor?
+#TODO: impact factor, custom keywords
 
     def show_keywords(self):
         if self.comboM.get() == "":
@@ -502,6 +502,10 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_acs_biochemistry(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Journal of the American Chemical Society (JACS)":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_jacs(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
         elif self.comboJ.get() == "Journal of Biological Chemistry":
             volumes = Journal_club.get_volumes_jbc(Journal_club.volumes_url[self.comboJ.get()])
             self.comboV['state'] = "enabled"
@@ -521,6 +525,10 @@ class JournalClubPage(tk.Frame):
         elif self.comboJ.get() == "Molecular Cell":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_molecular_cell(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "PNAS":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_pnas(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
 
 
@@ -611,6 +619,8 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.jbnmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "ACS - Biochemistry":
                 articles = Journal_club.acs_biochemistry(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Journal of the American Chemical Society (JACS)":
+                articles = Journal_club.jacs(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Journal of Biological Chemistry":
                 articles = Journal_club.jbc(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Trends in Pharmacological Sciences":
@@ -621,6 +631,8 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.trends_biotechnology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Molecular Cell":
                 articles = Journal_club.molecular_cell(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "PNAS":
+                articles = Journal_club.pnas(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)

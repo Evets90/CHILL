@@ -25,27 +25,29 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers", "Journal of the American Chemical Society (JACS)", "PNAS"]
 modes = ['Standard', 'Loose', 'All', 'Funny']
 standard = []
 loose = []
 funny = []
-standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine"]
-loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response", "Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine"]
+standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine", "PCS", "Pcs", "Pseudocontact"]
+loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response"]
 funny_ini = ["Vietnam", "Paradox", "Police", "Parachute", "Sadness", "Stupidity", "Troll", "Hate", "Marvel", "Thanos", "Batman", "Funny", "Joke"]
+
 
 def capital(list, new):
     decapitalize = lambda s: s[:1].lower() + s[1:] if s else ''
     for word in list:
         decap = decapitalize(word)
         new.append(word)
-        new.append(decap)
+        new.append(decap) #TOD
 capital(standard_ini, standard)
-capital(loose_ini, loose)
+loose_ini2 = loose_ini + standard_ini
+capital(loose_ini2, loose)
 capital(funny_ini, funny)
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282", "Journal of the American Chemical Society (JACS)": "https://pubs.acs.org/loi/jacsat", "PNAS": "https://www.pnas.org/content/by/year"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
 volumes_dictionary = {}
 issues_dictionary = {}
@@ -73,15 +75,15 @@ regex_angewandte_issue_link = "href=\"(.*?)\""
 regex_angewandte_article_title = "h2>(.*?)\s*</h2"
 regex_angewandte_article_link = "href=\"(.*?)\""
 
-regex_febs_letters_issue_title = "href=\"(.*?)\">(.*?)</a>"
-regex_febs_letters_issue_link = "href=\"(.*?)\""
-regex_febs_letters_article_title = "h2>(.*?)\s*</h2"
-regex_febs_letters_article_link = "href=\"(.*?)\""
-
 regex_biopolymers_issue_title = "href=\"(.*?)\">(.*?)</a>"
 regex_biopolymers_issue_link = "href=\"(.*?)\""
 regex_biopolymers_article_title = "h2>(.*?)\s*</h2"
 regex_biopolymers_article_link = "href=\"(.*?)\""
+
+regex_febs_letters_issue_title = "href=\"(.*?)\">(.*?)</a>"
+regex_febs_letters_issue_link = "href=\"(.*?)\""
+regex_febs_letters_article_title = "h2>(.*?)\s*</h2"
+regex_febs_letters_article_link = "href=\"(.*?)\""
 
 regex_biophysj_issue_title = ">(.*?)<"
 regex_biophysj_issue_link = "=\"/(.*?)\">"
@@ -102,6 +104,13 @@ regex_EMBO_issue_title = "\">(.*?)<"
 regex_EMBO_issue_link = "href=\"(.*?)\""
 regex_EMBO_article_title = "h5>(.*?)\s*</h5"
 regex_EMBO_article_link = "href=\"(.*?)\">"
+
+regex_jacs_issue_title1 = "class=\"coverDate\">(.*?)</span>"
+regex_jacs_issue_title2 = "class=\"comma\">(.*?)</span>"
+regex_jacs_issue_title3 = "</span>(.*?)</a>"
+regex_jacs_issue_link = "href=\"(.*?)\">"
+regex_jacs_article_title = "href=\"(.*?)\">(.*?)</a>"
+regex_jacs_article_link = "href=\"(.*?)\">"
 
 regex_jbc_volumes_title = "href=\"(.*?)\">(.*?)</a>"
 regex_jbc_volumes_link = "href=\"(.*?)\">"
@@ -155,12 +164,18 @@ regex_trends_biotechnology_issue_link = "href=\"(.*?)\">"
 regex_trends_biotechnology_article_title = "href=\"(.*?)\">(.*?)</a>"
 regex_trends_biotechnology_article_link = "href=\"(.*?)\">"
 
+regex_pnas_issue_title1 = "metadata\">(.*?)\s*</span>"
+regex_pnas_issue_title2 = "\">(.*?)</span>"
+regex_pnas_issue_link = "href=\"(.*?)\">"
+regex_pnas_article_title = "title\">\s*(.*?)\s*</span>"
+regex_pnas_article_link = "href=\"(.*?)\">"
+
 # sorts
-journals.sort()
-modes.sort()
-standard.sort()
-loose.sort()
-funny.sort()
+journals.sort(key=str.casefold)
+modes.sort(key=str.casefold)
+standard.sort(key=str.casefold)
+loose.sort(key=str.casefold)
+funny.sort(key=str.casefold)
 
 # functions
 def get_issues_acs_biochemistry(url):
@@ -175,6 +190,7 @@ def get_issues_acs_biochemistry(url):
         link = "https://pubs.acs.org" + re.findall(regex_acs_biochemistry_issue_link, str(ele))[0]
         selected.append(title)
         issues_dictionary[title] = link
+        print(ele)
     return selected
 def acs_biochemistry(url, mode):
     # preparation
@@ -501,6 +517,39 @@ def EMBO(url, mode):
         elif any(a in str(ele) for a in mode):
             title = re.findall(regex_EMBO_article_title, str(ele))[0]
             link = "https://www.embopress.org" + re.findall(regex_EMBO_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_jacs(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("div", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = re.findall(regex_jacs_issue_title1, str(ele))[0] + " - " + re.findall(regex_jacs_issue_title2, str(ele))[0] + " - " + re.findall(regex_jacs_issue_title3, str(ele))[1]
+        link = "https://pubs.acs.org" + re.findall(regex_jacs_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def jacs(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h5", class_="issue-item_title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = "".join(list(zip(re.findall(regex_jacs_article_title, str(ele))[0]))[1])
+            link = "https://pubs.acs.org" + re.findall(regex_jacs_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = "".join(list(zip(re.findall(regex_jacs_article_title, str(ele))[0]))[1])
+            link = "https://pubs.acs.org" + re.findall(regex_jacs_article_link, str(ele))[0]
             selected.append(title)
             selected.append(link)
     return selected
@@ -1099,26 +1148,52 @@ def trends_biotechnology(url, mode):
             selected.append(link)
     return selected
 
+def get_issues_pnas(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="hw-issue-meta-data")
+    selected = []
+    for ele in mydivs:
+        title = re.findall(regex_pnas_issue_title1, str(ele))[0] + " - " + " - ".join(re.findall(regex_pnas_issue_title2, str(ele))[1:])
+        link = "https://www.pnas.org/" + re.findall(regex_pnas_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def pnas(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("a", class_="highwire-cite-linked-title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = re.findall(regex_pnas_article_title, str(ele))[0]
+            link = "https://www.pnas.org/" + re.findall(regex_pnas_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = re.findall(regex_pnas_article_title, str(ele))[0]
+            link = "https://www.pnas.org/" + re.findall(regex_pnas_article_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
 
 # TODO: journals to be added:
-# JACS (acs)
 # PLOS ONE (boooh)
-# Biopolymers (wiley)
-# PNAS (new - https://www.pnas.org/content/by/year)
 # Science (aaas new - https://science.sciencemag.org/content/by/year)
 
 
 # TODO: journals that does not allow web scraping
 # Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology
 
-# references
+# reference web architecture
 # Wiley: angewandte
 # Springer : Nature
 # cellpress: Cell
 # acs publications: acs biochemistry
 # super weird: jbc
+# procedings of the national academy of sciences of the usa:  pnas
 # zip titles: acs biochemistry
-
-
-
-get_issues_angewandte(volumes_url['Angewandte'])
