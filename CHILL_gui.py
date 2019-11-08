@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.011"
+version = "Version: 0.012"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -529,6 +529,10 @@ class JournalClubPage(tk.Frame):
         elif self.comboJ.get() == "PNAS":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_pnas(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science (AAAS)":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
 
 
