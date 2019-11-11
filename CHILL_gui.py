@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.012"
+version = "Version: 0.013"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -407,6 +407,7 @@ class JournalClubPage(tk.Frame):
         self.out = scrolledtext.ScrolledText(self, width=100, height=20, font='Lucida')
         self.out.grid(row=5, column=2, rowspan=50, padx=50)
         self.out.tag_config('link', foreground='blue')
+        self.out.tag_configure("keyword", foreground="#b22222")
 
 
 #TODO: impact factor, custom keywords
@@ -534,6 +535,26 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_science(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science Advances":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science_advances(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science Immunology":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science_immunology(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science Robotics":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science_robotics(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science Signaling":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science_signaling(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "Science Translational Medicine":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_science_translational_medicine(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
 
 
     def get_issue(self, event):
@@ -637,6 +658,18 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.molecular_cell(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "PNAS":
                 articles = Journal_club.pnas(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science (AAAS)":
+                articles = Journal_club.science_(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science Advances":
+                articles = Journal_club.science_advances(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science Immunology":
+                articles = Journal_club.science_immunology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science Robotics":
+                articles = Journal_club.science_robotics(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science Signaling":
+                articles = Journal_club.science_signaling(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Science Translational Medicine":
+                articles = Journal_club.science_translational_medicine(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
 
             total = "Total articles found: " + str(round(len(articles)/2)) + "\n"
             self.lblout.configure(text=total)
@@ -645,8 +678,22 @@ class JournalClubPage(tk.Frame):
                 if "http" in line:
                     self.out.insert('insert', line+"\n\n", 'link')
                 else:
-                    self.out.insert('insert', line+"\n", 'name')
-
+                    self.out.insert('insert', line + "\n", 'name')
+                    # cool loop to highlight triggering keywords
+                    if self.comboM.get() != "All":
+                        for word in line.split():
+                            matches = [x for x in Journal_club.modes_dictionary[self.comboM.get()] if x in word]
+                            self.out.mark_set("matchStart", "1.0")
+                            self.out.mark_set("matchEnd", "1.0")
+                            count = tk.IntVar()
+                            for x in matches:
+                                while True:
+                                    index = self.out.search(x, "matchEnd", "end", count=count)
+                                    if index == "":
+                                        break  # no match was found
+                                    self.out.mark_set("matchStart", index)
+                                    self.out.mark_set("matchEnd", "%s+%sc" % (index, count.get()))
+                                    self.out.tag_add("keyword", "matchStart", "matchEnd")
 
 
 
