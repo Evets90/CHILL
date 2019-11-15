@@ -2,6 +2,8 @@
 import sys
 import pandas as pd
 import tkinter as tk
+import inspect
+import os
 from tkinter import font as tkfont
 from tkinter import filedialog
 from tkinter import messagebox
@@ -19,7 +21,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.014"
+version = "Version: 0.015"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -170,6 +172,8 @@ class CompareFilesPage(tk.Frame):
         self.out.pack()
         pl = PrintLogger(self.out)
         sys.stdout = pl
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
     def selectfile1(self):
         self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
@@ -189,6 +193,40 @@ class CompareFilesPage(tk.Frame):
             output = "Files compared. Output is stored in " + path.splitext(self.filename1)[0] + "_compare_output.txt"
             self.labfun.configure(text=output)
 
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Compare_files)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
 class CleanSpacesPage(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -198,19 +236,22 @@ class CleanSpacesPage(tk.Frame):
         title = tk.Label(self, text="Clean spaces", font=controller.title_font)
         title.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the basic functions.", command=lambda: controller.show_frame("BasicPage"))
-        btnback.pack()
+        btnback.pack(pady=10)
         description = tk.Label(self, text=Clean_spaces.clean_spaces.__doc__)
-        description.pack(fill="x", pady=10)
+        description.pack(pady=10, fill='x')
         btnfile1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
-        btnfile1.pack()
+        btnfile1.pack(pady=10)
         self.lab1 = tk.Label(self, text="No file selected")
         self.lab1.pack(pady=10)
         btnfun = tk.Button(self, text="Clean spaces", command=self.clean)
-        btnfun.pack()
+        btnfun.pack(pady=10)
         self.labfun = tk.Label(self, text="")
         self.labfun.pack(pady=10)
         self.out = scrolledtext.ScrolledText(self, width=40, height=10)
-        self.out.pack()
+        self.out.pack(pady=10)
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
 
     def selectfile1(self):
         self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
@@ -225,6 +266,40 @@ class CleanSpacesPage(tk.Frame):
             self.labfun.configure(text=output)
             for item in res:
                 self.out.insert('insert', item)
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Clean_spaces)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
 
 class CheckSeriesPage(tk.Frame):
 
@@ -252,6 +327,8 @@ class CheckSeriesPage(tk.Frame):
         self.labfun.pack(pady=10)
         self.out = scrolledtext.ScrolledText(self, width=40, height=10)
         self.out.pack()
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
     def selectfile1(self):
         self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
@@ -280,6 +357,40 @@ class CheckSeriesPage(tk.Frame):
         self.out.insert('insert', total)
         for item in list:
             self.out.insert('insert', item)
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Check_series)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
 
 class PCSPage(tk.Frame):
 
@@ -405,10 +516,13 @@ class JournalClubPage(tk.Frame):
 
         self.lblout = tk.Label(self, text="")
         self.lblout.grid(row=4, column=2, padx=50, sticky='w')
-        self.out = scrolledtext.ScrolledText(self, width=100, height=20, font='Lucida')
+        self.out = scrolledtext.ScrolledText(self, width=100, height=18, font='Lucida')
         self.out.grid(row=5, column=2, rowspan=50, padx=50)
         self.out.tag_config('link', foreground='blue')
         self.out.tag_configure("keyword", foreground="#b22222")
+
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
     def mode_action(self, event):
         if self.comboM.get() == "Custom":
@@ -729,6 +843,40 @@ class JournalClubPage(tk.Frame):
                                     self.out.mark_set("matchEnd", "%s+%sc" % (index, count.get()))
                                     self.out.tag_add("keyword", "matchStart", "matchEnd")
 
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Journal_club)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
 
 
 
@@ -740,8 +888,7 @@ if __name__ == "__main__":
 
 #TODO: add test_files
 #TODO: implement the super cool terminal (new look + modify subfunctions)
-#TODO: button showing functions source code
+#TODO: implement all premade functions
 
 #TODO: IDEAS
 #       1-logo Asimov
-#       2-gif/video logo

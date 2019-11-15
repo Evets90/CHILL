@@ -233,7 +233,6 @@ def get_issues_acs_biochemistry(url):
         link = "https://pubs.acs.org" + re.findall(regex_acs_biochemistry_issue_link, str(ele))[0]
         selected.append(title)
         issues_dictionary[title] = link
-        print(ele)
     return selected
 def acs_biochemistry(url, mode):
     # preparation
@@ -454,13 +453,13 @@ def biophysj(url, mode):
         if mode == "all":
             title = re.findall(regex_biophysj_article_title, str(x))[1]
             link = re.findall(regex_biophysj_article_link, str(x))[1]
-            linkfull = "www.cell.com" + link
+            linkfull = "https://www.cell.com" + link
             selected.append(title)
             selected.append(linkfull)
         elif any(a in str(x) for a in mode):
             title = re.findall(regex_biophysj_article_title, str(x))[1]
             link = re.findall(regex_biophysj_article_link, str(x))[1]
-            linkfull = "www.cell.com" + link
+            linkfull = "https://www.cell.com" + link
             selected.append(title)
             selected.append(linkfull)
     return selected
@@ -649,6 +648,7 @@ def get_issues_jbc(url):
         alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
         return sorted(l, key=alphanum_key, reverse=True)
     mysorted = sorted_nicely(selected)
+    print(mysorted)
     return mysorted
 def jbc(url, mode):
     # preparation
@@ -1442,3 +1442,6 @@ def science_translational_medicine(url, mode):
 # procedings of the national academy of sciences of the usa:  pnas
 # zip titles: acs biochemistry
 # aaas: science
+
+
+#get_issues_jbc("https://www.jbc.org//content/by/year/2019")
