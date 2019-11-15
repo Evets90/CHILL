@@ -19,7 +19,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.013"
+version = "Version: 0.014"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -124,7 +124,6 @@ class StartPage(tk.Frame):
         btn6.pack(pady=10)
         #btn4.pack()
         #btn5.pack()
-
 
 class BasicPage(tk.Frame):
 
@@ -369,6 +368,7 @@ class JournalClubPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
+
         title = tk.Label(self, text="Journal Club", font=controller.title_font)
         title.grid(column=1, columnspan=5)
         btnback = tk.Button(self, text="Go back to the web scraping functions.", command=lambda: controller.show_frame("WebScrapingPage"))
@@ -379,6 +379,7 @@ class JournalClubPage(tk.Frame):
         lblcomboM = tk.Label(self, text="Select the mode:")
         lblcomboM.grid(column=1, row=4, padx=10)
         self.comboM = Combobox(self, width=30, values=Journal_club.modes)
+        self.comboM.bind('<<ComboboxSelected>>', self.mode_action)
         self.comboM.grid(column=1, row=5, padx=10)
 
         lblcomboJ = tk.Label(self, text="Select the journal:")
@@ -409,14 +410,48 @@ class JournalClubPage(tk.Frame):
         self.out.tag_config('link', foreground='blue')
         self.out.tag_configure("keyword", foreground="#b22222")
 
-
-#TODO: impact factor, custom keywords
+    def mode_action(self, event):
+        if self.comboM.get() == "Custom":
+            def okay():
+                """Clears the Journal_club.custom list, store the Entry() widget text in that list (comma separated) and closes the popup window"""
+                eget = e.get().split(", ")
+                Journal_club.custom.clear()
+                for ele in eget:
+                    Journal_club.custom.append(ele)
+                win.destroy()
+            win = tk.Toplevel()
+            win.attributes('-topmost', 1)
+            win.wm_title("Custom Keywords")
+            # Label
+            l = tk.Label(win, text="Insert your keywords separated by a comma.")
+            l.grid(row=0, column=0)
+            # Entry
+            e = tk.Entry(win)
+            e.grid(row=1, column=0)
+            # Button
+            b = tk.Button(win, text="Okay", command=okay)
+            b.grid(row=2, column=0)
+        elif self.comboM.get() == "Impact Factors":
+            # block user from doing the wrong thing
+            self.comboJ['state'] = 'disabled'
+            self.comboV['state'] = 'disabled'
+            self.comboI['state'] = 'disabled'
+            # loop to list impact factors
+            self.out.delete('1.0', tk.END)
+            for journal, factor in sorted(Journal_club.impact_factor_dictionary.items(), key=lambda p: p[1], reverse=True):
+                self.out.insert('insert', str(journal) + " - " + str(factor) + "\n")
+        else:
+            self.comboJ['state'] = 'enabled'
+            self.comboV['state'] = 'enabled'
+            self.comboI['state'] = 'enabled'
 
     def show_keywords(self):
         if self.comboM.get() == "":
             messagebox.showerror("Warning", "You did not select any mode.")
         elif self.comboM.get() == "All":
             messagebox.showinfo("All", "List all articles.")
+        elif self.comboM.get() == "Impact Factors":
+            messagebox.showinfo("Impact Factors", "List in descending order the impact factors.")
         else:
             mode = self.comboM.get()
             keywords = Journal_club.modes_dictionary[mode]
@@ -555,7 +590,6 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_science_translational_medicine(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
-
 
     def get_issue(self, event):
         self.comboI.set('')
@@ -709,4 +743,5 @@ if __name__ == "__main__":
 #TODO: button showing functions source code
 
 #TODO: IDEAS
-#       2-logo Asimov
+#       1-logo Asimov
+#       2-gif/video logo

@@ -12,10 +12,13 @@ def general_docstring():
                 Best suited for: standard search
     Loose: search of non specific words such as "protein" or "amino acid".
                 Best suited for: search in a journal outside of the structural biology field.
+    Custom: create your own custom list of keywords.
+                Best suited for: very specific user needs.
     All: list all the articles in the selected issue.
                 Best suited for: completionists?
     Funny: search for funny articles.
                 Best suited for: it's 11 pm and I am still in the office.
+    Impact Factors: no search, list in descending order the journals impact factors.
 
     For more info, select a mode and click on the "Mode Info" button.
 
@@ -26,10 +29,11 @@ def general_docstring():
 
 # keywords lists
 journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers", "Journal of the American Chemical Society (JACS)", "PNAS", "Science (AAAS)", "Science Advances", "Science Immunology", "Science Robotics", "Science Signaling", "Science Translational Medicine"]
-modes = ['Standard', 'Loose', 'All', 'Funny']
+modes = ['Standard', 'Loose', 'All', 'Funny', 'Custom', 'Impact Factors']
 standard = []
 loose = []
 funny = []
+custom = []
 standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine", "PCS", "Pcs", "Pseudocontact"]
 loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response"]
 funny_ini = ["Vietnam", "Paradox", "Police", "Parachute", "Sadness", "Stupidity", "Troll", "Hate", "Marvel", "Thanos", "Batman", "Funny", "Joke"]
@@ -48,9 +52,10 @@ capital(funny_ini, funny)
 
 # dictionaries
 volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282", "Journal of the American Chemical Society (JACS)": "https://pubs.acs.org/loi/jacsat", "PNAS": "https://www.pnas.org/content/by/year", "Science (AAAS)": "https://science.sciencemag.org/content/by/year", "Science Advances": "https://advances.sciencemag.org/content/by/year", "Science Immunology": "https://immunology.sciencemag.org/content/by/year", "Science Robotics": "https://robotics.sciencemag.org/content/by/year", "Science Signaling": "https://stke.sciencemag.org/content/by/year", "Science Translational Medicine": "https://stm.sciencemag.org/content/by/year"}
-modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all"}
+modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all", "Custom": custom}
 volumes_dictionary = {}
 issues_dictionary = {}
+impact_factor_dictionary = {'Nature': 43.070,'Biophysical Journal': 3.665, 'Proteins': 2.499, "EMBO": 11.2, "Cell": 36.216, "Angewandte": 12.257, "Nature Methods": 28.467, "Nature Protocols": 15.086, "Nature Biotechnology": 35.724, "Nature Structural and Molecular Biology": 12.595, "Nature Reviews Drug Discovery": 57.000, "Annual Reviews of Biochemistry": 30.283, "Annual Reviews of Biophysics": 12.250, "Journal of Biomolecular NMR": 2.534, "Protein Science": 2.735, "ACS - Biochemistry": 2.876, "Journal of Biological Chemistry": 4.106, "Cell - Structure": 4.576, "Trends in Pharmacological Sciences": 10.148, "Trends in Biochemical Sciences": 14.273, "Trends in Biotechnology": 2.370, "Molecular Cell": 14.548, "FEBS letters": 2.675, "Biopolymers": 2.248, "Journal of the American Chemical Society (JACS)": 14.695, "PNAS": 9.58, "Science (AAAS)": 41.063, "Science Advances": 12.804, "Science Immunology": 10.551, "Science Robotics": 19.400, "Science Signaling": 6.481, "Science Translational Medicine": 16.796}
 
 # selection regular expressions
 regex_acs_biochemistry_issue_title1 = "class=\"coverDate\">(.*?)</span>"
@@ -1424,13 +1429,11 @@ def science_translational_medicine(url, mode):
     return selected
 
 # TODO: journals to be added:
-# PLOS ONE (boooh)
-
 
 # TODO: journals that does not allow web scraping
 # Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology
 
-# reference web architecture
+# TODO: reference web architecture
 # Wiley: angewandte
 # Springer : Nature
 # cellpress: Cell
