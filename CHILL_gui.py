@@ -19,9 +19,10 @@ import Compare_files
 import Clean_spaces
 import Check_series
 import Journal_club
+import OVW_Analyze_overview
 
 # version
-version = "Version: 0.016"
+version = "Version: 0.017"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -62,7 +63,7 @@ class App(tk.Tk):
         self.frames["CompareFiles"] = CompareFilesPage(parent=container, controller=self)
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
         self.frames["CheckSeries"] = CheckSeriesPage(parent=container, controller=self)
-        self.frames["GetTF"] = GetTFPage(parent=container, controller=self)
+        self.frames["OVWAnalyzeOverview"] = OVWAnalyzeOverview(parent=container, controller=self)
         self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
         self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
 
@@ -73,7 +74,7 @@ class App(tk.Tk):
         self.frames["CompareFiles"].grid(row=0, column=0, sticky="nsew")
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
         self.frames["CheckSeries"].grid(row=0, column=0, sticky="nsew")
-        self.frames["GetTF"].grid(row=0, column=0, sticky="nsew")
+        self.frames["OVWAnalyzeOverview"].grid(row=0, column=0, sticky="nsew")
         self.frames["WebScrapingPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["JournalClub"].grid(row=0, column=0, sticky="nsew")
 
@@ -208,6 +209,7 @@ class CompareFilesPage(tk.Frame):
         t.tag_config('rest', foreground='black')
         t.tag_config('flow_control', foreground='DarkOrange2')
         t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
         # Get Source Code
         rloc = open(loc, 'r')
         for line in rloc:
@@ -223,6 +225,8 @@ class CompareFilesPage(tk.Frame):
                 t.insert('insert', line, 'docstring')
             elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
                 t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
             else:
                 t.insert('insert', line, 'rest')
         t.pack()
@@ -284,6 +288,7 @@ class CleanSpacesPage(tk.Frame):
         t.tag_config('rest', foreground='black')
         t.tag_config('flow_control', foreground='DarkOrange2')
         t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
         # Get Source Code
         rloc = open(loc, 'r')
         for line in rloc:
@@ -299,6 +304,8 @@ class CleanSpacesPage(tk.Frame):
                 t.insert('insert', line, 'docstring')
             elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
                 t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
             else:
                 t.insert('insert', line, 'rest')
         t.pack()
@@ -378,6 +385,7 @@ class CheckSeriesPage(tk.Frame):
         t.tag_config('rest', foreground='black')
         t.tag_config('flow_control', foreground='DarkOrange2')
         t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
         # Get Source Code
         rloc = open(loc, 'r')
         for line in rloc:
@@ -393,6 +401,8 @@ class CheckSeriesPage(tk.Frame):
                 t.insert('insert', line, 'docstring')
             elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
                 t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
             else:
                 t.insert('insert', line, 'rest')
         t.pack()
@@ -415,57 +425,97 @@ class CyanaPage(tk.Frame):
         label = tk.Label(self, text="Cyana functions.", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
-        btn1 = tk.Button(self, text="Get TF and RMSD", command=lambda: controller.show_frame("GetTF"))
+        btn1 = tk.Button(self, text="OVW: Analyze overview", command=lambda: controller.show_frame("OVWAnalyzeOverview"))
         btnback.pack()
-        btn1.pack()
+        btn1.pack(pady=10)
 
-class GetTFPage(tk.Frame):
+class OVWAnalyzeOverview(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
         self.filename1 = ""
         self.filename2 = ""
-        title = tk.Label(self, text="Get TF and RMSD", font=controller.title_font)
-        title.pack(side="top", fill="x", pady=10)
+        title = tk.Label(self, text="OVW: Analyze overview", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
         btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
-        btnback.pack()
-        #description = tk.Label(self, text=Compare_files.file_compare.__doc__)
-        #description.pack(fill="x", pady=10)
-        #btnfile1 = tk.Button(self, text="Choose the first file", command=self.selectfile1)
-        #btnfile1.pack()
-        #self.lab1 = tk.Label(self, text="No file selected")
-        #self.lab1.pack(pady=10)
-        #btnfile2 = tk.Button(self, text="Choose the second file", command=self.selectfile2)
-        #btnfile2.pack()
-        #self.lab2 = tk.Label(self, text="No file selected")
-        #self.lab2.pack(pady=10)
-        #btnfun = tk.Button(self, text="Compare Files", command=self.compare)
-        #btnfun.pack()
-        #self.labfun = tk.Label(self, text="")
-        #self.labfun.pack(pady=10)
-        #self.out = scrolledtext.ScrolledText(self, width=40, height=10)
-        #self.out.pack()
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=OVW_Analyze_overview.general_docstring.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Column 1
+        lbl1 = tk.Label(self, text="Target Function")
+        lbl1.grid(column=1, row=4)
+        btn1 = tk.Button(self, text="Choose the files")
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=1, row=6, pady=10)
+        btnfun1 = tk.Button(self, text="Start")
+        btnfun1.grid(column=1, row=7, pady=10)
+        self.out1 = scrolledtext.ScrolledText(self, width=50, height=18)
+        self.out1.grid(column=1, row=8, pady=10)
+        # Column 2
+        lbl2 = tk.Label(self, text="RMSD")
+        lbl2.grid(column=2, row=4)
+        btn2 = tk.Button(self, text="Choose the files")
+        btn2.grid(column=2, row=5, pady=10)
+        self.labfile2 = tk.Label(self, text="No file selected")
+        self.labfile2.grid(column=2, row=6, pady=10)
+        btnfun2 = tk.Button(self, text="Start")
+        btnfun2.grid(column=2, row=7, pady=10)
+        self.out2 = scrolledtext.ScrolledText(self, width=50, height=18)
+        self.out2.grid(column=2, row=8, pady=10)
+        # Column 3
+        lbl3 = tk.Label(self, text="Violations")
+        lbl3.grid(column=3, row=4)
+        btn3 = tk.Button(self, text="Choose the files")
+        btn3.grid(column=3, row=5, pady=10)
+        self.labfile3 = tk.Label(self, text="No file selected")
+        self.labfile3.grid(column=3, row=6, pady=10)
+        btnfun3 = tk.Button(self, text="Start")
+        btnfun3.grid(column=3, row=7, pady=10)
+        self.out3 = scrolledtext.ScrolledText(self, width=50, height=18)
+        self.out3.grid(column=3, row=8, pady=10, padx=10)
 
-    #def selectfile1(self):
-        #self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
-        #self.lab1.configure(text=self.filename1)
 
-    #def selectfile2(self):
-        #self.filename2 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
-        #self.lab2.configure(text=self.filename2)
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
-    #def compare(self):
-        #if self.filename1 == "":
-            #messagebox.showerror("Warning", "You did not select any file 1.")
-        #elif self.filename2 == "":
-            #messagebox.showerror("Warning", "You did not select any file 2.")
-        #else:
-            #res = Compare_files.file_compare(self.filename1, self.filename2)
-            #output = "Files compared. Output is stored in " + path.splitext(self.filename1)[0] + "_compare_output.txt"
-            #self.labfun.configure(text=output)
-            #for item in res:
-                #self.out.insert('insert', item)
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(OVW_Analyze_overview)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
 
 class WebScrapingPage(tk.Frame):
 
@@ -863,6 +913,7 @@ class JournalClubPage(tk.Frame):
         t.tag_config('rest', foreground='black')
         t.tag_config('flow_control', foreground='DarkOrange2')
         t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
         # Get Source Code
         rloc = open(loc, 'r')
         for line in rloc:
@@ -878,6 +929,8 @@ class JournalClubPage(tk.Frame):
                 t.insert('insert', line, 'docstring')
             elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
                 t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
             else:
                 t.insert('insert', line, 'rest')
         t.pack()

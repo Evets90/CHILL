@@ -3,6 +3,39 @@ CHILL (Computer-Human Interface to Learn Laziness) function catalogue:
 -----------
 ---BASIC---
 -----------
->	Compare_files
->	Clean_spaces
->	Check_series
+>	Compare_files: compares two .txt files and highlight the differences, line by line.
+>	Clean_spaces: replace all the white spaces and special spaces (e.g. tabs) with a single white space.
+>	Check_series: check if any element is missing from a numeric series in a column type file.
+
+---------
+---PCS---
+---------
+>   Mapping
+>   Range_deletion
+>   Get_subset
+>   Add_module
+>   Increase_mapped
+
+-----------
+---CYANA---
+-----------
+>   OVW_Analyze_overview
+>   OVW_Analyze_violations
+>   CYANA_Batch_iteration
+>   UPL_remove_inter_sidechains
+>   UPL_remove_sidechains
+>   UPL_remove_inter_sidechains_with_backbone
+>   UPL_replace_metyl_proton_with_carbon (test)
+>   UPL_metprot_L_NH3prot_K
+
+---------
+---PDB---
+---------
+>   Convert_nomenclature
+>   Average_structures
+>   Model_variation
+
+------------------
+---WEB SCRAPING---
+------------------
+>   Journal_club: keywords search in a large database of scientific journals.
