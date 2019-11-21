@@ -15,4 +15,5 @@ def clean_spaces(file):
             goodline = re.sub(r'\s+', ' ', line).strip()
             f2.write(goodline + '\n')
             res.append(goodline+"\n")
+            print(goodline)
     return res

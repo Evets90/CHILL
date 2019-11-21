@@ -13,24 +13,17 @@ def file_compare(file1, file2, output="_compare_output.txt"):
         -File 2: the second file to be compared.
         -Result: for every line not matching, it will be printed out and the output is stored in a "_compare_output.txt"
     """
-    print("START.")
     f1 = open(file1, 'r')
     f2 = open(file2, 'r')
-    outname = os.path.splitext(file1)[0] + output
-    f3 = open(outname, 'w+')
-    diff = []
     line = 0
     for line1 in f1:
         for line2 in f2:
             line += 1
             if line1 != line2:
-                f3.write(line1 + line2)
-                print(f"File '{file1}': {line1}\nFile '{file2}': {line2}")
-                diff.append("Line number " + str(line))
-                diff.append("File 1:")
-                diff.append(line1)
-                diff.append("File 2:")
-                diff.append(line2)
-                diff.append("Line " + str(line) + "\nFile 1: " + line1 + "File 2: " + line2+"\n")
+                #print("Line number " + str(line))
+                #print("File 1:")
+                #print(line1)
+                #print("File 2:")
+                #print(line2)
+                print("Line " + str(line) + "\nFile 1: " + line1.strip() + "\nFile 2: " + line2.strip() + "\n")
             break
-    return diff

@@ -1,0 +1,8 @@
+CHILL (Computer-Human Interface to Learn Laziness) function catalogue:
+
+-----------
+---BASIC---
+-----------
+>	Compare_files
+>	Clean_spaces
+>	Check_series

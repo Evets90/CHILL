@@ -1,0 +1,7 @@
+3   LEU   HN       7.000 T0
+3   LEU   HN       7.000 T0
+3   LEU   HN       7.000 T0
+3   LEU   HN       7.000 T0
+3   LEU   HN       7.000 T0
+3   LEU   HN       7.000 T0
+   This    should now           look   quite     normal  ,  right     ?          

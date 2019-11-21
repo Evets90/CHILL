@@ -1445,3 +1445,7 @@ def science_translational_medicine(url, mode):
 
 
 #get_issues_jbc("https://www.jbc.org//content/by/year/2019")
+
+# TODO: fix wiley captcha,
+#  fix JBC
+#  fix science (all) reverted article lists

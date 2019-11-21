@@ -21,7 +21,7 @@ import Check_series
 import Journal_club
 
 # version
-version = "Version: 0.015"
+version = "Version: 0.016"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -139,9 +139,9 @@ class BasicPage(tk.Frame):
         btn2 = tk.Button(self, text="Clean spaces", command=lambda: controller.show_frame("CleanSpaces"))
         btn3 = tk.Button(self, text="Check series", command=lambda: controller.show_frame("CheckSeries"))
         btnback.pack()
-        btn1.pack()
-        btn2.pack()
-        btn3.pack()
+        btn1.pack(pady=10)
+        btn2.pack(pady=10)
+        btn3.pack(pady=10)
 
 class CompareFilesPage(tk.Frame):
 
@@ -168,7 +168,7 @@ class CompareFilesPage(tk.Frame):
         btnfun.pack()
         self.labfun = tk.Label(self, text="")
         self.labfun.pack(pady=10)
-        self.out = scrolledtext.ScrolledText(self, width=40, height=10)
+        self.out = scrolledtext.ScrolledText(self, width=100, height=18)
         self.out.pack()
         pl = PrintLogger(self.out)
         sys.stdout = pl
@@ -189,8 +189,8 @@ class CompareFilesPage(tk.Frame):
         elif self.filename2 == "":
             messagebox.showerror("Warning", "You did not select any file 2.")
         else:
-            res = Compare_files.file_compare(self.filename1, self.filename2)
-            output = "Files compared. Output is stored in " + path.splitext(self.filename1)[0] + "_compare_output.txt"
+            Compare_files.file_compare(self.filename1, self.filename2)
+            output = "Files compared."
             self.labfun.configure(text=output)
 
     def show_source_code(self):
@@ -247,8 +247,10 @@ class CleanSpacesPage(tk.Frame):
         btnfun.pack(pady=10)
         self.labfun = tk.Label(self, text="")
         self.labfun.pack(pady=10)
-        self.out = scrolledtext.ScrolledText(self, width=40, height=10)
+        self.out = scrolledtext.ScrolledText(self, width=100, height=18)
         self.out.pack(pady=10)
+        pl = PrintLogger(self.out)
+        sys.stdout = pl
         btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
         btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
@@ -264,8 +266,8 @@ class CleanSpacesPage(tk.Frame):
             res = Clean_spaces.clean_spaces(self.filename1)
             output = "File cleaned. Output is stored in " + path.splitext(self.filename1)[0] + "_clean.txt"
             self.labfun.configure(text=output)
-            for item in res:
-                self.out.insert('insert', item)
+            #for item in res:
+            #    self.out.insert('insert', item)
 
     def show_source_code(self):
         # Variable
@@ -325,8 +327,10 @@ class CheckSeriesPage(tk.Frame):
         btnfun.pack()
         self.labfun = tk.Label(self, text="")
         self.labfun.pack(pady=10)
-        self.out = scrolledtext.ScrolledText(self, width=40, height=10)
+        self.out = scrolledtext.ScrolledText(self, width=100, height=18)
         self.out.pack()
+        pl = PrintLogger(self.out)
+        sys.stdout = pl
         btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
         btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
 
@@ -354,6 +358,7 @@ class CheckSeriesPage(tk.Frame):
         t, list = Check_series.check_series(self.filename1, int(self.combo.get()))
         self.labfun.configure(text="Checked.")
         total = "Total missing elements: " + str(t) + "\n"
+        self.out.delete('1.0', tk.END)
         self.out.insert('insert', total)
         for item in list:
             self.out.insert('insert', item)
