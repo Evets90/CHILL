@@ -22,7 +22,7 @@ import Journal_club
 import OVW_Analyze_overview
 
 # version
-version = "Version: 0.017"
+version = "Version: 0.018"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -432,53 +432,97 @@ class CyanaPage(tk.Frame):
 class OVWAnalyzeOverview(tk.Frame):
 
     def __init__(self, parent, controller):
+        # General
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        self.filename1 = ""
-        self.filename2 = ""
         title = tk.Label(self, text="OVW: Analyze overview", font=controller.title_font)
         title.grid(column=1, columnspan=3, row=1)
         btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
         btnback.grid(column=1, columnspan=3, pady=10, row=2)
         description = tk.Label(self, text=OVW_Analyze_overview.general_docstring.__doc__)
         description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.filelist1 = ""
+        self.filelist2 = ""
+        self.filelist3 = ""
         # Column 1
         lbl1 = tk.Label(self, text="Target Function")
         lbl1.grid(column=1, row=4)
-        btn1 = tk.Button(self, text="Choose the files")
+        btn1 = tk.Button(self, text="Choose the files", command=self.selectlist1)
         btn1.grid(column=1, row=5, pady=10)
         self.labfile1 = tk.Label(self, text="No file selected")
         self.labfile1.grid(column=1, row=6, pady=10)
-        btnfun1 = tk.Button(self, text="Start")
+        btnfun1 = tk.Button(self, text="Start", command=self.get_tf)
         btnfun1.grid(column=1, row=7, pady=10)
         self.out1 = scrolledtext.ScrolledText(self, width=50, height=18)
         self.out1.grid(column=1, row=8, pady=10)
         # Column 2
         lbl2 = tk.Label(self, text="RMSD")
         lbl2.grid(column=2, row=4)
-        btn2 = tk.Button(self, text="Choose the files")
+        btn2 = tk.Button(self, text="Choose the files", command=self.selectlist2)
         btn2.grid(column=2, row=5, pady=10)
         self.labfile2 = tk.Label(self, text="No file selected")
         self.labfile2.grid(column=2, row=6, pady=10)
-        btnfun2 = tk.Button(self, text="Start")
+        btnfun2 = tk.Button(self, text="Start", command=self.get_rmsd)
         btnfun2.grid(column=2, row=7, pady=10)
-        self.out2 = scrolledtext.ScrolledText(self, width=50, height=18)
+        self.out2 = scrolledtext.ScrolledText(self, width=80, height=18)
         self.out2.grid(column=2, row=8, pady=10)
         # Column 3
         lbl3 = tk.Label(self, text="Violations")
         lbl3.grid(column=3, row=4)
-        btn3 = tk.Button(self, text="Choose the files")
+        btn3 = tk.Button(self, text="Choose the files", command=self.selectlist3)
         btn3.grid(column=3, row=5, pady=10)
         self.labfile3 = tk.Label(self, text="No file selected")
         self.labfile3.grid(column=3, row=6, pady=10)
-        btnfun3 = tk.Button(self, text="Start")
+        btnfun3 = tk.Button(self, text="Start", command=self.get_violations)
         btnfun3.grid(column=3, row=7, pady=10)
         self.out3 = scrolledtext.ScrolledText(self, width=50, height=18)
         self.out3.grid(column=3, row=8, pady=10, padx=10)
-
-
+        # Source
         btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
         btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectlist1(self):
+        fullfilelist1 = filedialog.askopenfilenames(initialdir=path.dirname(__file__))
+        self.filelist1 = list(fullfilelist1)
+        labeltext = "Selected " + str(len(self.filelist1)) + " files."
+        self.labfile1.configure(text=labeltext)
+
+    def selectlist2(self):
+        fullfilelist2 = filedialog.askopenfilenames(initialdir=path.dirname(__file__))
+        self.filelist2 = list(fullfilelist2)
+        labeltext = "Selected " + str(len(self.filelist2)) + " files."
+        self.labfile2.configure(text=labeltext)
+
+    def selectlist3(self):
+        fullfilelist3 = filedialog.askopenfilenames(initialdir=path.dirname(__file__))
+        self.filelist3 = list(fullfilelist3)
+        labeltext = "Selected " + str(len(self.filelist3)) + " files."
+        self.labfile3.configure(text=labeltext)
+
+    def get_tf(self):
+        if not self.filelist1:
+            messagebox.showerror("Warning", "You did not select any file.")
+        pl = PrintLogger(self.out1)
+        sys.stdout = pl
+        for ele in self.filelist1:
+            OVW_Analyze_overview.get_tf(ele)
+
+    def get_rmsd(self):
+        if not self.filelist2:
+            messagebox.showerror("Warning", "You did not select any file.")
+        pl = PrintLogger(self.out2)
+        sys.stdout = pl
+        for ele in self.filelist2:
+            OVW_Analyze_overview.get_rmsd(ele)
+
+    def get_violations(self):
+        if not self.filelist3:
+            messagebox.showerror("Warning", "You did not select any file.")
+        pl = PrintLogger(self.out3)
+        sys.stdout = pl
+        for ele in self.filelist3:
+            OVW_Analyze_overview.get_violations(ele)
 
     def show_source_code(self):
         # Variable

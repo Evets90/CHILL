@@ -8,42 +8,32 @@ def general_docstring():
 
 def get_tf(read):
     f = open(read, 'r')
-    write = os.path.dirname(read) + "/All_TF.txt"
-    r = open(write, 'a')
     name = os.path.basename(read)
     for line in f:
-        if "Ave" in line:
-            if "Average" not in line:
-                print(name + line[:18])
-                r.write(name + line[:18]+"\n")
+        if "Ave " in line.strip()[:4]:
+            print(name + ": " + line.strip()[5:12] + " " + u"\u00B1", end="")
+        if "+/-" in line.strip()[:3]:
+            print(line.strip()[3:12])
 
 def get_rmsd(read):
     f = open(read, 'r')
-    write = os.path.dirname(read) + "/All_RMSD.txt"
-    r = open(write, 'a')
     name = os.path.basename(read)
     for line in f:
         if "Average backbone" in line:
-             print(name + line[:57])
-             r.write(name + line[:57]+"\n")
+            print(name + ": " + line.strip()[:52])
 
 def get_violations(read):
     f = open(read, 'r')
-    write = os.path.dirname(read) + "/All_VIOL.txt"
-    r = open(write, 'a')
     name = os.path.basename(read)
     counter = 0
     for line in f:
         if "violated" in line and "." in line:
             counter += 1
             if counter == 1:
-                print(name + ": ")
-                r.write(name + ": ")
+                print(name + ":", end=" ")
             split = line.split()
             for element in split:
                 if element.isdigit() == True:
-                    r.write(element + " ")
-                    print(element + " ")
+                    print(element, end=" ")
             if counter == 4:
-                r.write("\n")
-                print("\n")
+                print("\n", end="")

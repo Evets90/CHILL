@@ -19,7 +19,7 @@ CHILL (Computer-Human Interface to Learn Laziness) function catalogue:
 -----------
 ---CYANA---
 -----------
->   OVW_Analyze_overview
+>   OVW_Analyze_overview: quickly list target function, RMSD and number of violations of cyana overview files.
 >   OVW_Analyze_violations
 >   CYANA_Batch_iteration
 >   UPL_remove_inter_sidechains
