@@ -20,9 +20,10 @@ import Clean_spaces
 import Check_series
 import Journal_club
 import OVW_Analyze_overview
+import OVW_Analyze_violations
 
 # version
-version = "Version: 0.018"
+version = "Version: 0.019"
 
 # logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -64,6 +65,7 @@ class App(tk.Tk):
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
         self.frames["CheckSeries"] = CheckSeriesPage(parent=container, controller=self)
         self.frames["OVWAnalyzeOverview"] = OVWAnalyzeOverview(parent=container, controller=self)
+        self.frames["OVWAnalyzeViolations"] = OVWAnalyzeViolations(parent=container, controller=self)
         self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
         self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
 
@@ -75,6 +77,7 @@ class App(tk.Tk):
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
         self.frames["CheckSeries"].grid(row=0, column=0, sticky="nsew")
         self.frames["OVWAnalyzeOverview"].grid(row=0, column=0, sticky="nsew")
+        self.frames["OVWAnalyzeViolations"].grid(row=0, column=0, sticky="nsew")
         self.frames["WebScrapingPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["JournalClub"].grid(row=0, column=0, sticky="nsew")
 
@@ -139,7 +142,7 @@ class BasicPage(tk.Frame):
         btn1 = tk.Button(self, text="Compare files", command=lambda: controller.show_frame("CompareFiles"))
         btn2 = tk.Button(self, text="Clean spaces", command=lambda: controller.show_frame("CleanSpaces"))
         btn3 = tk.Button(self, text="Check series", command=lambda: controller.show_frame("CheckSeries"))
-        btnback.pack()
+        btnback.pack(pady=10)
         btn1.pack(pady=10)
         btn2.pack(pady=10)
         btn3.pack(pady=10)
@@ -426,8 +429,10 @@ class CyanaPage(tk.Frame):
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
         btn1 = tk.Button(self, text="OVW: Analyze overview", command=lambda: controller.show_frame("OVWAnalyzeOverview"))
-        btnback.pack()
+        btn2 = tk.Button(self, text="OVW: Analyze violations",command=lambda: controller.show_frame("OVWAnalyzeViolations"))
+        btnback.pack(pady=10)
         btn1.pack(pady=10)
+        btn2.pack(pady=10)
 
 class OVWAnalyzeOverview(tk.Frame):
 
@@ -561,6 +566,106 @@ class OVWAnalyzeOverview(tk.Frame):
                 t.insert('insert', line, 'rest')
         t.pack()
 
+class OVWAnalyzeViolations(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="OVW: Analyze violations", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=OVW_Analyze_violations.general_docstring.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        self.df = pd.DataFrame()
+        # Column 1
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=4, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=1, row=5, pady=10)
+        labtype = tk.Label(self, text="Type:")
+        labtype.grid(column=1, row=6, pady=10)
+        self.comboT = Combobox(self, width=30)
+        self.comboT.grid(column=1, row=7, pady=10)
+        labmode = tk.Label(self, text="Mode:")
+        labmode.grid(column=1, row=8, pady=10)
+        self.comboM = Combobox(self, width=30, values=OVW_Analyze_violations.modes)
+        self.comboM.grid(column=1, row=9, pady=10)
+        labcolor = tk.Label(self, text="Color:")
+        labcolor.grid(column=1, row=10, pady=10)
+        self.comboC = Combobox(self, width=30, values=OVW_Analyze_violations.colors)
+        self.comboC.grid(column=1, row=11, pady=10)
+        btnfun = tk.Button(self, text="Generate macro", command=self.generate_macro)
+        btnfun.grid(column=1, row=12, pady=10)
+        # Column 2
+        self.labinstruction = tk.Label(self, text="")
+        self.labinstruction.grid(column=2, row=4, columnspan=2, pady=10)
+        self.out = scrolledtext.ScrolledText(self, width=100, height=18, font='Lucida')
+        self.out.grid(row=5, column=2, rowspan=50, padx=50)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
+        self.labfile1.configure(text=os.path.basename(self.file1))
+        types, self.df = OVW_Analyze_violations.get_type(self.file1)
+        self.comboT['values'] = types
+
+    def generate_macro(self):
+        if self.comboT.get() == "":
+            messagebox.showerror("Warning", "You did not select any type.")
+        elif self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.comboC.get() == "":
+            messagebox.showerror("Warning", "You did not select any color.")
+        else:
+            self.labinstruction.configure(text="Instruction: open PyMOL, load the .pdb, copy-paste the macro and press enter.")
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            OVW_Analyze_violations.macro_violations(self.df, self.comboT.get(), self.comboM.get(), self.comboC.get())
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(OVW_Analyze_violations)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
 class WebScrapingPage(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -570,8 +675,8 @@ class WebScrapingPage(tk.Frame):
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
         btn1 = tk.Button(self, text="Journal Club", command=lambda: controller.show_frame("JournalClub"))
-        btnback.pack()
-        btn1.pack()
+        btnback.pack(pady=10)
+        btn1.pack(pady=10)
 
 class JournalClubPage(tk.Frame):
 
