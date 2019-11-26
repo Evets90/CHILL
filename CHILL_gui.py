@@ -1,4 +1,4 @@
-# general import
+# General import
 import sys
 import pandas as pd
 import tkinter as tk
@@ -14,7 +14,7 @@ from os import path
 from pathlib import Path
 from PIL import Image, ImageTk
 
-# specific functions import
+# Specific functions import
 import Compare_files
 import Clean_spaces
 import Check_series
@@ -22,14 +22,14 @@ import Journal_club
 import OVW_Analyze_overview
 import OVW_Analyze_violations
 
-# version
-version = "Version: 0.019"
+# Version
+version = "Version: 0.020"
 
-# logos paths
+# Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
 logochill = Path.cwd() / "Logos/Chill.png"
 
-# print logger used for redirect the print() in python to a window in tkinter
+# Print logger used for redirect the print() in python to a window in tkinter
 class PrintLogger():
     def __init__(self, textbox):
         self.textbox = textbox
@@ -40,7 +40,7 @@ class PrintLogger():
     def flush(self):
         pass
 
-# engine app to switch frames
+# Engine app to switch frames
 class App(tk.Tk):
 
     def __init__(self, *args, **kwargs):
@@ -93,7 +93,7 @@ class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        # logos
+        # Logos
         zoom = 0.2
         image = Image.open(logoSaS)
         image2 = Image.open(logochill)
@@ -102,34 +102,61 @@ class StartPage(tk.Frame):
         img2 = ImageTk.PhotoImage(image2.resize((300, 600)))
         logo1 = tk.Label(self, image=img, anchor='nw')
         logo1.image = img
-        #logo1.pack(side="top", fill='x')
         logo2 = tk.Label(self, image=img2)
         logo2.image = img2
         logo2.pack(side="left", fill='both')
 
-        # title
+        # Title
         label = tk.Label(self, text="Please select a category", font=controller.title_font)
         label.pack(side='top', fill='x', pady=10)
 
-        # version
+        # Version
         global version
         labversion = tk.Label(self, text=version, anchor='se')
         labversion.pack(side='bottom', fill='both')
 
-        # buttons
+        # Catalogue
+        btncatalogue = tk.Button(self, text="Function Catalogue", anchor='sw', command=self.get_catalogue)
+        btncatalogue.pack(side='bottom', pady=10)
+        labcatalogue = tk.Label(self, text="...or check out the functions summary", anchor='sw', font=controller.title_font)
+        labcatalogue.pack(side='bottom')
+
+        # Buttons
         btn1 = tk.Button(self, text="Basic", command=lambda: controller.show_frame("BasicPage"))
         btn2 = tk.Button(self, text="PCS", command=lambda: controller.show_frame("PCSPage"))
         btn3 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
-        #btn4 = tk.Button(self, text="Chemical shifts", command=lambda: controller.show_frame("PCSPage"))
-        #btn5 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("PCSPage"))
-        btn6 = tk.Button(self, text="Web Scraping", command=lambda: controller.show_frame("WebScrapingPage"))
-
+        btn4 = tk.Button(self, text="Web Scraping", command=lambda: controller.show_frame("WebScrapingPage"))
         btn1.pack(pady=10)
         btn2.pack(pady=10)
         btn3.pack(pady=10)
-        btn6.pack(pady=10)
-        #btn4.pack()
-        #btn5.pack()
+        btn4.pack(pady=10)
+
+    def get_catalogue(self):
+        # Variable
+        loc = os.getcwd() + "/CHILL_catalogue.txt"
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Functions Catalogue")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_configure('category', foreground='purple')
+        t.tag_configure('function_name', foreground='red')
+        # Get Text
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "---" in line:
+                t.insert('insert', line, 'category')
+            elif ">" in line[0]:
+                splitted = line.split(":")
+                t.insert('insert', splitted[0], 'function_name')
+                try:
+                    t.insert('insert', splitted[1], 'description')
+                except IndexError:
+                    pass
+            else:
+                t.insert('insert', line, 'other')
+        t.pack()
 
 class BasicPage(tk.Frame):
 
@@ -1087,14 +1114,12 @@ class JournalClubPage(tk.Frame):
 
 
 
-# start
+# Start
 if __name__ == "__main__":
     start = App()
     start.mainloop()
 
 
-#TODO: add test_files
-#TODO: implement the super cool terminal (new look + modify subfunctions)
 #TODO: implement all premade functions
 
 #TODO: IDEAS
