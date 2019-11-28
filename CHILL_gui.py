@@ -21,9 +21,10 @@ import Check_series
 import Journal_club
 import OVW_Analyze_overview
 import OVW_Analyze_violations
+import NPC_conversion_suite
 
 # Version
-version = "Version: 0.020"
+version = "Version: 0.021"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -60,6 +61,7 @@ class App(tk.Tk):
         self.frames["StartPage"] = StartPage(parent=container, controller=self)
         self.frames["BasicPage"] = BasicPage(parent=container, controller=self)
         self.frames["PCSPage"] = PCSPage(parent=container, controller=self)
+        self.frames["NPCConversionSuite"] = NPCConversionSuitePage(parent=container, controller=self)
         self.frames["CyanaPage"] = CyanaPage(parent=container, controller=self)
         self.frames["CompareFiles"] = CompareFilesPage(parent=container, controller=self)
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
@@ -69,9 +71,11 @@ class App(tk.Tk):
         self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
         self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
 
+
         self.frames["StartPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["BasicPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["PCSPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["NPCConversionSuite"].grid(row=0, column=0, sticky="nsew")
         self.frames["CyanaPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CompareFiles"].grid(row=0, column=0, sticky="nsew")
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
@@ -445,7 +449,157 @@ class PCSPage(tk.Frame):
         label = tk.Label(self, text="PCS functions.", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page.", command=lambda: controller.show_frame("StartPage"))
-        btnback.pack()
+        btnback.pack(pady=10)
+        btn1 = tk.Button(self, text="NPC: conversion suite", command=lambda: controller.show_frame("NPCConversionSuite"))
+        btn1.pack(pady=10)
+
+class NPCConversionSuitePage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="NPC: conversion suite", font=controller.title_font)
+        title.grid(column=1, columnspan=5, row=1)
+        btnback = tk.Button(self, text="Go back to the PCS functions.", command=lambda: controller.show_frame("PCSPage"))
+        btnback.grid(column=1, columnspan=5, pady=10, row=2)
+        description = tk.Label(self, text=NPC_conversion_suite.general_docstring.__doc__)
+        description.grid(column=1, columnspan=5, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        self.file2 = ""
+        self.file3 = ""
+        # Left
+        lbl1 = tk.Label(self, text="Conversion", font='Arial 16 bold')
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        lbl2 = tk.Label(self, text="Select the .npc file")
+        lbl2.grid(column=1, row=5, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=6)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=6)
+        lbl3 = tk.Label(self, text="Select the .seq file")
+        lbl3.grid(column=1, row=7, pady=10, columnspan=2)
+        btn2 = tk.Button(self, text="Choose the file", command=self.selectfile2)
+        btn2.grid(column=1, row=8)
+        self.labfile2 = tk.Label(self, text="No file selected")
+        self.labfile2.grid(column=2, row=8)
+        lblT = tk.Label(self, text="Tolerance:")
+        lblT.grid(column=1, row=9, pady=10)
+        self.entryT = tk.Entry(self, width=5)
+        self.entryT.grid(column=2, row=9, pady=10)
+        lblW = tk.Label(self, text="Weight:")
+        lblW.grid(column=1, row=10, pady=10)
+        self.entryW = tk.Entry(self, width=5)
+        self.entryW.grid(column=2, row=10, pady=10)
+        lblS = tk.Label(self, text="Sample:")
+        lblS.grid(column=1, row=11, pady=10)
+        self.entryS = tk.Entry(self, width=5)
+        self.entryS.grid(column=2, row=11, pady=10)
+        btnfunC = tk.Button(self, text="Convert", command=self.convertnpc, foreground='red')
+        btnfunC.grid(column=1, row=12, pady=10, columnspan=2)
+        # Middle
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=60, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=7)
+        # Right
+        lbl4 = tk.Label(self, text="Deletion", font='Arial 16 bold')
+        lbl4.grid(column=4, row=4, pady=10, columnspan=2)
+        lbl5 = tk.Label(self, text="Select the .pcs file")
+        lbl5.grid(column=4, row=5, pady=10, columnspan=2)
+        btn3 = tk.Button(self, text="Choose the file", command=self.selectfile3)
+        btn3.grid(column=4, row=6)
+        self.labfile3 = tk.Label(self, text="No file selected")
+        self.labfile3.grid(column=5, row=6)
+        lblM = tk.Label(self, text="Mode:")
+        lblM.grid(column=4, row=7, pady=10)
+        self.comboM = Combobox(self, width=20, values=NPC_conversion_suite.modes)
+        self.comboM.grid(column=5, row=7, pady=10)
+        btnM = tk.Button(self, text="Mode Info", command=self.show_modes_info)
+        btnM.grid(column=5, row=8)
+        btnfunD = tk.Button(self, text="Delete", command=self.deletenpc, foreground='red')
+        btnfunD.grid(column=4, row=9, pady=10, columnspan=2)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("NPC files", ".npc")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def selectfile2(self):
+        self.file2 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Sequence files", ".seq")])
+        self.labfile2.configure(text=os.path.basename(self.file2))
+
+    def convertnpc(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did not select any .npc file.")
+        elif self.file2 == "":
+            messagebox.showerror("Warning", "You did not select any .seq file.")
+        elif self.entryT.get() == "":
+            messagebox.showerror("Warning", "You did not select any tolerance.")
+        elif self.entryS.get() == "":
+            messagebox.showerror("Warning", "You did not select any sample.")
+        elif self.entryW.get() == "":
+            messagebox.showerror("Warning", "You did not select any weight.")
+        else:
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            newname, df = NPC_conversion_suite.conversion(self.file1, self.file2, self.entryT.get(), self.entryS.get(), self.entryW.get())
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+
+    #TODO: implement deletion
+
+    def selectfile3(self):
+        self.file3 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Pseudocontact shift files", ".pcs")])
+        self.labfile3.configure(text=os.path.basename(self.file3))
+
+    def show_modes_info(self):
+        pass
+
+    def deletenpc(self):
+        pass
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(NPC_conversion_suite)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
 
 class CyanaPage(tk.Frame):
 
