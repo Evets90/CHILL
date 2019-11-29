@@ -24,7 +24,7 @@ import OVW_Analyze_violations
 import NPC_conversion_suite
 
 # Version
-version = "Version: 0.021"
+version = "Version: 0.022"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -501,7 +501,7 @@ class NPCConversionSuitePage(tk.Frame):
         # Middle
         self.lblout = tk.Label(self, text="")
         self.lblout.grid(column=3, row=4)
-        self.out = scrolledtext.ScrolledText(self, width=60, height=18, font='Lucida')
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
         self.out.grid(column=3, row=5, rowspan=7)
         # Right
         lbl4 = tk.Label(self, text="Deletion", font='Arial 16 bold')
@@ -509,12 +509,13 @@ class NPCConversionSuitePage(tk.Frame):
         lbl5 = tk.Label(self, text="Select the .pcs file")
         lbl5.grid(column=4, row=5, pady=10, columnspan=2)
         btn3 = tk.Button(self, text="Choose the file", command=self.selectfile3)
-        btn3.grid(column=4, row=6)
+        btn3.grid(column=4, row=6, padx=10)
         self.labfile3 = tk.Label(self, text="No file selected")
         self.labfile3.grid(column=5, row=6)
         lblM = tk.Label(self, text="Mode:")
         lblM.grid(column=4, row=7, pady=10)
         self.comboM = Combobox(self, width=20, values=NPC_conversion_suite.modes)
+        self.comboM.bind('<<ComboboxSelected>>', self.mode_action)
         self.comboM.grid(column=5, row=7, pady=10)
         btnM = tk.Button(self, text="Mode Info", command=self.show_modes_info)
         btnM.grid(column=5, row=8)
@@ -551,18 +552,56 @@ class NPCConversionSuitePage(tk.Frame):
             newname, df = NPC_conversion_suite.conversion(self.file1, self.file2, self.entryT.get(), self.entryS.get(), self.entryW.get())
             stored = "Output stored in: " + newname
             self.lblout.configure(text=stored)
-
-    #TODO: implement deletion
+            self.out.insert('insert', df)
 
     def selectfile3(self):
         self.file3 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Pseudocontact shift files", ".pcs")])
         self.labfile3.configure(text=os.path.basename(self.file3))
 
+    def mode_action(self, event):
+        if self.comboM.get() == "Custom":
+            def okay():
+                """Clears the Journal_club.custom list, store the Entry() widget text in that list (comma separated) and closes the popup window"""
+                eget = e.get().split(", ")
+                NPC_conversion_suite.modeC.clear()
+                for ele in eget:
+                    NPC_conversion_suite.modeC.append(ele)
+                win.destroy()
+            win = tk.Toplevel()
+            win.attributes('-topmost', 1)
+            win.wm_title("Custom Atoms")
+            # Label
+            l = tk.Label(win, text="Insert the atoms you want to keep after the deletion, separated by a comma.")
+            l.grid(row=0, column=0)
+            # Entry
+            e = tk.Entry(win)
+            e.grid(row=1, column=0)
+            # Button
+            b = tk.Button(win, text="Okay", command=okay)
+            b.grid(row=2, column=0)
+
     def show_modes_info(self):
-        pass
+        if self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        else:
+            mode = self.comboM.get()
+            keywords = NPC_conversion_suite.modes_dictionary[mode]
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            messagebox.showinfo("The following atoms will be kept", ", ".join(keywords))
 
     def deletenpc(self):
-        pass
+        if self.file3 == "":
+            messagebox.showerror("Warning", "You did not select any file.")
+        elif self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        else:
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            newname, df = NPC_conversion_suite.deletion(self.file3, self.comboM.get())
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', df)
 
     def show_source_code(self):
         # Variable

@@ -1,4 +1,3 @@
-#Residue_Number	Residue_Type	Atom	PCS	Tolerance	Weight	Sample
 1	PRO	    N	-0.037	2	5	10
 1	PRO	   CA	-0.040	2	5	10
 1	PRO	   HA	-0.042	2	5	10
