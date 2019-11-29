@@ -22,9 +22,10 @@ import Journal_club
 import OVW_Analyze_overview
 import OVW_Analyze_violations
 import NPC_conversion_suite
+import Randomization
 
 # Version
-version = "Version: 0.022"
+version = "Version: 0.023"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -62,6 +63,7 @@ class App(tk.Tk):
         self.frames["BasicPage"] = BasicPage(parent=container, controller=self)
         self.frames["PCSPage"] = PCSPage(parent=container, controller=self)
         self.frames["NPCConversionSuite"] = NPCConversionSuitePage(parent=container, controller=self)
+        self.frames["RandomizationPage"] = RandomizationPage(parent=container, controller=self)
         self.frames["CyanaPage"] = CyanaPage(parent=container, controller=self)
         self.frames["CompareFiles"] = CompareFilesPage(parent=container, controller=self)
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
@@ -76,6 +78,7 @@ class App(tk.Tk):
         self.frames["BasicPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["PCSPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["NPCConversionSuite"].grid(row=0, column=0, sticky="nsew")
+        self.frames["RandomizationPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CyanaPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CompareFiles"].grid(row=0, column=0, sticky="nsew")
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
@@ -452,6 +455,8 @@ class PCSPage(tk.Frame):
         btnback.pack(pady=10)
         btn1 = tk.Button(self, text="NPC: conversion suite", command=lambda: controller.show_frame("NPCConversionSuite"))
         btn1.pack(pady=10)
+        btn2 = tk.Button(self, text="Randomization", command=lambda: controller.show_frame("RandomizationPage"))
+        btn2.pack(pady=10)
 
 class NPCConversionSuitePage(tk.Frame):
 
@@ -606,6 +611,109 @@ class NPCConversionSuitePage(tk.Frame):
     def show_source_code(self):
         # Variable
         loc = inspect.getfile(NPC_conversion_suite)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class RandomizationPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="Randomization", font=controller.title_font)
+        title.grid(column=1, columnspan=2, row=1)
+        btnback = tk.Button(self, text="Go back to the PCS functions.", command=lambda: controller.show_frame("PCSPage"))
+        btnback.grid(column=1, columnspan=2, pady=10, row=2)
+        description = tk.Label(self, text=Randomization.randomization.__doc__)
+        description.grid(column=1, columnspan=2, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        # Left
+        lbl1 = tk.Label(self, text="Select the .pcs file")
+        lbl1.grid(column=1, row=4, pady=10)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=1, row=6)
+        lbl2 = tk.Label(self, text="Select the % of pcs to keep.")
+        lbl2.grid(column=1, row=7, pady=10)
+        self.entryP = tk.Entry(self, width=5)
+        self.entryP.grid(column=1, row=8, pady=10)
+        btnfun = tk.Button(self, text="Randomize", command=self.randomize_pcs, foreground='red')
+        btnfun.grid(column=1, row=9, pady=10)
+        # Right
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=2, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=2, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Pseudocontact shift files", ".pcs")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def randomize_pcs(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did not select any pcs file.")
+        elif self.entryP.get() == "":
+            messagebox.showerror("Warning", "You did not input any %.")
+        else:
+            try:
+                val = int(self.entryP.get())
+            except ValueError:
+                messagebox.showerror("Warning", "Please input a numeric value.")
+            try:
+                int(self.entryP.get()) + 1
+            except TypeError:
+                messagebox.showerror("Warning", "Please input a numeric value between 100 and 0.")
+            if int(self.entryP.get()) > 100 or int(self.entryP.get()) <= 0:
+                messagebox.showerror("Warning", "Please input a numeric value between 100 and 0.")
+            else:
+                self.out.delete('1.0', tk.END)
+                self.lblout.configure(text="")
+                pl = PrintLogger(self.out)
+                sys.stdout = pl
+                newname, df = Randomization.randomization(self.file1, (int(self.entryP.get())/100))
+                stored = "Output stored in: " + newname
+                self.lblout.configure(text=stored)
+                self.out.insert('insert', df)
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Randomization)
         # Window
         win = tk.Toplevel()
         win.attributes('-topmost', 1)

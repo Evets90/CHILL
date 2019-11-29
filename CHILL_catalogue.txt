@@ -8,9 +8,8 @@
 ---------
 ---PCS---
 ---------
->   NPC conversion suite: TBA
->   Randomization: TBA
->   Merging: TBA
+>   NPC conversion suite: convert a .npc file produced by NUMBAT into a .pcs file with the option to delete a subset of unwanted atoms.
+>   Randomization: delete a random % of PCS from a .pcs file.
 >   Mapping: TBA
 >   Range deletion: TBA
 >   Get subset: TBA
