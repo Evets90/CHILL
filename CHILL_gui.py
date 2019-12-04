@@ -26,7 +26,7 @@ import Randomization
 import Range_deletion
 
 # Version
-version = "Version: 0.024"
+version = "Version: 0.025"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -534,6 +534,7 @@ class NPCConversionSuitePage(tk.Frame):
         # Source
         btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
         btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+        # TODO: add header functionality
 
     def selectfile1(self):
         self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("NPC files", ".npc")])
@@ -767,6 +768,7 @@ class RangeDeletionPage(tk.Frame):
         description.grid(column=1, columnspan=3, pady=10, row=3)
         # Specific
         self.file1 = ""
+        self.header = 0
         # Left
         lbl1 = tk.Label(self, text="Select the .pcs file")
         lbl1.grid(column=1, row=4, pady=10, columnspan=2)
@@ -778,18 +780,22 @@ class RangeDeletionPage(tk.Frame):
         lbl2.grid(column=1, row=6, pady=10, columnspan=2)
         lbl3 = tk.Label(self, text="Column")
         lbl3.grid(column=1, row=7, pady=10)
-        self.comboC = Combobox(self, width=5, values=["Residue Number", "PCS", "Sample"])
+        self.comboC = Combobox(self, width=10, values=["Residue Number", "PCS", "Sample"])
+        self.comboC.bind('<<ComboboxSelected>>', self.get_limits)
         self.comboC.grid(column=2, row=7, pady=10)
+        self.comboC['state'] = 'disabled'
         lbl4 = tk.Label(self, text="Start")
         lbl4.grid(column=1, row=8, pady=10)
         self.comboMin = Combobox(self, width=5, values="")
         self.comboMin.grid(column=2, row=8, pady=10)
+        self.comboMin['state'] = 'disabled'
         lbl5 = tk.Label(self, text="End")
         lbl5.grid(column=1, row=9, pady=10)
         self.comboMax = Combobox(self, width=5, values="")
         self.comboMax.grid(column=2, row=9, pady=10)
-        CheckVar1 = tk.IntVar()
-        chk1 = tk.Checkbutton(self, text="inverse", variable=CheckVar1)
+        self.comboMax['state'] = 'disabled'
+        self.CheckVar1 = tk.IntVar()
+        chk1 = tk.Checkbutton(self, text="inverse", variable=self.CheckVar1, onvalue=1, offvalue=0)
         chk1.grid(column=2, row=10, pady=10)
         btnfun = tk.Button(self, text="Delete", command=self.delete_range, foreground='red')
         btnfun.grid(column=1, row=11, pady=10, columnspan=2)
@@ -805,9 +811,40 @@ class RangeDeletionPage(tk.Frame):
     def selectfile1(self):
         self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Pseudocontact shift files", ".pcs")])
         self.labfile1.configure(text=os.path.basename(self.file1))
+        self.comboC['state'] = 'enabled'
+
+    def get_limits(self, event):
+        with open(self.file1) as f:
+            if f.readline().strip()[:8] == "#Sample " or f.readline().strip()[:8] == "# Sample":
+                self.header = 1
+        if self.header == 1:
+            mydf = pd.read_csv(self.file1, sep="\s+", header=2,
+                               names=["Residue Number", "Rest", "Atom", "PCS", "Error", "Weight", "Sample"])
+        else:
+            mydf = pd.read_csv(self.file1, sep="\s+", names=["Residue Number", "Rest", "Atom", "PCS", "Error", "Weight", "Sample"])
+        elements = round(mydf[self.comboC.get()], 3).drop_duplicates().sort_values().to_list()
+        self.comboMin['values'] = elements
+        self.comboMax['values'] = elements
+        self.comboMin['state'] = 'enabled'
+        self.comboMax['state'] = 'enabled'
 
     def delete_range(self):
-        pass
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did not select any pcs file.")
+        elif self.comboMin.get() == "" or self.comboMax.get() == "":
+            messagebox.showerror("Warning", "You did not select the limits.")
+        else:
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            if self.CheckVar1.get() == 1:
+                newname, df = Range_deletion.pcs_range_deletion(self.file1, float(self.comboMin.get()), float(self.comboMax.get()), self.comboC.get(), header=self.header, inverse="on")
+            else:
+                newname, df = Range_deletion.pcs_range_deletion(self.file1, float(self.comboMin.get()),float(self.comboMax.get()), self.comboC.get(),header=self.header)
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', df)
 
     def show_source_code(self):
         # Variable
