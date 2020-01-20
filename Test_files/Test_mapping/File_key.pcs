@@ -1,0 +1,10 @@
+#Sample  Magnitude Rhombicity Residue
+      1 -3.810E+05      0.430     300
+#      Atom         PCS   Error    Weight Sample
+   1 GLY  N      -0.037   0.020  1.00E+00      1
+   1 GLY  H      -0.036   0.020  1.00E+00      1
+   1 GLY  CA      0.400   0.020  1.00E+00      1
+   2 GLU  N      -0.043   0.020  1.00E+00      1
+   2 GLU  H      -0.045   0.020  1.00E+00      1
+   3 LEU  N      -0.044   0.020  1.00E+00      1
+   3 LEU  CA      0.500   0.020  1.00E+00      1

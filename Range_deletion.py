@@ -5,7 +5,7 @@ import os
 def pcs_range_deletion(file, min, max, column, inverse="off", header=0):
     """
     DESCRIPTION
-    This takes a .pcs file and remove deletes all the values in a specified numeric column (residue number, PCS or
+    This takes a .pcs file and deletes all the values in a specified numeric column (residue number, PCS or
     sample) in a specified range. Indicated boundaries are included in the deletion. If the inverse mode is selected,
     the range is maintained and everything else is removed.
         """
