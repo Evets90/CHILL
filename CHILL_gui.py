@@ -28,7 +28,7 @@ import Mapping
 import Pcs_subset
 
 # Version
-version = "Version: 0.027"
+version = "Version: 0.028"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -1021,11 +1021,20 @@ class PcsSubsetPage(tk.Frame):
         self.comboM.bind('<<ComboboxSelected>>', self.mode_action)
         self.comboM['state'] = 'disabled'
         self.comboM.grid(column=2, row=6, pady=10)
-        # TODO: add values
+        lblV = tk.Label(self, text="Subset value:")
+        lblV.grid(column=1, row=7, pady=10)
+        self.entryV = tk.Entry(self, width=5)
+        self.entryV['state'] = 'disabled'
+        self.entryV.grid(column=2, row=7, pady=10)
+        lblS = tk.Label(self, text="Seed:")
+        lblS.grid(column=1, row=8, pady=10)
+        self.entryS = tk.Entry(self, width=5)
+        self.entryS['state'] = 'disabled'
+        self.entryS.grid(column=2, row=8, pady=10)
 
 
         btnfun = tk.Button(self, text="Get subset", command=self.get_subset, foreground='red')
-        btnfun.grid(column=1, row=11, pady=10, columnspan=2)
+        btnfun.grid(column=1, row=9, pady=10, columnspan=2)
         # Right
         self.lblout = tk.Label(self, text="")
         self.lblout.grid(column=3, row=4)
@@ -1040,13 +1049,34 @@ class PcsSubsetPage(tk.Frame):
         self.labfile1.configure(text=os.path.basename(self.file1))
         self.comboM['state'] = 'enabled'
 
-    def mode_action(self):
-        pass
+    def mode_action(self, event):
+        self.entryV['state'] = 'normal'
+        self.entryS['state'] = 'normal'
 
 
     def get_subset(self):
-        pass
-
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did not select any pcs file.")
+        elif self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.entryV.get() == "":
+            messagebox.showerror("Warning", "You did not select any subset value.")
+        elif self.comboM.get() == "Percentage" and not 0 < int(self.entryV.get()) <= 100:
+            messagebox.showerror("Warning", "In percentage mode insert a subset value between 1 and 100.")
+        elif self.comboM.get() == "Integer" and (float(self.entryV.get()).is_integer() == False or int(self.entryV.get()) < 1):
+            messagebox.showerror("Warning", "In integer mode insert an integer as subset value (min 1).")
+        else:
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            if self.entryS.get() == "":
+                newname, df = Pcs_subset.pcs_subset(self.file1, int(self.entryV.get()), self.comboM.get())
+            else:
+                newname, df = Pcs_subset.pcs_subset(self.file1, int(self.entryV.get()), self.comboM.get(), int(self.entryS.get()))
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', df)
 
 
     def show_source_code(self):

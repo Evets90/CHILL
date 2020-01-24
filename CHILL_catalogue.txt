@@ -12,7 +12,7 @@
 >   Randomization: delete a random % of PCS from a .pcs file. merge with get subset
 >   Range deletion: delete all values in a selected range for a numeric column of a .pcs file.
 >   Mapping: map a .pcs 'map' file on a .pcs 'key' file based on assignments (residue number - atom pair)
->   Get subset: TBA
+>   Get subset: extract from a .pcs file a subset of pcs based on a specified integer value or percentage.
 >   Add module: TBA
 >   Increase mapped: TBA
 
