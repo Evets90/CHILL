@@ -27,9 +27,10 @@ import Range_deletion
 import Mapping
 import Pcs_subset
 import Add_module
+import Increased_mapped
 
 # Version
-version = "Version: 0.029"
+version = "Version: 0.030"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -72,6 +73,7 @@ class App(tk.Tk):
         self.frames["Mapping"] = MappingPage(parent=container, controller=self)
         self.frames["PcsSubset"] = PcsSubsetPage(parent=container, controller=self)
         self.frames["AddModulePage"] = AddModulePage(parent=container, controller=self)
+        self.frames["IncreaseMappedPage"] = IncreaseMappedPage(parent=container, controller=self)
         self.frames["CyanaPage"] = CyanaPage(parent=container, controller=self)
         self.frames["CompareFiles"] = CompareFilesPage(parent=container, controller=self)
         self.frames["CleanSpaces"] = CleanSpacesPage(parent=container, controller=self)
@@ -91,6 +93,7 @@ class App(tk.Tk):
         self.frames["Mapping"].grid(row=0, column=0, sticky="nsew")
         self.frames["PcsSubset"].grid(row=0, column=0, sticky="nsew")
         self.frames["AddModulePage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["IncreaseMappedPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CyanaPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["CompareFiles"].grid(row=0, column=0, sticky="nsew")
         self.frames["CleanSpaces"].grid(row=0, column=0, sticky="nsew")
@@ -477,6 +480,8 @@ class PCSPage(tk.Frame):
         btn5.pack(pady=10)
         btn6 = tk.Button(self, text="Add module", command=lambda: controller.show_frame("AddModulePage"))
         btn6.pack(pady=10)
+        btn7 = tk.Button(self, text="Increase mapped", command=lambda: controller.show_frame("IncreaseMappedPage"))
+        btn7.pack(pady=10)
 
 class NPCConversionSuitePage(tk.Frame):
 
@@ -1199,6 +1204,143 @@ class AddModulePage(tk.Frame):
     def show_source_code(self):
         # Variable
         loc = inspect.getfile(Add_module)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class IncreaseMappedPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="Increase mapped", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the PCS functions.",
+                            command=lambda: controller.show_frame("PCSPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=Increased_mapped.increase_mapped.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        self.file2 = ""
+        # Left
+        lbl1 = tk.Label(self, text="Select the 'map' .pcs file")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5)
+        lbl2 = tk.Label(self, text="Select the 'mapped' .pcs file")
+        lbl2.grid(column=1, row=6, pady=10, columnspan=2)
+        btn2 = tk.Button(self, text="Choose the file", command=self.selectfile2)
+        btn2.grid(column=1, row=7, pady=10)
+        self.labfile2 = tk.Label(self, text="No file selected")
+        self.labfile2.grid(column=2, row=7)
+        lblM = tk.Label(self, text="Mode:")
+        lblM.grid(column=1, row=8, pady=10)
+        self.comboM = Combobox(self, width=15, values=["Percentage", "Integer"])
+        self.comboM.bind('<<ComboboxSelected>>', self.mode_action)
+        self.comboM.grid(column=2, row=8, pady=10)
+        lblV = tk.Label(self, text="Subset value:")
+        lblV.grid(column=1, row=9, pady=10)
+        self.entryV = tk.Entry(self, width=5)
+        self.entryV['state'] = 'disabled'
+        self.entryV.grid(column=2, row=9, pady=10)
+        lblS = tk.Label(self, text="Seed:")
+        lblS.grid(column=1, row=10, pady=10)
+        self.entryS = tk.Entry(self, width=5)
+        self.entryS['state'] = 'disabled'
+        self.entryS.grid(column=2, row=10, pady=10)
+        #self.CheckVar1 = tk.IntVar()
+        #chk1 = tk.Checkbutton(self, text="Check sequence integrity", variable=self.CheckVar1, onvalue=1, offvalue=0)
+        #chk1.grid(column=2, row=9, pady=10)
+        btnfun = tk.Button(self, text="Add module", command=self.do_increase_mapped, foreground='red')
+        btnfun.grid(column=1, row=11, pady=10, columnspan=2)
+        # Right
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__),
+                                                filetypes=[("Pseudocontact shift files", ".pcs")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def selectfile2(self):
+        self.file2 = filedialog.askopenfilename(initialdir=path.dirname(__file__),
+                                                filetypes=[("Pseudocontact shift files", ".pcs")])
+        self.labfile2.configure(text=os.path.basename(self.file2))
+
+    def mode_action(self, event):
+        self.entryV['state'] = 'normal'
+        self.entryS['state'] = 'normal'
+
+    def do_increase_mapped(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did not select any 'map' .pcs file.")
+        elif self.file2 == "":
+            messagebox.showerror("Warning", "You did not select any 'mapped' .pcs file.")
+        elif self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.entryV.get() == "":
+            messagebox.showerror("Warning", "You did not select any increase value.")
+        elif self.comboM.get() == "Percentage" and not 0 < int(self.entryV.get()) <= 100:
+            messagebox.showerror("Warning", "In percentage mode insert an increase value between 1 and 100.")
+        elif self.comboM.get() == "Integer" and (
+                float(self.entryV.get()).is_integer() == False or int(self.entryV.get()) < 1):
+            messagebox.showerror("Warning", "In integer mode insert an integer as subset value (min 1).")
+        else:
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            if self.entryS.get() == "":
+                newname, df = Increased_mapped.increase_mapped(self.file1, self.file2, int(self.entryV.get()), self.comboM.get())
+            else:
+                newname, df = Increased_mapped.increase_mapped(self.file1, self.file2,
+                                                               int(self.entryV.get()), self.comboM.get(), seed=int(self.entryS.get()))
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', df)
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Increased_mapped)
         # Window
         win = tk.Toplevel()
         win.attributes('-topmost', 1)
