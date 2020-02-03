@@ -13,8 +13,8 @@
 >   Range deletion: delete all values in a selected range for a numeric column of a .pcs file.
 >   Mapping: map a .pcs 'map' file on a .pcs 'key' file based on assignments (residue number - atom pair)
 >   Get subset: extract from a .pcs file a subset of pcs based on a specified integer value or percentage.
->   Add module: follow-up of the mapping function, adds a specified dArmRP module from a 'map' to a 'file'
->   Increase mapped: TBA
+>   Add module: follow-up of the mapping function, adds a specified dArmRP module from a 'map' to a 'key' file
+>   Increase mapped: follow-up of the mapping function, adds a specified amount of pcs from a 'map' to a 'mapped' file respecting the original mapping.
 
 -----------
 ---CYANA---

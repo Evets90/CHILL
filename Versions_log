@@ -1,0 +1,81 @@
+CURRENT VERSION (0.031)
+Added the 'What's new?' button in the main page with corresponding version_log.txt file.
+
+PAST VERSIONS:
+v0.030:
+    Increase mapped - added function, page and test files
+v0.029:
+    Add module - added function, page and test files
+v0.028:
+    Get subset - completed the function and page
+v0.027:
+    Get subset - implemented test file and function + page backbones
+v0.026:
+    Mapping - implemented function, page and test files
+v0.025:
+    Completed the Range deletion page
+v0.024:
+    Added the Range deletion (backbone) page and respective function and test files
+v0.023:
+    Added the Randomization page and respective function and test files
+v0.022:
+    Added the deletion function in the NPC: conversion suite page
+v0.021:
+    Added the NPC: conversion suite page (partially), related function and test files
+v0.020:
+    Added the functions catalogue
+v0.019:
+    Added OVW: Analyze violations page
+v0.018:
+    Added OVW: Analyze overview page
+v0.017:
+    Added OVW: Analyze overview page backbone
+v0.016:
+    improved Clean_spaces, Check_series and Compare_files
+    added CHILL_catalogue.txt
+v0.015:
+    added Source Code function for all existing function pages
+v0.014:
+    Journal club - added custom mode
+    Journal club - added impact factors mode
+v0.013:
+    Journal club - added keyword highlights
+    Journal club - added Science (AAAS) articles
+    Journal club - added Science Advances
+    Journal club - added Science Immunology
+    Journal club - added Science Robotics
+    Journal club - added Science Signaling
+    Journal club - added Science Translational Medicine
+v0.012:
+    Journal club - added Science (AAAS) issues
+v0.011:
+    Journal club - added PNAS
+v0.010:
+    Journal club - added several journals
+    Journal club - complete keywords rework
+v0.009:
+    Journal club - added Cell - Structure
+v0.008:
+    Journal club - added ACS - Biochemistry and Journal of Biological Chemistry
+v0.007:
+    Journal club - added Protein Science
+v0.006:
+    Journal club - added Annual Reviews of Biophysics and Journal of Biomolecular NMR
+v0.005:
+    Journal club - added Annual Reviews of Biochemistry
+v0.004:
+    Journal club - added Nature Biotechnology, Nature Protocols, Nature Reviews Drug Discovery, Nature Structural and Molecular Biology
+v0.003:
+    Journal club - added Nature Methods
+v0.002:
+    Added page - web scraping
+    Added page - Journal club
+    Journal club - function backbone + set of intial 6 journals
+v0.001:
+    Added logos
+    Added version number
+    Added PrintLogger()
+    Added pillow and pathlib
+    Added initial test files
+
+More info: https://github.com/Evets90/CHILL/commits/master

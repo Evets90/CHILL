@@ -1429,6 +1429,12 @@ def science_translational_medicine(url, mode):
     return selected
 
 # TODO: journals to be added:
+# ACS chemical biology (ACS publications) - https://pubs.acs.org/loi/acbcct
+# ACS jounral of medicinal chemistry (ACS publications) - https://pubs.acs.org/loi/jmcmar
+# ACS chemical reviews (ACS publications) - https://pubs.acs.org/loi/chreay
+# Metallomics (weird, check) - https://pubs.rsc.org/en/journals/journalissues/mt?_ga=2.175787559.408975122.1580749953-1017653245.1568722978#!issueid=mt012001&type=current&issnprint=1756-5901
+# Progress in nuclear magnetic resonance spectroscopy (elsevier probably blocked) - https://www.sciencedirect.com/journal/progress-in-nuclear-magnetic-resonance-spectroscopy/issues
+#
 
 # TODO: journals that does not allow web scraping
 # Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology
@@ -1443,8 +1449,6 @@ def science_translational_medicine(url, mode):
 # zip titles: acs biochemistry
 # aaas: science
 
-
-#get_issues_jbc("https://www.jbc.org//content/by/year/2019")
 
 # TODO: fix wiley captcha,
 #  fix JBC

@@ -4,6 +4,7 @@ import pandas as pd
 import tkinter as tk
 import inspect
 import os
+import re
 from tkinter import font as tkfont
 from tkinter import filedialog
 from tkinter import messagebox
@@ -30,7 +31,7 @@ import Add_module
 import Increased_mapped
 
 # Version
-version = "Version: 0.030"
+version = "Version: 0.031"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -135,7 +136,9 @@ class StartPage(tk.Frame):
         # Version
         global version
         labversion = tk.Label(self, text=version, anchor='se')
-        labversion.pack(side='bottom', fill='both')
+        labversion.place(rely=1.0, relx=1.0, x=-5, y=-25, anchor='se')
+        btnversion = tk.Button(self, text="What's new?", anchor='se', command=self.get_version_log)
+        btnversion.place(rely=1.0, relx=1.0, x=-5, y=0, anchor='se')
 
         # Catalogue
         btncatalogue = tk.Button(self, text="Function Catalogue", anchor='sw', command=self.get_catalogue)
@@ -161,7 +164,7 @@ class StartPage(tk.Frame):
         win.attributes('-topmost', 1)
         win.wm_title("Functions Catalogue")
         # Scrolled Text
-        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t = scrolledtext.ScrolledText(win, width=200, height=50)
         t.tag_configure('category', foreground='purple')
         t.tag_configure('function_name', foreground='red')
         # Get Text
@@ -176,6 +179,28 @@ class StartPage(tk.Frame):
                     t.insert('insert', splitted[1], 'description')
                 except IndexError:
                     pass
+            else:
+                t.insert('insert', line, 'other')
+        t.pack()
+
+    def get_version_log(self):
+        # Variable
+        loc = os.getcwd() + "/Versions_log"
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("What's new?")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=50)
+        t.tag_configure('version', foreground='purple')
+        t.tag_configure('title', foreground='red')
+        # Get Text
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "VERSION" in line:
+                t.insert('insert', line, 'title')
+            elif re.match("v\d.\d", line):
+                t.insert('insert', line, 'version')
             else:
                 t.insert('insert', line, 'other')
         t.pack()
@@ -2051,6 +2076,9 @@ if __name__ == "__main__":
 
 
 #TODO: implement all premade functions
+# TODO: add version log
 
 #TODO: IDEAS
 #       1-logo Asimov
+#       2-lunch conversation topic generator (BBC mixing)
+
