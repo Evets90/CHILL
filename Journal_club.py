@@ -28,7 +28,7 @@ def general_docstring():
 
 
 # keywords lists
-journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers", "Journal of the American Chemical Society (JACS)", "PNAS", "Science (AAAS)", "Science Advances", "Science Immunology", "Science Robotics", "Science Signaling", "Science Translational Medicine"]
+journals = ['Nature', 'Biophysical Journal', 'Proteins', "EMBO", "Cell", "Angewandte", "Nature Methods", "Nature Protocols", "Nature Biotechnology", "Nature Structural and Molecular Biology", "Nature Reviews Drug Discovery", "Annual Reviews of Biochemistry", "Annual Reviews of Biophysics", "Journal of Biomolecular NMR", "Protein Science", "ACS - Biochemistry", "Journal of Biological Chemistry", "Cell - Structure", "Trends in Pharmacological Sciences", "Trends in Biochemical Sciences", "Trends in Biotechnology", "Molecular Cell", "FEBS letters", "Biopolymers", "Journal of the American Chemical Society (JACS)", "PNAS", "Science (AAAS)", "Science Advances", "Science Immunology", "Science Robotics", "Science Signaling", "Science Translational Medicine", "ACS - Chemical Biology", "ACS - Journal of Medicinal Chemistry", "ACS - Chemical Reviews"]
 modes = ['Standard', 'Loose', 'All', 'Funny', 'Custom', 'Impact Factors']
 standard = []
 loose = []
@@ -51,11 +51,11 @@ capital(loose_ini2, loose)
 capital(funny_ini, funny)
 
 # dictionaries
-volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282", "Journal of the American Chemical Society (JACS)": "https://pubs.acs.org/loi/jacsat", "PNAS": "https://www.pnas.org/content/by/year", "Science (AAAS)": "https://science.sciencemag.org/content/by/year", "Science Advances": "https://advances.sciencemag.org/content/by/year", "Science Immunology": "https://immunology.sciencemag.org/content/by/year", "Science Robotics": "https://robotics.sciencemag.org/content/by/year", "Science Signaling": "https://stke.sciencemag.org/content/by/year", "Science Translational Medicine": "https://stm.sciencemag.org/content/by/year"}
+volumes_url = {"Nature": "https://www.nature.com/nature/volumes", "Biophysical Journal": "https://www.cell.com/biophysj/archive", "Proteins": "https://onlinelibrary.wiley.com/loi/10970134", "EMBO": "https://www.embopress.org/loi/14602075", "Cell": "https://www.cell.com/cell/archive", "Angewandte": "https://onlinelibrary.wiley.com/loi/15213773", "Nature Methods" : "https://www.nature.com/nmeth/volumes", "Nature Protocols": "https://www.nature.com/nprot/volumes", "Nature Biotechnology": "https://www.nature.com/nbt/volumes", "Nature Structural and Molecular Biology": "https://www.nature.com/nsmb/volumes", "Nature Reviews Drug Discovery": "https://www.nature.com/nrd/volumes", "Annual Reviews of Biochemistry": "https://www.annualreviews.org/loi/biochem", "Annual Reviews of Biophysics": "https://www.annualreviews.org/loi/biophys", "Journal of Magnetic Resonance": "https://www.sciencedirect.com/journal/journal-of-magnetic-resonance/issues", "Journal of Biomolecular NMR": "https://link.springer.com/journal/volumesAndIssues/10858", "Protein Science": "https://onlinelibrary.wiley.com/loi/1469896x", "ACS - Biochemistry": "https://pubs.acs.org/loi/bichaw", "Journal of Biological Chemistry": "http://www.jbc.org/content/by/year", "Cell - Structure": "https://www.cell.com/structure/archive", "Trends in Pharmacological Sciences": "https://www.cell.com/trends/pharmacological-sciences/archive", "Trends in Biochemical Sciences": "https://www.cell.com/trends/biochemical-sciences/archive", "Trends in Biotechnology": "https://www.cell.com/trends/biotechnology/archive", "Molecular Cell": "https://www.cell.com/molecular-cell/archive", "FEBS letters": "https://febs.onlinelibrary.wiley.com/loi/18733468", "Biopolymers": "https://onlinelibrary.wiley.com/loi/10970282", "Journal of the American Chemical Society (JACS)": "https://pubs.acs.org/loi/jacsat", "PNAS": "https://www.pnas.org/content/by/year", "Science (AAAS)": "https://science.sciencemag.org/content/by/year", "Science Advances": "https://advances.sciencemag.org/content/by/year", "Science Immunology": "https://immunology.sciencemag.org/content/by/year", "Science Robotics": "https://robotics.sciencemag.org/content/by/year", "Science Signaling": "https://stke.sciencemag.org/content/by/year", "Science Translational Medicine": "https://stm.sciencemag.org/content/by/year", "ACS - Chemical Biology": "https://pubs.acs.org/loi/acbcct", "ACS - Journal of Medicinal Chemistry" : "https://pubs.acs.org/loi/jmcmar", "ACS - Chemical Reviews": "https://pubs.acs.org/loi/chreay"}
 modes_dictionary = {"Standard": standard, "Loose": loose, "Funny": funny, "All": "all", "Custom": custom}
 volumes_dictionary = {}
 issues_dictionary = {}
-impact_factor_dictionary = {'Nature': 43.070,'Biophysical Journal': 3.665, 'Proteins': 2.499, "EMBO": 11.2, "Cell": 36.216, "Angewandte": 12.257, "Nature Methods": 28.467, "Nature Protocols": 15.086, "Nature Biotechnology": 35.724, "Nature Structural and Molecular Biology": 12.595, "Nature Reviews Drug Discovery": 57.000, "Annual Reviews of Biochemistry": 30.283, "Annual Reviews of Biophysics": 12.250, "Journal of Biomolecular NMR": 2.534, "Protein Science": 2.735, "ACS - Biochemistry": 2.876, "Journal of Biological Chemistry": 4.106, "Cell - Structure": 4.576, "Trends in Pharmacological Sciences": 10.148, "Trends in Biochemical Sciences": 14.273, "Trends in Biotechnology": 2.370, "Molecular Cell": 14.548, "FEBS letters": 2.675, "Biopolymers": 2.248, "Journal of the American Chemical Society (JACS)": 14.695, "PNAS": 9.58, "Science (AAAS)": 41.063, "Science Advances": 12.804, "Science Immunology": 10.551, "Science Robotics": 19.400, "Science Signaling": 6.481, "Science Translational Medicine": 16.796}
+impact_factor_dictionary = {'Nature': 43.070,'Biophysical Journal': 3.665, 'Proteins': 2.499, "EMBO": 11.2, "Cell": 36.216, "Angewandte": 12.257, "Nature Methods": 28.467, "Nature Protocols": 15.086, "Nature Biotechnology": 35.724, "Nature Structural and Molecular Biology": 12.595, "Nature Reviews Drug Discovery": 57.000, "Annual Reviews of Biochemistry": 30.283, "Annual Reviews of Biophysics": 12.250, "Journal of Biomolecular NMR": 2.534, "Protein Science": 2.735, "ACS - Biochemistry": 2.876, "Journal of Biological Chemistry": 4.106, "Cell - Structure": 4.576, "Trends in Pharmacological Sciences": 10.148, "Trends in Biochemical Sciences": 14.273, "Trends in Biotechnology": 2.370, "Molecular Cell": 14.548, "FEBS letters": 2.675, "Biopolymers": 2.248, "Journal of the American Chemical Society (JACS)": 14.695, "PNAS": 9.58, "Science (AAAS)": 41.063, "Science Advances": 12.804, "Science Immunology": 10.551, "Science Robotics": 19.400, "Science Signaling": 6.481, "Science Translational Medicine": 16.796, "ACS - Chemical Biology": 4.374, "ACS - Journal of Medicinal Chemistry": 6.054, "ACS - Chemical Reviews": 54.301}
 
 # selection regular expressions
 regex_acs_biochemistry_issue_title1 = "class=\"coverDate\">(.*?)</span>"
@@ -64,6 +64,20 @@ regex_acs_biochemistry_issue_title3 = "</span>(.*?)</a>"
 regex_acs_biochemistry_issue_link = "href=\"(.*?)\">"
 regex_acs_biochemistry_article_title = "href=\"(.*?)\">(.*?)</a>"
 regex_acs_biochemistry_article_link = "href=\"(.*?)\">"
+
+regex_acs_chemicalbiology_issue_title1 = "class=\"coverDate\">(.*?)</span>"
+regex_acs_chemicalbiology_issue_title2 = "class=\"comma\">(.*?)</span>"
+regex_acs_chemicalbiology_issue_title3 = "</span>(.*?)</a>"
+regex_acs_chemicalbiology_issue_link = "href=\"(.*?)\">"
+regex_acs_chemicalbiology_article_link = "href=\"(.*?)\">"
+
+regex_acs_chemicalreviews_issue_title1 = "class=\"coverDate\">(.*?)</span>"
+regex_acs_chemicalreviews_issue_title2 = "class=\"comma\">(.*?)</span>"
+regex_acs_chemicalreviews_issue_title3 = "</span>(.*?)</a>"
+
+regex_acs_medicinalchemistry_issue_title1 = "class=\"coverDate\">(.*?)</span>"
+regex_acs_medicinalchemistry_issue_title2 = "class=\"comma\">(.*?)</span>"
+regex_acs_medicinalchemistry_issue_title3 = "</span>(.*?)</a>"
 
 regex_arb_volumes_title = "\">(.*?)<"
 regex_arb_volumes_link = "href=\"(.*?)\""
@@ -250,6 +264,105 @@ def acs_biochemistry(url, mode):
         elif any(a in str(ele) for a in mode):
             title = "".join(list(zip(re.findall(regex_acs_biochemistry_article_title, str(ele))[0]))[1])
             link = "https://pubs.acs.org" + re.findall(regex_acs_biochemistry_issue_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_acs_chemicalbiology(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("div", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = re.findall(regex_acs_chemicalbiology_issue_title1, str(ele))[0] + " - " + re.findall(regex_acs_chemicalbiology_issue_title2, str(ele))[0] + " - " + re.findall(regex_acs_chemicalbiology_issue_title3, str(ele))[1]
+        link = "https://pubs.acs.org" + re.findall(regex_acs_chemicalbiology_issue_link, str(ele))[0]
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def acs_chemicalbiology(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h5", class_="issue-item_title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + re.findall(regex_acs_chemicalbiology_issue_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + re.findall(regex_acs_chemicalbiology_issue_link, str(ele))[0]
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_acs_chemicalreviews(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("div", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = re.findall(regex_acs_chemicalreviews_issue_title1, str(ele))[0] + " - " + re.findall(regex_acs_chemicalreviews_issue_title2, str(ele))[0] + " - " + re.findall(regex_acs_chemicalreviews_issue_title3, str(ele))[1]
+        link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def acs_chemicalreviews(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h5", class_="issue-item_title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
+            selected.append(title)
+            selected.append(link)
+    return selected
+
+def get_issues_acs_medicinalchemistry(url):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("div", class_="parent-item")
+    selected = []
+    for ele in mydivs:
+        title = re.findall(regex_acs_medicinalchemistry_issue_title1, str(ele))[0] + " - " + re.findall(regex_acs_medicinalchemistry_issue_title2, str(ele))[0] + " - " + re.findall(regex_acs_medicinalchemistry_issue_title3, str(ele))[1]
+        link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
+        selected.append(title)
+        issues_dictionary[title] = link
+    return selected
+def acs_medicinalchemistry(url, mode):
+    # preparation
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # look for a elements with correct class
+    mydivs = soup.findAll("h5", class_="issue-item_title")
+    selected = []
+    for ele in mydivs:
+        if mode == "all":
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
+            selected.append(title)
+            selected.append(link)
+        elif any(a in str(ele) for a in mode):
+            title = ele.get_text()
+            link = "https://pubs.acs.org" + str(ele.find('a').get('href'))
             selected.append(title)
             selected.append(link)
     return selected
@@ -1429,27 +1542,24 @@ def science_translational_medicine(url, mode):
     return selected
 
 # TODO: journals to be added:
-# ACS chemical biology (ACS publications) - https://pubs.acs.org/loi/acbcct
-# ACS jounral of medicinal chemistry (ACS publications) - https://pubs.acs.org/loi/jmcmar
-# ACS chemical reviews (ACS publications) - https://pubs.acs.org/loi/chreay
-# Metallomics (weird, check) - https://pubs.rsc.org/en/journals/journalissues/mt?_ga=2.175787559.408975122.1580749953-1017653245.1568722978#!issueid=mt012001&type=current&issnprint=1756-5901
-# Progress in nuclear magnetic resonance spectroscopy (elsevier probably blocked) - https://www.sciencedirect.com/journal/progress-in-nuclear-magnetic-resonance-spectroscopy/issues
-#
+# 
 
 # TODO: journals that does not allow web scraping
-# Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology
+# Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology, Progress in Nuclear Magnetic Resonance Spectroscopy
 
 # TODO: reference web architecture
-# Wiley: angewandte
-# Springer : Nature
-# cellpress: Cell
-# acs publications: acs biochemistry
-# super weird: jbc
-# procedings of the national academy of sciences of the usa:  pnas
-# zip titles: acs biochemistry
-# aaas: science
+#  Wiley: angewandte
+#  Springer : Nature
+#  cellpress: Cell
+#  acs publications: acs journal of medicinal chemistry
+#  super weird: jbc
+#  procedings of the national academy of sciences of the usa:  pnas
+#  zip titles: acs biochemistry
+#  aaas: science
 
 
 # TODO: fix wiley captcha,
 #  fix JBC
 #  fix science (all) reverted article lists
+#  implement get() and get_text() methods
+

@@ -40,3 +40,4 @@
 ---WEB SCRAPING---
 ------------------
 >   Journal club: keywords search in a large database of scientific journals.
+>   Journal club special: keywords search for journals without a volume/issue architecture through PubMed.

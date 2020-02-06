@@ -11,6 +11,7 @@ Modules needed to run CHILL:
 -bs4
 -requests
 -re
+-pyperclip
 
 How to install them:
 0) Have python 3 already installed.

@@ -1,7 +1,16 @@
-CURRENT VERSION (0.031)
-Added the 'What's new?' button in the main page with corresponding version_log.txt file.
+CURRENT VERSION (0.032)
+! Fully implemenented the new Journal club special page
+Journal club - added ACS - Chemical Biology
+               added ACS - Journal of Medicinal Chemistry
+               added ACS - Chemical Reviews
+Journal club special - created the function and the page
+                       added 4 journals (eLife, Nature Communications, PLOS One and Scientific Reports)
+                       added 5 time ranges (last week, last 2 weeks, last month, last 6 months, last year)
+                       added a button to copy the URL to PubMed to overcome the 20 results per page limit
 
 PAST VERSIONS:
+v0.031:
+    Added the 'What's new?' button in the main page with corresponding version_log.txt file.
 v0.030:
     Increase mapped - added function, page and test files
 v0.029:

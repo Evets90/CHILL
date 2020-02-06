@@ -5,6 +5,7 @@ import tkinter as tk
 import inspect
 import os
 import re
+import pyperclip
 from tkinter import font as tkfont
 from tkinter import filedialog
 from tkinter import messagebox
@@ -20,6 +21,7 @@ import Compare_files
 import Clean_spaces
 import Check_series
 import Journal_club
+import Journal_club_special
 import OVW_Analyze_overview
 import OVW_Analyze_violations
 import NPC_conversion_suite
@@ -30,8 +32,9 @@ import Pcs_subset
 import Add_module
 import Increased_mapped
 
+
 # Version
-version = "Version: 0.031"
+version = "Version: 0.032"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -83,6 +86,7 @@ class App(tk.Tk):
         self.frames["OVWAnalyzeViolations"] = OVWAnalyzeViolations(parent=container, controller=self)
         self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
         self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
+        self.frames["JournalClubSpecial"] = JournalClubSpecialPage(parent=container, controller=self)
 
 
         self.frames["StartPage"].grid(row=0, column=0, sticky="nsew")
@@ -103,6 +107,7 @@ class App(tk.Tk):
         self.frames["OVWAnalyzeViolations"].grid(row=0, column=0, sticky="nsew")
         self.frames["WebScrapingPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["JournalClub"].grid(row=0, column=0, sticky="nsew")
+        self.frames["JournalClubSpecial"].grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("StartPage")
 
@@ -1656,9 +1661,11 @@ class WebScrapingPage(tk.Frame):
         label = tk.Label(self, text="Web scraping functions.", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
-        btn1 = tk.Button(self, text="Journal Club", command=lambda: controller.show_frame("JournalClub"))
         btnback.pack(pady=10)
+        btn1 = tk.Button(self, text="Journal Club", command=lambda: controller.show_frame("JournalClub"))
         btn1.pack(pady=10)
+        btn2 = tk.Button(self, text="Journal Club Special", command=lambda: controller.show_frame("JournalClubSpecial"))
+        btn2.pack(pady=10)
 
 class JournalClubPage(tk.Frame):
 
@@ -1702,7 +1709,7 @@ class JournalClubPage(tk.Frame):
 
         self.lblout = tk.Label(self, text="")
         self.lblout.grid(row=4, column=2, padx=50, sticky='w')
-        self.out = scrolledtext.ScrolledText(self, width=100, height=18, font='Lucida')
+        self.out = scrolledtext.ScrolledText(self, width=100, height=15, font='Lucida')
         self.out.grid(row=5, column=2, rowspan=50, padx=50)
         self.out.tag_config('link', foreground='blue')
         self.out.tag_configure("keyword", foreground="#b22222")
@@ -1738,6 +1745,7 @@ class JournalClubPage(tk.Frame):
             self.comboI['state'] = 'disabled'
             # loop to list impact factors
             self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
             for journal, factor in sorted(Journal_club.impact_factor_dictionary.items(), key=lambda p: p[1], reverse=True):
                 self.out.insert('insert', str(journal) + " - " + str(factor) + "\n")
         else:
@@ -1837,6 +1845,18 @@ class JournalClubPage(tk.Frame):
         elif self.comboJ.get() == "ACS - Biochemistry":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_acs_biochemistry(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "ACS - Chemical Biology":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_acs_chemicalbiology(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "ACS - Chemical Reviews":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_acs_chemicalreviews(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "ACS - Journal of Medicinal Chemistry":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_acs_medicinalchemistry(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
         elif self.comboJ.get() == "Journal of the American Chemical Society (JACS)":
             self.comboV['state'] = "disabled"
@@ -1978,6 +1998,13 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.jbnmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "ACS - Biochemistry":
                 articles = Journal_club.acs_biochemistry(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "ACS - Chemical Biology":
+                articles = Journal_club.acs_chemicalbiology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "ACS - Chemical Reviews":
+                articles = Journal_club.acs_chemicalreviews(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "ACS - Journal of Medicinal Chemistry":
+                articles = Journal_club.acs_medicinalchemistry(issue_link,
+                                                            Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Journal of the American Chemical Society (JACS)":
                 articles = Journal_club.jacs(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "Journal of Biological Chemistry":
@@ -2066,6 +2093,175 @@ class JournalClubPage(tk.Frame):
                 t.insert('insert', line, 'rest')
         t.pack()
 
+class JournalClubSpecialPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        title = tk.Label(self, text="Journal Club Special", font=controller.title_font)
+        title.grid(column=1, columnspan=5)
+        btnback = tk.Button(self, text="Go back to the web scraping functions.", command=lambda: controller.show_frame("WebScrapingPage"))
+        btnback.grid(column=1, columnspan=5, pady=10)
+        description = tk.Label(self, text=Journal_club_special.general_docstring.__doc__, justify='left')
+        description.grid(column=1, columnspan=5, pady=10)
+
+        lblcomboM = tk.Label(self, text="Select the mode:")
+        lblcomboM.grid(column=1, row=4, padx=10)
+        self.comboM = Combobox(self, width=30, values=Journal_club_special.modes)
+        self.comboM.bind('<<ComboboxSelected>>', self.mode_action)
+        self.comboM.grid(column=1, row=5, padx=10)
+
+        lblcomboT = tk.Label(self, text="Select the time range:")
+        lblcomboT.grid(column=1, row=6, padx=10)
+        self.comboT = Combobox(self, width=30, values=Journal_club_special.Time_range_list)
+        self.comboT.grid(column=1, row=7, padx=10)
+
+        lblcomboJ = tk.Label(self, text="Select the journal:")
+        lblcomboJ.grid(column=1, row=8, padx=10)
+        self.comboJ = Combobox(self, values=Journal_club_special.journals, width=30)
+        self.comboJ.bind('<<ComboboxSelected>>', self.start_search)
+        self.comboJ.grid(column=1, row=9, padx=10)
+
+        btnM = tk.Button(self, text="Mode Info", command=self.show_keywords, foreground='red')
+        btnM.grid(column=1, row=10, padx=10, pady=10)
+
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(row=4, column=2, columnspan=2, padx=50, sticky='w')
+        self.out = scrolledtext.ScrolledText(self, width=100, height=14, font='Lucida')
+        self.out.grid(row=5, column=2, rowspan=50, columnspan=2, padx=50)
+        self.out.tag_config('link', foreground='blue')
+        self.out.tag_configure("keyword", foreground="#b22222")
+        self.lblout2 = tk.Label(self, text="")
+        self.lblout2.grid(row=56, column=2, padx=50, pady=10, sticky='w')
+        self.btnout2 = tk.Button(self, text="Copy URL", command=self.copy_url, foreground='red')
+
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def mode_action(self, event):
+        if self.comboM.get() == "Custom":
+            def okay():
+                """Clears the Journal_club_special.custom list, store the Entry() widget text in that list (comma separated) and closes the popup window"""
+                eget = e.get().split(", ")
+                Journal_club_special.custom.clear()
+                for ele in eget:
+                    Journal_club_special.custom.append(ele)
+                win.destroy()
+            win = tk.Toplevel()
+            win.attributes('-topmost', 1)
+            win.wm_title("Custom Keywords")
+            # Label
+            l = tk.Label(win, text="Insert your keywords separated by a comma.")
+            l.grid(row=0, column=0)
+            # Entry
+            e = tk.Entry(win)
+            e.grid(row=1, column=0)
+            # Button
+            b = tk.Button(win, text="Okay", command=okay)
+            b.grid(row=2, column=0)
+        elif self.comboM.get() == "Impact Factors":
+            # loop to list impact factors
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            for journal, factor in sorted(Journal_club_special.impact_factor_dictionary.items(), key=lambda p: p[1], reverse=True):
+                self.out.insert('insert', str(journal) + " - " + str(factor) + "\n")
+        else:
+            self.comboJ['state'] = 'enabled'
+
+    def show_keywords(self):
+        if self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.comboM.get() == "Impact Factors":
+            messagebox.showinfo("Impact Factors", "List in descending order the impact factors.")
+        else:
+            mode = self.comboM.get()
+            keywords = Journal_club_special.modes_dictionary[mode]
+            messagebox.showinfo(mode, ", ".join(keywords))
+
+    def start_search(self, event):
+        if self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did not select any mode.")
+        elif self.comboT.get() == "":
+            messagebox.showerror("Warning", "You did not select any time range.")
+        else:
+            url = Journal_club_special.construct_url(Journal_club_special.Journals_dictionary[self.comboJ.get()], Journal_club_special.modes_dictionary[self.comboM.get()], self.comboT.get())
+            articles = Journal_club_special.get_article(url)
+            total = "Total articles found: " + str(round(len(articles) / 2)) + "\n"
+            self.lblout.configure(text=total)
+            self.out.delete('1.0', tk.END)
+            for line in articles:
+                if "http" in line:
+                    self.out.insert('insert', line + "\n\n", 'link')
+                else:
+                    self.out.insert('insert', line + "\n", 'name')
+                    # cool loop to highlight triggering keywords
+                    if self.comboM.get() != "All":
+                        for word in line.split():
+                            matches = [x for x in Journal_club.modes_dictionary[self.comboM.get()] if x in word]
+                            self.out.mark_set("matchStart", "1.0")
+                            self.out.mark_set("matchEnd", "1.0")
+                            count = tk.IntVar()
+                            for x in matches:
+                                while True:
+                                    index = self.out.search(x, "matchEnd", "end", count=count)
+                                    if index == "":
+                                        break  # no match was found
+                                    self.out.mark_set("matchStart", index)
+                                    self.out.mark_set("matchEnd", "%s+%sc" % (index, count.get()))
+                                    self.out.tag_add("keyword", "matchStart", "matchEnd")
+            # Check for the 20 results per page limit
+            limit = Journal_club_special.get_limit(url)
+            if limit >= 20:
+                self.lblout2.configure(text='WARNING: 20 articles per page limit reached. Copy-paste the URL in a browser to visualize the full list.', foreground='DarkOrange1')
+                self.btnout2.grid(column=3, row=56, pady=10, padx=50)
+            else:
+                self.lblout2.configure(text='')
+                self.btnout2.grid_forget()
+                self.btnout2.configure(text="Copy URL")
+
+    def copy_url(self):
+        url = Journal_club_special.construct_url(Journal_club_special.Journals_dictionary[self.comboJ.get()], Journal_club_special.modes_dictionary[self.comboM.get()], self.comboT.get())
+        pyperclip.copy(url)
+        self.btnout2.configure(text="Copied!")
+
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Journal_club_special)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
 
 
 
