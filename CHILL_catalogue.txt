@@ -21,19 +21,17 @@
 -----------
 >   OVW Analyze overview: quickly list target function, RMSD and number of violations of cyana overview files.
 >   OVW Analyze violations: create a .pml PyMOL macro to highlight violating residues in a variety of ways.
->   CYANA Batch iteration: TBA
->   CYANA Test input: TBA
->   UPL remove inter sidechains: TBA
->   UPL remove sidechains: TBA
->   UPL remove inter sidechains with backbone: TBA
->   UPL replace metyl proton with carbon (test): TBA
->   UPL metprot L NH3prot K: TBA
+>   OVW Analyze methyls violations: analyze how many violations are due to methyl atoms.
+>   CYANA Batch iteration: assign a specified incremental value to each run in a batch file in order to obtain unique log and overview files.
+>   CYANA Test input: quickly creates a .cya macro to check if the input of a cyana batch run is correct.
+>   UPL Side chains manager: manage the upl involving side chains with three different possible functions.
+>   UPL Methyl protons to carbon: TBA
 
 ---------
 ---PDB---
 ---------
+>   Average structures: average the x, y and z coordinates of each atom for multiple .pdb files.
 >   Convert nomenclature: TBA
->   Average structures: TBA
 >   Model variation: TBA
 
 ------------------

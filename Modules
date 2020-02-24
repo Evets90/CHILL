@@ -12,6 +12,7 @@ Modules needed to run CHILL:
 -requests
 -re
 -pyperclip
+-biopandas
 
 How to install them:
 0) Have python 3 already installed.

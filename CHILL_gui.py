@@ -20,10 +20,6 @@ from PIL import Image, ImageTk
 import Compare_files
 import Clean_spaces
 import Check_series
-import Journal_club
-import Journal_club_special
-import OVW_Analyze_overview
-import OVW_Analyze_violations
 import NPC_conversion_suite
 import Randomization
 import Range_deletion
@@ -31,10 +27,19 @@ import Mapping
 import Pcs_subset
 import Add_module
 import Increased_mapped
+import OVW_Analyze_overview
+import OVW_Analyze_violations
+import OVW_Analyze_methyl_violations
+import CYANA_batch_iteration
+import CYANA_test_input
+import UPL_Side_chains_manager
+import Average_structures
+import Journal_club
+import Journal_club_special
 
 
 # Version
-version = "Version: 0.032"
+version = "Version: 0.033"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -84,6 +89,12 @@ class App(tk.Tk):
         self.frames["CheckSeries"] = CheckSeriesPage(parent=container, controller=self)
         self.frames["OVWAnalyzeOverview"] = OVWAnalyzeOverview(parent=container, controller=self)
         self.frames["OVWAnalyzeViolations"] = OVWAnalyzeViolations(parent=container, controller=self)
+        self.frames["OVWAnalyzemethylviolationsPage"] = OVWAnalyzemethylviolationsPage(parent=container, controller=self)
+        self.frames["CYANABatchIterationPage"] = CYANABatchIterationPage(parent=container, controller=self)
+        self.frames["CYANATestinputPage"] = CYANATestinputPage(parent=container, controller=self)
+        self.frames["UPLSidechainsmanagerPage"] = UPLSidechainsmanagerPage(parent=container, controller=self)
+        self.frames["PDBPage"] = PDBPage(parent=container, controller=self)
+        self.frames["AveragestructuresPage"] = AveragestructuresPage(parent=container, controller=self)
         self.frames["WebScrapingPage"] = WebScrapingPage(parent=container, controller=self)
         self.frames["JournalClub"] = JournalClubPage(parent=container, controller=self)
         self.frames["JournalClubSpecial"] = JournalClubSpecialPage(parent=container, controller=self)
@@ -105,6 +116,12 @@ class App(tk.Tk):
         self.frames["CheckSeries"].grid(row=0, column=0, sticky="nsew")
         self.frames["OVWAnalyzeOverview"].grid(row=0, column=0, sticky="nsew")
         self.frames["OVWAnalyzeViolations"].grid(row=0, column=0, sticky="nsew")
+        self.frames["OVWAnalyzemethylviolationsPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["CYANABatchIterationPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["CYANATestinputPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["UPLSidechainsmanagerPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["PDBPage"].grid(row=0, column=0, sticky="nsew")
+        self.frames["AveragestructuresPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["WebScrapingPage"].grid(row=0, column=0, sticky="nsew")
         self.frames["JournalClub"].grid(row=0, column=0, sticky="nsew")
         self.frames["JournalClubSpecial"].grid(row=0, column=0, sticky="nsew")
@@ -154,12 +171,14 @@ class StartPage(tk.Frame):
         # Buttons
         btn1 = tk.Button(self, text="Basic", command=lambda: controller.show_frame("BasicPage"))
         btn2 = tk.Button(self, text="PCS", command=lambda: controller.show_frame("PCSPage"))
-        btn3 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
-        btn4 = tk.Button(self, text="Web Scraping", command=lambda: controller.show_frame("WebScrapingPage"))
+        btn3 = tk.Button(self, text="PDB", command=lambda: controller.show_frame("PDBPage"))
+        btn4 = tk.Button(self, text="Cyana", command=lambda: controller.show_frame("CyanaPage"))
+        btn5 = tk.Button(self, text="Web Scraping", command=lambda: controller.show_frame("WebScrapingPage"))
         btn1.pack(pady=10)
         btn2.pack(pady=10)
         btn3.pack(pady=10)
         btn4.pack(pady=10)
+        btn5.pack(pady=10)
 
     def get_catalogue(self):
         # Variable
@@ -1413,11 +1432,19 @@ class CyanaPage(tk.Frame):
         label = tk.Label(self, text="Cyana functions.", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
         btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
-        btn1 = tk.Button(self, text="OVW: Analyze overview", command=lambda: controller.show_frame("OVWAnalyzeOverview"))
-        btn2 = tk.Button(self, text="OVW: Analyze violations",command=lambda: controller.show_frame("OVWAnalyzeViolations"))
         btnback.pack(pady=10)
+        btn1 = tk.Button(self, text="OVW: Analyze overview", command=lambda: controller.show_frame("OVWAnalyzeOverview"))
         btn1.pack(pady=10)
+        btn2 = tk.Button(self, text="OVW: Analyze violations",command=lambda: controller.show_frame("OVWAnalyzeViolations"))
         btn2.pack(pady=10)
+        btn3 = tk.Button(self, text="OVW: Analyze methyl violations", command=lambda: controller.show_frame("OVWAnalyzemethylviolationsPage"))
+        btn3.pack(pady=10)
+        btn4 = tk.Button(self, text="CYANA: Batch iteration",command=lambda: controller.show_frame("CYANABatchIterationPage"))
+        btn4.pack(pady=10)
+        btn5 = tk.Button(self, text="CYANA: Test input",command=lambda: controller.show_frame("CYANATestinputPage"))
+        btn5.pack(pady=10)
+        btn6 = tk.Button(self, text="UPL: Side chains manager",command=lambda: controller.show_frame("UPLSidechainsmanagerPage"))
+        btn6.pack(pady=10)
 
 class OVWAnalyzeOverview(tk.Frame):
 
@@ -1619,6 +1646,531 @@ class OVWAnalyzeViolations(tk.Frame):
     def show_source_code(self):
         # Variable
         loc = inspect.getfile(OVW_Analyze_violations)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class OVWAnalyzemethylviolationsPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="OVW: Analyze methyl violations", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=OVW_Analyze_methyl_violations.violations_upl_metprot.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        # Column 1
+        lbl1 = tk.Label(self, text="Select the Cyana batch file")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5, pady=10)
+        lblT = tk.Label(self, text="Violation type:")
+        lblT.grid(column=1, row=6, pady=10)
+        self.comboT = Combobox(self, width=17, values=["Upper", "VdW"])
+        self.comboT.grid(column=2, row=6, pady=10)
+        lblA = tk.Label(self, text="Atoms to monitor:")
+        lblA.grid(column=1, row=7, pady=10)
+        self.comboA = Combobox(self, width=17, values=["HB", "HG", "HD", "HB, HG, HD", "HA, HB, HG, HD, HE, CG, CD", "All methyl protons"])
+        self.comboA.grid(column=2, row=7, pady=10)
+        lblM = tk.Label(self, text="Mode:")
+        lblM.grid(column=1, row=8, pady=10)
+        self.comboM = Combobox(self, width=17, values=["single", "double"])
+        self.comboM.grid(column=2, row=8, pady=10)
+        self.CheckVar1 = tk.IntVar()
+        chk1 = tk.Checkbutton(self, text="Inverse", variable=self.CheckVar1, onvalue=1, offvalue=0)
+        chk1.grid(column=2, row=9, pady=10)
+        btnfun = tk.Button(self, text="Test input", command=self.analyze_methyl, foreground='red')
+        btnfun.grid(column=1, row=10, pady=10, columnspan=2)
+        # Column 2
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Cyana Overview", ".ovw")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def analyze_methyl(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did input any file.")
+        elif self.comboT.get() == "":
+            messagebox.showerror("Warning", "You did input any violation type.")
+        elif self.comboA.get() == "":
+            messagebox.showerror("Warning", "You did input any atoms.")
+        elif self.comboM.get() == "":
+            messagebox.showerror("Warning", "You did input any mode.")
+        else:
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            if self.CheckVar1.get() == 1:
+                newname, df = OVW_Analyze_methyl_violations.violations_upl_metprot(self.file1, self.comboT.get(), self.comboA.get(), self.comboM.get(), remaining='on')
+            else:
+                newname, df = OVW_Analyze_methyl_violations.violations_upl_metprot(self.file1, self.comboT.get(), self.comboA.get(), self.comboM.get())
+            stored = "Output stored in : " + str(newname)
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', df)
+
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(OVW_Analyze_methyl_violations)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class CYANABatchIterationPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="CYANA: Batch iteration", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=CYANA_batch_iteration.plus_one_iteration.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        # Column 1
+        lbl1 = tk.Label(self, text="Select the Cyana batch file")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5, pady=10)
+        lblV = tk.Label(self, text="Starting run value:")
+        lblV.grid(column=1, row=6, pady=10)
+        self.entryV = tk.Entry(self, width=20)
+        self.entryV.grid(column=2, row=6, pady=10)
+        lblF = tk.Label(self, text="First line of a new run:")
+        lblF.grid(column=1, row=7, pady=10)
+        self.entryF = tk.Entry(self, width=20)
+        self.entryF.grid(column=2, row=7, pady=10)
+        lblL = tk.Label(self, text="Log line:")
+        lblL.grid(column=1, row=8, pady=10)
+        self.entryL = tk.Entry(self, width=20)
+        self.entryL.grid(column=2, row=8, pady=10)
+        lblO = tk.Label(self, text="Overview line:")
+        lblO.grid(column=1, row=9, pady=10)
+        self.entryO = tk.Entry(self, width=20)
+        self.entryO.grid(column=2, row=9, pady=10)
+        # Default variables
+        self.entryV.insert('0', 1)
+        self.entryF.insert('0', '/home/ubuntu/programs/cyana-3.98.')
+        self.entryL.insert('0', 'Zoolander_OVW_1_log.txt')
+        self.entryO.insert('0', 'overview Zoolander_OVW_1.ovw structures=10 range=3-238 pdb')
+        btnfun = tk.Button(self, text="Perform iteration", command=self.perform_iteration, foreground='red')
+        btnfun.grid(column=1, row=10, pady=10, columnspan=2)
+        # Column 2
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Bash", ".sh")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def perform_iteration(self):
+        if self.entryV.get() == "":
+            messagebox.showerror("Warning", "You did input any starting run value.")
+        elif self.entryF.get() == "":
+            messagebox.showerror("Warning", "You did input any first line of a new run.")
+        elif self.entryL.get() == "":
+            messagebox.showerror("Warning", "You did input any log line.")
+        elif self.entryO.get() == "":
+            messagebox.showerror("Warning", "You did input any overview line.")
+        elif float(self.entryV.get()).is_integer() == False or int(self.entryV.get()) < 1:
+            messagebox.showerror("Warning", "In integer mode insert an integer as subset value (min 1).")
+        else:
+            newname = CYANA_batch_iteration.plus_one_iteration(self.file1, int(self.entryV.get()), self.entryF.get(), self.entryL.get(), self.entryO.get())
+            stored = "Output stored in: " + newname
+            self.lblout.configure(text=stored)
+            r = open(newname)
+            for line in r:
+                self.out.insert('insert', line)
+
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(CYANA_batch_iteration)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class CYANATestinputPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="CYANA: Test input", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=CYANA_test_input.cyana_test.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        # Column 1
+        lbl1 = tk.Label(self, text="Select the Cyana batch file")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5, pady=10)
+        btnfun = tk.Button(self, text="Test input", command=self.test_input, foreground='red')
+        btnfun.grid(column=1, row=6, pady=10, columnspan=2)
+        # Column 2
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Bash", ".sh")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def test_input(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did input any file.")
+        else:
+            newfile, counter = CYANA_test_input.cyana_test(self.file1)
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            stored = "Runs found : " + str(counter)
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', 'Macro created: %s\n' %newfile)
+
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(CYANA_test_input)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class UPLSidechainsmanagerPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="UPL: Side chains manager", font=controller.title_font)
+        title.grid(column=1, columnspan=3, row=1)
+        btnback = tk.Button(self, text="Go back to the cyana functions.", command=lambda: controller.show_frame("CyanaPage"))
+        btnback.grid(column=1, columnspan=3, pady=10, row=2)
+        description = tk.Label(self, text=UPL_Side_chains_manager.general_docstring.__doc__)
+        description.grid(column=1, columnspan=3, pady=10, row=3)
+        # Specific
+        self.file1 = ""
+        # Column 1
+        lbl1 = tk.Label(self, text="Select the .upl file")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectfile1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5, pady=10)
+        lblF = tk.Label(self, text="Function:")
+        lblF.grid(column=1, row=6, pady=10)
+        self.comboF = Combobox(self, width=17, values=["Remove side chains", "Remove inter side chains", "Remove inter side chains (backbone)"])
+        self.comboF.grid(column=2, row=6, pady=10)
+        btnfun = tk.Button(self, text="Process", command=self.process_upl)
+        btnfun.grid(column=1, row=7, pady=10, columnspan=2)
+        # Column 2
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectfile1(self):
+        self.file1 = filedialog.askopenfilename(initialdir=path.dirname(__file__), filetypes=[("Upper distances", ".upl")])
+        self.labfile1.configure(text=os.path.basename(self.file1))
+
+    def process_upl(self):
+        if self.file1 == "":
+            messagebox.showerror("Warning", "You did input any file.")
+        elif self.comboF.get() == "":
+            messagebox.showerror("Warning", "You did input any function.")
+        else:
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            if self.comboF.get() == "Remove side chains":
+                newname, dt = UPL_Side_chains_manager.remove_sidechains(self.file1)
+            elif self.comboF.get() == "Remove inter side chains":
+                newname, dt = UPL_Side_chains_manager.remove_inter_sidechains(self.file1)
+            elif self.comboF.get() == "Remove inter side chains (backbone)":
+                newname, dt = UPL_Side_chains_manager.remove_inter_sidechains_with_backbone(self.file1)
+            stored = "Output stored in: " + str(newname)
+            self.lblout.configure(text=stored)
+            self.out.insert('insert', dt)
+
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(UPL_Side_chains_manager)
+        # Window
+        win = tk.Toplevel()
+        win.attributes('-topmost', 1)
+        win.wm_title("Source Code")
+        # Scrolled Text
+        t = scrolledtext.ScrolledText(win, width=200, height=36)
+        t.tag_config('import', foreground='dark orange')
+        t.tag_config('def', foreground='dark goldenrod')
+        t.tag_config('comment', foreground='gray40')
+        t.tag_config('rest', foreground='black')
+        t.tag_config('flow_control', foreground='DarkOrange2')
+        t.tag_config('docstring', foreground='sea green')
+        t.tag_config('print', foreground='deep sky blue')
+        # Get Source Code
+        rloc = open(loc, 'r')
+        for line in rloc:
+            if "import" in str(line)[:6]:
+                t.insert('insert', line, 'import')
+            elif "from" in str(line)[:4]:
+                t.insert('insert', line, 'import')
+            elif "def" in str(line)[:3]:
+                t.insert('insert', line, 'def')
+            elif "#" in str(line):
+                t.insert('insert', line, 'comment')
+            elif '"""' in str(line):
+                t.insert('insert', line, 'docstring')
+            elif "if" in str(line).strip()[:2] or "for" in str(line).strip()[:3] or "return" in str(line).strip()[:6]:
+                t.insert('insert', line, 'flow_control')
+            elif "print(" in str(line):
+                t.insert('insert', line, 'print')
+            else:
+                t.insert('insert', line, 'rest')
+        t.pack()
+
+class PDBPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        label = tk.Label(self, text="PDB functions.", font=controller.title_font)
+        label.pack(side="top", fill="x", pady=10)
+        btnback = tk.Button(self, text="Go back to the main page", command=lambda: controller.show_frame("StartPage"))
+        btnback.pack(pady=10)
+        btn1 = tk.Button(self, text="Average structures", command=lambda: controller.show_frame("AveragestructuresPage"))
+        btn1.pack(pady=10)
+
+class AveragestructuresPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        # General
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        title = tk.Label(self, text="Average structures", font=controller.title_font)
+        title.grid(column=1, columnspan=5, row=1)
+        btnback = tk.Button(self, text="Go back to the PDB functions.", command=lambda: controller.show_frame("PDBPage"))
+        btnback.grid(column=1, columnspan=5, pady=10, row=2)
+        description = tk.Label(self, text=Average_structures.general_docstring.__doc__)
+        description.grid(column=1, columnspan=5, pady=10, row=3)
+        # Specific
+        self.filelist1 = ""
+        # Column 1
+        lbl1 = tk.Label(self, text="Select the PDB files")
+        lbl1.grid(column=1, row=4, pady=10, columnspan=2)
+        btn1 = tk.Button(self, text="Choose the file", command=self.selectlist1)
+        btn1.grid(column=1, row=5, pady=10)
+        self.labfile1 = tk.Label(self, text="No file selected")
+        self.labfile1.grid(column=2, row=5, pady=10)
+        self.CheckVar1 = tk.IntVar()
+        chk1 = tk.Checkbutton(self, text="Only CA", variable=self.CheckVar1, onvalue=1, offvalue=0)
+        chk1.grid(column=2, row=6, pady=10)
+        btnfun = tk.Button(self, text="Average structures", command=self.average_structures, foreground='red')
+        btnfun.grid(column=1, row=7, pady=10, columnspan=2)
+        # Column 2
+        self.lblout = tk.Label(self, text="")
+        self.lblout.grid(column=3, row=4)
+        self.out = scrolledtext.ScrolledText(self, width=70, height=18, font='Lucida')
+        self.out.grid(column=3, row=5, rowspan=5)
+        # Source
+        btnsource = tk.Button(self, text="Page Source Code", command=self.show_source_code)
+        btnsource.place(rely=1.0, relx=1.0, x=0, y=0, anchor='se')
+
+    def selectlist1(self):
+        fullfilelist1 = filedialog.askopenfilenames(initialdir=path.dirname(__file__),
+                                                    filetypes=[("Protein Database", ".pdb")])
+        self.filelist1 = list(fullfilelist1)
+        labeltext = "Selected " + str(len(self.filelist1)) + " files."
+        self.labfile1.configure(text=labeltext)
+
+    def average_structures(self):
+        if self.filelist1 == "":
+            messagebox.showerror("Warning", "You did not input any file.")
+        elif len(self.filelist1) == 1:
+            messagebox.showerror("Warning", "You selected only 1 file.")
+        else:
+            pl = PrintLogger(self.out)
+            sys.stdout = pl
+            self.out.delete('1.0', tk.END)
+            self.lblout.configure(text="")
+            test = Average_structures.atom_number_test(self.filelist1)
+            if test == False:
+                messagebox.showerror("Error", "Your PDB files contain different atoms and/or order.")
+            else:
+                dx, dy, dz = Average_structures.get_dictionaries(self.filelist1)
+                ax = Average_structures.average_dict_values(dx)
+                ay = Average_structures.average_dict_values(dy)
+                az = Average_structures.average_dict_values(dz)
+                if self.CheckVar1.get() == 1:
+                    newname, ppdb = Average_structures.map_dataframe(self.filelist1[0], ax, ay, az, remove_non_ca=1)
+                else:
+                    newname, ppdb = Average_structures.map_dataframe(self.filelist1[0], ax, ay, az, remove_non_ca=0)
+                stored = "Output stored in : " + str(newname)
+                self.lblout.configure(text=stored)
+                r = open(newname, 'r')
+                for line in r:
+                    self.out.insert('insert', line)
+
+    def show_source_code(self):
+        # Variable
+        loc = inspect.getfile(Average_structures)
         # Window
         win = tk.Toplevel()
         win.attributes('-topmost', 1)
@@ -2272,7 +2824,6 @@ if __name__ == "__main__":
 
 
 #TODO: implement all premade functions
-# TODO: add version log
 
 #TODO: IDEAS
 #       1-logo Asimov

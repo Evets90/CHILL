@@ -34,9 +34,9 @@ standard = []
 loose = []
 funny = []
 custom = []
-standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine", "PCS", "Pcs", "Pseudocontact"]
-loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response"]
-funny_ini = ["Vietnam", "Paradox", "Police", "Parachute", "Sadness", "Stupidity", "Troll", "Hate", "Marvel", "Thanos", "Batman", "Funny", "Joke"]
+standard_ini = ["Nmr", "NMR", "Dynamic", "Membrane", "Structural", "Conformational", "Rhodopsin", "Gpcr", "Relaxation", "G-Coupled", "Spectroscopy", "Metallothionein", "Adrenergic", "Paramagnetic", "Chemical shift", "Nanodiscs", "Lipid", "Magnetic", "Crystal", "Computational", "Peptide", "Labeling", "Labelling", "Zinc", "Zn", "Folding", "Ghrelin", "Methyl", "Heliorhodopsin", "EM", "Retina", "Isotope", "Gloeobacter", "113cd", "Α1b", "Unfolding", "Prion", "Sidechain", "Spectrum", "Spectra", "Spin", "Spectrometry", "Ramachandran", "Armadillo", "dArmRP", "Repetitive protein", "Resonance", "Dipolar", "RDC", "Rdc", "Deuterated", "Cryoem", "Amide", "13c", "19f", "7tm", "Adrenoceptor", "Isotopical", "Misfolding", "Ubiquitin", "Alanine", "Arginine", "Asparagine", "Aspartic acid", "Cysteine", "Glutamic acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine", "PCS", "Pcs", "Pseudocontact", "Modular", "Antibacterial", "Darpin", "Coiled", "Adrenoreceptor", "Lpt", "Bacteriorhodopsin"]
+loose_ini = ["Protein", "Receptor", "Structure", "E. coli", "Cryo", "Structure", "Amino", "Mutation", "Microscopy", "Metal", "Polypeptide", "Photoluminescence", "Photoexcited", "Pharmacological", "Modeling", "Neuropeptide", "Selectivity", "Scaffold", "Schiff", "Surface", "Subatomic", "Thermostabilization", "Residue", "Catalytic", "Channel", "Codons", "Cofactor", "Crispr", "Bioinformatics", "Biomedical", "Biomolecular", "Kinetic", "Enzyme", "Hydrophilic", "Hydrophobic", "Response", "Biopolymer", "Rosetta"]
+funny_ini = ["Vietnam", "Paradox", "Police", "Parachute", "Sadness", "Stupidity", "Troll", "Hate", "Marvel", "Thanos", "Batman", "Funny", "Joke", "Emotion", "Secret", "Starcraft"]
 
 
 def capital(list, new):
@@ -1542,7 +1542,7 @@ def science_translational_medicine(url, mode):
     return selected
 
 # TODO: journals to be added:
-# 
+#
 
 # TODO: journals that does not allow web scraping
 # Elsevier: J.Magn.Reson., BBA Biomembranes, Protein Expression and Purification, Current opinions in structural biology, Chemistry & Biology, Curr.Oppin.Chemical Biol. & Biotech., Journal of Molecular Biology, Methods in Enzymology, Progress in Nuclear Magnetic Resonance Spectroscopy

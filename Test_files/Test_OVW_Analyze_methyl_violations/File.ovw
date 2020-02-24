@@ -1,0 +1,1779 @@
+ 
+    Structural statistics:
+ 
+    str   target     upper limits     lower limits    van der Waals   torsion angles
+        function   #    rms   max   #    rms   max   #    sum   max   #    rms   max
+      1   300.191016 0.0412  1.37   0 0.0000  0.00 273  156.8  0.82  20  2.020 14.64
+      2   300.571032 0.0411  1.63   0 0.0000  0.00 280  157.6  0.79  20  2.367 17.84
+      3   301.101048 0.0412  1.59   0 0.0000  0.00 271  159.4  0.85  17  1.846 16.86
+      4   301.281009 0.0414  1.70   0 0.0000  0.00 267  157.6  0.87  17  2.299 22.12
+      5   302.041023 0.0412  1.56   0 0.0000  0.00 263  156.4  0.85  21  2.342 23.62
+      6   302.141030 0.0413  1.53   0 0.0000  0.00 271  160.6  0.83  16  2.149 20.79
+      7   302.951030 0.0413  1.53   0 0.0000  0.00 263  156.0  0.84  22  2.163 16.55
+      8   303.311026 0.0414  1.75   0 0.0000  0.00 280  158.7  0.86  19  2.254 20.58
+      9   303.401008 0.0413  1.67   0 0.0000  0.00 276  159.7  0.86  17  2.302 22.63
+     10   303.771025 0.0415  1.65   0 0.0000  0.00 264  155.9  0.84  20  2.293 19.81
+ 
+    Ave   302.071025 0.0413  1.60   0 0.0000  0.00 271  157.9  0.84  19  2.204 19.54
+    +/-     1.20  11 0.0001  0.10   0 0.0000  0.00   6    1.6  0.02   2  0.155  2.81
+    Min   300.191008 0.0411  1.37   0 0.0000  0.00 263  155.9  0.79  16  1.846 14.64
+    Max   303.771048 0.0415  1.75   0 0.0000  0.00 280  160.6  0.87  22  2.367 23.62
+    Cut                      0.20             0.20             0.20             5.00
+ 
+    Restraints violated in 3 or more structures:
+                                                   #   mean   max.  1   5   10
+    Upper HD21  LEU    3 - HE2   MET    6   4.82   4   0.20   0.27  +    + *+
+    Upper HD21  LEU    3 - CB    ILE   28   4.40   6   0.20   0.21    +  +++*+
+    Upper HD21  LEU    3 - CG2   ILE   28   3.77   8   0.21   0.23  ++* ++ +++
+    Upper HD21  LEU    3 - HG21  ILE   28   3.02  10   0.38   0.39  ++*+++++++
+    Upper HD21  LEU    3 - HG23  ILE   28   4.68   8   0.22   0.25  ++* ++ +++
+    Upper HD21  LEU    3 - CG1   ILE   28   4.50  10   0.28   0.29  *+++++++++
+    Upper HD21  LEU    3 - HG12  ILE   28   4.75  10   0.34   0.37  *+++++++++
+    Upper HD21  LEU    3 - HG13  ILE   28   5.48  10   0.23   0.24  ++++++*+++
+    Upper HD22  LEU    3 - C     LEU    3   3.80   9   0.21   0.22  ++++++ +*+
+    Upper HD22  LEU    3 - N     PRO    4   4.82  10   0.26   0.27  ++++++++*+
+    Upper HD22  LEU    3 - HD3   PRO    4   5.10  10   0.28   0.29  ++++++++*+
+    Upper HD22  LEU    3 - HG23  VAL    7   5.35  10   0.30   0.32  +++++*++++
+    Upper HB3   MET    6 - HD23  LEU   10   5.23   3   0.18   0.25       + *+
+    Upper SD    MET    6 - HD22  LEU   25   4.09  10   0.46   0.48  +++*++++++
+    Upper CE    MET    6 - HD22  LEU   25   5.20  10   0.23   0.26  ++*+++++++
+    Upper C     MET    6 - HD12  LEU   10   5.24  10   0.22   0.24  +++++++*++
+    Upper O     MET    6 - HD12  LEU   10   4.95  10   0.27   0.31  +++++++*++
+    Upper O     MET    6 - HD13  LEU   10   5.12   3   0.15   0.21       * ++
+    Upper O     MET    6 - HD21  LEU   10   4.34   3   0.14   0.22    +*  +
+    Upper O     MET    6 - HD23  LEU   10   4.94   5   0.15   0.25   + *+ +  +
+    Upper HA    VAL    7 - HD21  LEU   25   4.88  10   0.36   0.42  ++++++*+++
+    Upper HG22  VAL    7 - HD21  LEU   25   3.46   3   0.19   0.22   + *  +
+    Upper HG23  VAL    7 - HD11  LEU   25   5.02   5   0.20   0.21   +   *+++
+    Upper C     VAL    7 - HD12  LEU   10   3.98   7   0.21   0.23  +*+++ +  +
+    Upper N     GLN    8 - HD12  LEU   10   5.31   7   0.21   0.23  *++++ +  +
+    Upper HB2   GLN    9 - HD13  LEU   25   5.47   7   0.19   0.28  +++++ *  +
+    Upper HE22  GLN    9 - HZ3   LYS   24   5.37   3   0.14   0.22       + *+
+    Upper O     GLN    9 - HD21  LEU   10   5.08   3   0.08   0.27       + *+
+    Upper CA    LEU   10 - HD21  LEU   10   3.41   3   0.06   0.22       + *+
+    Upper CA    LEU   10 - HD22  LEU   10   3.64   3   0.13   0.23       + *+
+    Upper HA    LEU   10 - HD22  LEU   10   3.15   8   0.24   0.34  ++ +++ *++
+    Upper CB    LEU   10 - HD22  LEU   10   3.10   7   0.18   0.26  +*+++ +  +
+    Upper HB3   LEU   10 - HD23  LEU   18   4.73   3   0.21   0.37       * ++
+    Upper CD1   LEU   10 - HD23  LEU   10   3.08   3   0.07   0.24       + *+
+    Upper HD11  LEU   10 - HD23  LEU   10   3.50   3   0.17   0.55       + *+
+    Upper HD11  LEU   10 - C     LEU   10   5.49  10   0.24   0.28  +++++*++++
+    Upper HD11  LEU   10 - HD21  LEU   22   4.98   9   0.48   0.72  ++ +++*+++
+    Upper HD11  LEU   10 - HB2   ALA   47   4.11   8   0.31   0.41  *+ ++ ++++
+    Upper HD12  LEU   10 - HD11  LEU   25   3.99   3   0.21   0.31       + +*
+    Upper HD13  LEU   10 - HD21  LEU   25   4.65  10   1.22   1.26  +++++++++*
+    Upper HD21  LEU   10 - C     LEU   10   4.86   3   0.07   0.26       + *+
+    Upper HD21  LEU   10 - O     LEU   10   5.35   3   0.10   0.34       + *+
+    Upper HD21  LEU   10 - CA    LEU   18   4.85   3   0.06   0.21       + *+
+    Upper HD21  LEU   10 - HA    LEU   18   4.12   3   0.09   0.31       + *+
+    Upper HD21  LEU   10 - CG    LEU   18   5.05   3   0.07   0.24       + *+
+    Upper HD21  LEU   10 - HG    LEU   18   4.42   3   0.12   0.40       + *+
+    Upper HD21  LEU   10 - CB    ALA   21   3.43   7   0.32   0.49  *++++ +  +
+    Upper HD21  LEU   10 - HB2   ALA   21   4.19   7   0.46   0.68  *++++ +  +
+    Upper HD21  LEU   10 - HB3   ALA   21   3.49   6   0.19   0.31  *+ ++ +  +
+    Upper HD21  LEU   10 - HD12  LEU   25   4.01   6   0.16   0.28  +++*+ +
+    Upper HD21  LEU   10 - HD13  LEU   25   4.06   7   0.41   0.59  +++++ +  *
+    Upper HD22  LEU   10 - C     LEU   10   4.78  10   0.40   0.44  +++*++++++
+    Upper HD22  LEU   10 - O     LEU   10   4.97  10   0.68   0.78  +++*++++++
+    Upper HD22  LEU   10 - CG    LEU   18   5.07  10   0.26   0.27  +++*++++++
+    Upper HD22  LEU   10 - HG    LEU   18   4.54  10   0.39   0.40  +++++++*++
+    Upper HD22  LEU   10 - HD23  LEU   18   4.18  10   0.29   0.40  ++++++++*+
+    Upper HD22  LEU   10 - CD1   LEU   22   4.88   7   0.20   0.32  +*+++ +  +
+    Upper HD22  LEU   10 - HD12  LEU   22   4.63  10   0.94   1.16  ++*+++++++
+    Upper HD22  LEU   10 - CD2   LEU   22   4.28   6   0.20   0.35  +* ++ +  +
+    Upper HD22  LEU   10 - HD21  LEU   22   3.75   7   0.34   0.62  +++++ *  +
+    Upper HD22  LEU   10 - HD23  LEU   22   4.62   6   0.56   0.97  ++ ++ +  *
+    Upper HD23  LEU   10 - CB    ALA   21   4.25   6   0.17   0.27  +* ++ +  +
+    Upper HD23  LEU   10 - HB1   ALA   21   3.20   7   0.32   0.44  +*+++ +  +
+    Upper HD23  LEU   10 - HB2   ALA   21   4.87   7   0.39   0.52  +*+++ +  +
+    Upper HD23  LEU   10 - O     ALA   21   4.17   3   0.06   0.22       + *+
+    Upper HD23  LEU   10 - HD21  LEU   22   3.66   3   0.16   0.53       * ++
+    Upper HD23  LEU   10 - CB    LEU   25   5.02   3   0.17   0.59       + *+
+    Upper HD23  LEU   10 - HB2   LEU   25   4.40   3   0.13   0.45       + *+
+    Upper HD23  LEU   10 - HB3   LEU   25   5.36   3   0.20   0.67       + *+
+    Upper HD23  LEU   10 - CG    LEU   25   4.59   3   0.23   0.71       + *+
+    Upper HD23  LEU   10 - HG    LEU   25   4.87   3   0.23   0.61       + *+
+    Upper HD23  LEU   10 - CD1   LEU   25   3.25   3   0.31   0.76       + *+
+    Upper HD23  LEU   10 - HD13  LEU   25   3.23  10   0.85   1.23  +++++++*++
+    Upper O     LEU   10 - HD11  LEU   18   3.45   7   0.23   0.30  ++*++ +  +
+    Upper O     LEU   10 - HD23  LEU   18   4.14  10   0.44   0.50  ++++++++*+
+    Upper HA    ASN   11 - HD11  LEU   18   5.29   4   0.19   0.22  ++ *+
+    Upper CA    GLN   15 - HD12  LEU   18   5.06   3   0.20   0.27       * ++
+    Upper HA    GLN   15 - HD12  LEU   18   4.01   3   0.19   0.26       * ++
+    Upper H     LEU   18 - HD12  LEU   18   5.22  10   0.36   0.37  +++++++*++
+    Upper H     LEU   18 - HD13  LEU   18   5.35   8   0.22   0.24  +++++ ++ *
+    Upper HB2   LEU   18 - HD12  LEU   18   3.14  10   0.41   0.42  +++++++*++
+    Upper HD11  LEU   18 - HD12  LEU   22   5.33  10   1.12   1.15  *+++++++++
+    Upper HD21  LEU   18 - C     LEU   18   3.07  10   0.23   0.28  +++++*++++
+    Upper HD21  LEU   18 - O     LEU   18   3.02  10   0.27   0.32  +++++*++++
+    Upper HD21  LEU   18 - HD12  LEU   22   3.72   4   0.19   0.21   ++ +  *
+    Upper HD22  LEU   18 - HB2   GLN   19   4.78  10   0.40   0.46  +++++*++++
+    Upper HD23  LEU   18 - HD12  LEU   22   3.29  10   0.59   0.86  ++++++++*+
+    Upper CG    GLN   19 - HD11  LEU   22   4.66   6   0.17   0.24  *+ ++ +  +
+    Upper HG3   GLN   19 - HD11  LEU   22   4.72   7   0.20   0.29  +++++ *  +
+    Upper O     GLN   19 - HD11  LEU   22   5.10   8   0.26   0.36  +++++ ++ *
+    Upper CA    ALA   21 - HD13  LEU   25   4.44   3   0.19   0.28       + +*
+    Upper HA    ALA   21 - HD12  LEU   25   5.10   3   0.17   0.26  +  *  +
+    Upper HA    ALA   21 - HD13  LEU   25   4.58   8   0.27   0.36  +++ ++ +*+
+    Upper HB2   ALA   21 - HD13  LEU   25   3.82   6   0.23   0.33  + +  + +*+
+    Upper N     LEU   22 - HD22  LEU   22   4.89   8   0.23   0.35  ++*+++ ++
+    Upper H     LEU   22 - HD22  LEU   22   5.33   7   0.19   0.27  +++ *+ ++
+    Upper CA    LEU   22 - HD22  LEU   22   3.49   9   0.34   0.45  ++*+++ +++
+    Upper CB    LEU   22 - HD22  LEU   22   3.06   9   0.31   0.37  ++ +*+++++
+    Upper HB3   LEU   22 - HD13  LEU   22   3.35   8   0.24   0.34  ++ ++*+++
+    Upper HD12  LEU   22 - HD21  LEU   51   3.19   5   0.29   0.61  ++ *+  +
+    Upper CD2   LEU   22 - HD21  LEU   48   5.20   4   0.17   0.23  +   *+ +
+    Upper HD21  LEU   22 - HD21  LEU   48   4.94   9   0.29   0.41  + *+++++++
+    Upper HD22  LEU   22 - C     LEU   22   3.84  10   0.54   0.62  ++++*+++++
+    Upper HD22  LEU   22 - O     LEU   22   3.93  10   0.57   0.78  ++*+++++++
+    Upper HD22  LEU   22 - N     ARG   23   4.71  10   0.51   0.55  ++++*+++++
+    Upper HD22  LEU   22 - H     ARG   23   5.02  10   0.40   0.45  ++++++++*+
+    Upper HD22  LEU   22 - HA    ARG   23   5.33  10   0.54   0.71  ++++++*+++
+    Upper HD22  LEU   22 - HB3   SER   26   4.63   3   0.11   0.36    ++  *
+    Upper HD22  LEU   22 - HD21  LEU   48   4.75   9   0.28   0.41  *+ +++++++
+    Upper HD22  LEU   22 - HD11  LEU   51   3.13   9   0.29   0.38  ++ ++++*++
+    Upper HD23  LEU   22 - HD21  LEU   51   3.57   8   0.41   0.62  +++++* ++
+    Upper HD23  LEU   22 - HD23  LEU   51   5.16   3   0.13   0.28    *  + +
+    Upper C     LYS   24 - HD23  LEU   25   5.34   6   0.21   0.24  +++*+ +
+    Upper HA    LEU   25 - HD22  LEU   25   3.82   6   0.21   0.27  ++ *+ +  +
+    Upper HB3   LEU   25 - HD11  LEU   25   3.45  10   0.25   0.28  +*++++++++
+    Upper CD1   LEU   25 - HD21  LEU   25   3.00  10   0.37   0.38  +++++*++++
+    Upper HD11  LEU   25 - CD2   LEU   25   3.04  10   0.29   0.31  +++*++++++
+    Upper HD11  LEU   25 - HB1   ALA   42   5.46  10   0.85   0.91  +++++++++*
+    Upper HD11  LEU   25 - CB    ALA   44   5.27   7   0.29   0.48     +++*+++
+    Upper HD11  LEU   25 - HB2   ALA   44   4.48   9   0.31   0.45  + ++++*+++
+    Upper HD11  LEU   25 - HB3   ALA   44   5.04  10   0.34   0.60  ++++++*+++
+    Upper HA    SER   26 - HD11  LEU   48   4.89   7   0.34   0.53  ++  ++ +*+
+    Upper HB2   SER   26 - HB2   ALA   66   3.04   4   0.19   0.29    *  +++
+    Upper HB2   ALA   29 - HD11  LEU   48   5.40   6   0.19   0.33  + + +* ++
+    Upper HB3   ALA   29 - HD11  LEU   48   5.23   7   0.24   0.43  + + +* +++
+    Upper HB3   SER   30 - HB3   ASN   69   3.21   3   0.18   0.24    +*  +
+    Upper HG11  VAL   39 - HD11  LEU   48   4.51   5   0.18   0.27    + ++ *+
+    Upper HG22  ILE   40 - HD13  LEU   45   4.43  10   0.48   0.50  *+++++++++
+    Upper HG23  ILE   40 - HD13  ILE   40   3.51   7   0.21   0.25  ++++ *+  +
+    Upper O     ILE   40 - HD13  LEU   45   5.25   9   0.24   0.28  +++ ++++*+
+    Upper HB1   ALA   44 - HD21  LEU   48   5.19   8   0.41   0.64  ++* ++ +++
+    Upper HB2   ALA   44 - HD11  LEU   48   4.93   5   0.17   0.25    + ++ *+
+    Upper HB2   ALA   44 - HD21  LEU   48   5.03  10   0.55   0.69  +++++*++++
+    Upper H     LEU   45 - HD13  LEU   45   4.76   9   0.29   0.33  +*+ ++++++
+    Upper HD12  LEU   45 - HD22  LEU   45   3.58  10   0.66   0.67  ++++++++*+
+    Upper HD12  LEU   45 - HB3   ALA   84   4.50  10   0.35   0.49  +++*++++++
+    Upper HD21  LEU   45 - HD12  LEU   48   5.11   7   0.33   0.65  +++ ++  +*
+    Upper HD21  LEU   45 - HD13  LEU   48   4.46   8   0.68   0.95  *++ ++ +++
+    Upper HD21  LEU   45 - CG2   ILE   70   4.27  10   0.26   0.29  ++*+++++++
+    Upper HD21  LEU   45 - HG21  ILE   70   3.25  10   0.34   0.36  +++*++++++
+    Upper HD21  LEU   45 - HG23  ILE   70   4.97  10   0.38   0.39  +++++*++++
+    Upper HD22  LEU   45 - HG23  VAL   49   4.76  10   0.49   0.72  +++++++*++
+    Upper HD22  LEU   45 - CA    ALA   84   5.37   9   0.28   0.39  ++++++ ++*
+    Upper HD22  LEU   45 - CB    ALA   84   3.91   7   0.23   0.36  +++ ++  +*
+    Upper HD22  LEU   45 - HB1   ALA   84   3.88   3   0.15   0.33  +*       +
+    Upper HD22  LEU   45 - HB2   ALA   84   3.36  10   0.38   0.50  ++*+++++++
+    Upper HD23  LEU   45 - HB2   ALA   84   3.64   5   0.20   0.35  + *  + ++
+    Upper C     LEU   45 - HD13  LEU   48   4.72   6   0.15   0.23  + + +* ++
+    Upper O     LEU   45 - HD13  LEU   48   4.57   8   0.24   0.38  ++* ++ +++
+    Upper H     LEU   48 - HD13  LEU   48   4.28   6   0.17   0.31  * + ++ ++
+    Upper HB2   LEU   48 - HD13  LEU   48   3.08   6   0.27   0.44  + + ++ *+
+    Upper CG    LEU   48 - HD13  LEU   51   4.86  10   0.29   0.32  *+++++++++
+    Upper HG    LEU   48 - HD13  LEU   51   5.09  10   0.36   0.45  ++*+++++++
+    Upper HD11  LEU   48 - CD2   LEU   48   3.08   8   0.24   0.34  +++ ++ *++
+    Upper HD11  LEU   48 - HD23  LEU   48   3.29   8   0.49   0.70  *++ ++ +++
+    Upper HD11  LEU   48 - HA    ALA   66   5.41   8   0.36   0.51  +++ ++ +*+
+    Upper HD11  LEU   48 - CB    ALA   66   3.93   8   0.28   0.40  +++ ++ +*+
+    Upper HD11  LEU   48 - HB2   ALA   66   3.85   8   0.54   0.85  *++ ++ +++
+    Upper HD11  LEU   48 - HB3   ALA   66   4.59   8   0.24   0.37  ++* ++ +++
+    Upper HD12  LEU   48 - HD11  LEU   67   5.15   5   0.26   0.66   +++  +  *
+    Upper HD12  LEU   48 - HD21  LEU   67   3.29   8   0.51   0.87  + +*+++++
+    Upper HD12  LEU   48 - HD23  LEU   67   4.13   6   0.38   1.05   + *+ + ++
+    Upper HD13  LEU   48 - HD21  LEU   67   4.15   6   0.39   0.87  + * ++ ++
+    Upper HD13  LEU   48 - HD23  LEU   67   4.92   5   0.27   0.52  +   *+ ++
+    Upper CD2   LEU   48 - HD13  LEU   51   3.85   9   0.25   0.34  ++ ++++++*
+    Upper HD21  LEU   48 - HD13  LEU   51   4.37   3   0.16   0.27  +     +  *
+    Upper HD22  LEU   48 - HD11  LEU   51   4.36   3   0.17   0.25    +  + *
+    Upper HD23  LEU   48 - O     LEU   48   5.20   9   0.30   0.45  ++* ++++++
+    Upper HD23  LEU   48 - HB2   LEU   51   5.43  10   0.56   0.66  ++++*+++++
+    Upper HD23  LEU   48 - HD13  LEU   51   4.09   9   0.27   0.52  ++* ++++++
+    Upper HD23  LEU   48 - O     ALA   63   3.82   4   0.16   0.32   + ++    *
+    Upper HD23  LEU   48 - C     ALA   66   5.06   7   0.20   0.27  ++ +  +++*
+    Upper HD23  LEU   48 - N     LEU   67   4.90   8   0.25   0.34  ++  +*++++
+    Upper HD23  LEU   48 - H     LEU   67   4.49   4   0.16   0.28  +    * ++
+    Upper HD23  LEU   48 - CG    LEU   67   5.31   8   0.32   0.52  ++  +++*++
+    Upper HD23  LEU   48 - HG    LEU   67   4.23   8   0.34   0.53  ++  +++*++
+    Upper O     LEU   48 - HD11  LEU   67   4.86   3   0.11   0.36  * +      +
+    Upper CA    VAL   49 - HD13  LEU   52   3.83   6   0.15   0.25  ++ +* + +
+    Upper HA    VAL   49 - HD23  LEU   67   4.77   3   0.15   0.59   + +     *
+    Upper CB    VAL   49 - HD12  LEU   52   4.24   3   0.12   0.22  *+       +
+    Upper CB    VAL   49 - HD13  LEU   52   4.38   7   0.20   0.31  ++ +* + ++
+    Upper HB    VAL   49 - HD12  LEU   52   5.27   4   0.14   0.25  +* +     +
+    Upper HB    VAL   49 - HD13  LEU   52   5.43   7   0.19   0.30  ++ +* + ++
+    Upper CG1   VAL   49 - HD12  LEU   52   3.75  10   0.28   0.42  ++*+++++++
+    Upper CG1   VAL   49 - HD13  LEU   52   4.54   7   0.20   0.33  ++ ++ * ++
+    Upper HG11  VAL   49 - HD12  LEU   52   4.33   8   0.29   0.42  ++*+ +++ +
+    Upper HG11  VAL   49 - HD13  LEU   52   5.10   7   0.26   0.42  *+ ++ + ++
+    Upper HG12  VAL   49 - HD12  LEU   52   4.35   7   0.31   0.61    *++++++
+    Upper HG12  VAL   49 - HD13  LEU   52   5.33   4   0.12   0.26     ++ * +
+    Upper HG13  VAL   49 - HD13  LEU   52   3.76   6   0.16   0.29  +  ++ * ++
+    Upper CG2   VAL   49 - HD13  LEU   52   4.23   5   0.15   0.24  *  ++ + +
+    Upper HG21  VAL   49 - HD13  LEU   52   5.00   3   0.13   0.26  *  ++
+    Upper C     VAL   49 - HD12  LEU   52   4.38   6   0.17   0.29  *+ ++   ++
+    Upper C     VAL   49 - HD13  LEU   52   4.78   3   0.12   0.23      + + *
+    Upper O     VAL   49 - HD12  LEU   52   3.92   9   0.30   0.38  ++*++++++
+    Upper CA    GLN   50 - HD22  LEU   51   5.11  10   0.36   0.41  +*++++++++
+    Upper CB    GLN   50 - HD22  LEU   51   4.71  10   0.46   0.59  +++++++++*
+    Upper HB3   GLN   50 - HD22  LEU   51   4.01  10   0.58   0.84  +++++++++*
+    Upper CG    GLN   50 - HD22  LEU   51   4.65   8   0.23   0.31  ++ ++ +++*
+    Upper C     GLN   50 - HD22  LEU   51   4.29   8   0.27   0.36  +++++* ++
+    Upper O     GLN   50 - HD22  LEU   51   4.74   8   0.23   0.33  ++*+++ ++
+    Upper N     LEU   51 - HD22  LEU   51   3.66   7   0.18   0.25  ++ ++* ++
+    Upper H     LEU   51 - HD22  LEU   51   3.79   5   0.17   0.24  *+  ++  +
+    Upper CA    LEU   51 - HD22  LEU   52   5.41   7   0.21   0.50  ++*++   ++
+    Upper HA    LEU   51 - HD12  LEU   51   4.84  10   0.26   0.30  +++++*++++
+    Upper CB    LEU   51 - HD12  LEU   51   3.02  10   0.39   0.41  ++++++++*+
+    Upper CB    LEU   51 - HD22  LEU   52   5.11   7   0.35   0.55  ++*++   ++
+    Upper HB2   LEU   51 - HD12  LEU   51   3.19  10   0.40   0.46  ++++++++*+
+    Upper HB2   LEU   51 - HD22  LEU   52   4.18   7   0.30   0.45  ++*++   ++
+    Upper HB3   LEU   51 - HD22  LEU   52   5.35   9   0.63   0.87  *+++++ +++
+    Upper HD12  LEU   51 - C     LEU   51   5.35  10   0.50   0.53  ++++++++*+
+    Upper HD12  LEU   51 - HA    LEU   60   5.11   9   0.36   0.59  ++*+++ +++
+    Upper HD12  LEU   51 - CB    ALA   63   3.47   3   0.18   0.31    *  + +
+    Upper HD12  LEU   51 - HB1   ALA   63   4.25   9   0.26   0.37  ++*++++++
+    Upper HD23  LEU   51 - OG    SER   54   4.94   9   0.30   0.42  ++ +++*+++
+    Upper HD23  LEU   51 - HG    SER   54   4.39  10   0.31   0.38  ++++++*+++
+    Upper HD23  LEU   51 - HG23  ILE   59   3.89   7   0.26   0.44  ++ ++ + +*
+    Upper HD23  LEU   51 - CD1   ILE   59   5.34   9   0.26   0.29  ++ ++++*++
+    Upper HD23  LEU   51 - HD11  ILE   59   5.15  10   0.25   0.30  +++++*++++
+    Upper HD23  LEU   51 - HD13  ILE   59   4.75   9   0.23   0.27  ++ ++++*++
+    Upper C     LEU   51 - HD22  LEU   52   4.70   3   0.13   0.38  ++*
+    Upper O     LEU   51 - HD22  LEU   52   5.32   3   0.13   0.43  *++
+    Upper N     LEU   52 - HD22  LEU   60   4.29   3   0.07   0.25       +*+
+    Upper CA    LEU   52 - HD22  LEU   60   3.62   3   0.11   0.38       *++
+    Upper CB    LEU   52 - HD22  LEU   60   4.42   3   0.11   0.39       *++
+    Upper HB2   LEU   52 - HD22  LEU   60   5.42   3   0.11   0.41       *++
+    Upper HB3   LEU   52 - HD11  LEU   52   3.20   7   0.27   0.40  ++ ++ * ++
+    Upper HB3   LEU   52 - HD12  LEU   52   3.28   3   0.12   0.44    *  + +
+    Upper HB3   LEU   52 - HD11  LEU   60   5.27   8   0.39   0.62  ++*+++ ++
+    Upper HB3   LEU   52 - HD21  LEU   60   4.16   7   0.27   0.44  +++++   +*
+    Upper CG    LEU   52 - HD22  LEU   60   4.65   3   0.12   0.54       +*+
+    Upper HG    LEU   52 - HD22  LEU   60   5.10   3   0.13   0.68       +*+
+    Upper HG    LEU   52 - HD11  LEU   67   3.60   3   0.23   0.62  *+       +
+    Upper HD11  LEU   52 - HD23  LEU   52   3.50   7   0.37   0.61  +* ++ + ++
+    Upper HD11  LEU   52 - CD2   LEU   64   4.84   7   0.26   0.50  ++ +* + ++
+    Upper HD11  LEU   52 - HD22  LEU   64   4.45   7   0.82   1.28  ++ +* + ++
+    Upper HD11  LEU   52 - HD23  LEU   64   4.24   6   0.28   0.70  *+ ++   ++
+    Upper HD12  LEU   52 - C     LEU   52   5.42   3   0.10   0.40    *  + +
+    Upper HD12  LEU   52 - HB2   ALA   89   4.25   3   0.13   0.50    +  + *
+    Upper HD13  LEU   52 - CG    LEU   67   4.52   3   0.18   0.60    +  + *
+    Upper HD13  LEU   52 - HG    LEU   67   4.85   3   0.22   0.77    +  * +
+    Upper HD13  LEU   52 - CD1   LEU   67   3.26   3   0.15   0.51    *  + +
+    Upper HD13  LEU   52 - HD12  LEU   67   3.23   3   0.15   0.58    +  * +
+    Upper HD13  LEU   52 - CD2   LEU   67   4.77   3   0.16   0.58    +  + *
+    Upper HD13  LEU   52 - HD22  LEU   67   5.04   4   0.32   0.95  + *  + +
+    Upper HD13  LEU   52 - HD23  LEU   67   4.14   5   0.27   0.76   ++  + + *
+    Upper CD2   LEU   52 - HD22  LEU   64   3.57   9   0.29   0.37   ++++*++++
+    Upper HD21  LEU   52 - CD2   LEU   64   3.45   4   0.19   0.57  ++*      +
+    Upper HD21  LEU   52 - HD22  LEU   64   3.42   8   0.84   1.34  ++*++ + ++
+    Upper HD21  LEU   52 - HD21  LEU   90   5.44   5   0.38   0.76   * ++   ++
+    Upper HD22  LEU   52 - HA    ALA   63   5.24   7   0.27   0.42   + ++++*+
+    Upper HD22  LEU   52 - CB    ALA   63   3.78   7   0.22   0.28   + ++++*+
+    Upper HD22  LEU   52 - HB2   ALA   63   4.31   9   0.33   0.42   +++++++*+
+    Upper HD22  LEU   52 - O     ALA   63   4.53   5   0.18   0.36      +*+++
+    Upper HD22  LEU   52 - HG    LEU   67   4.93   3   0.17   0.56       +*+
+    Upper HD22  LEU   52 - HD11  LEU   67   3.64   3   0.26   0.73       ++*
+    Upper HD22  LEU   52 - HD13  LEU   67   3.68   3   0.15   0.56       *++
+    Upper HD23  LEU   52 - O     LEU   52   4.71   5   0.31   0.91      +*+++
+    Upper HD23  LEU   52 - HD11  LEU   60   5.29   9   0.80   1.53  +++++*+++
+    Upper HD23  LEU   52 - HD11  LEU   64   4.74   8   0.59   0.93    +++++*++
+    Upper HD23  LEU   52 - CD2   LEU   64   3.35   3   0.11   0.28       +*+
+    Upper HD23  LEU   52 - HD23  LEU   64   3.12   3   0.20   0.78  + *  +
+    Upper HD23  LEU   52 - HD13  LEU   67   4.34   4   0.12   0.36    +++   *
+    Upper C     LEU   52 - HD21  LEU   60   4.32   7   0.30   0.48  +*+++   ++
+    Upper C     LEU   52 - HD22  LEU   60   4.40   3   0.10   0.38       ++*
+    Upper O     LEU   52 - HD21  LEU   60   3.73   7   0.65   0.97  +++++   *+
+    Upper O     LEU   52 - HD22  LEU   60   4.30   3   0.08   0.28       ++*
+    Upper N     SER   54 - HD13  LEU   60   4.19   8   0.27   0.54   + +++*+++
+    Upper CA    SER   54 - HD13  LEU   60   4.91  10   0.29   0.41  ++++++*+++
+    Upper CB    SER   54 - HD13  LEU   60   5.44   8   0.27   0.34  ++++++ *+
+    Upper HB3   SER   54 - HD12  LEU   60   5.44   8   0.20   0.28  +++++* ++
+    Upper HB3   SER   54 - HD13  LEU   60   4.80   8   0.28   0.39  ++++++ *+
+    Upper C     SER   54 - HD12  LEU   60   5.35   3   0.15   0.27   +   * +
+    Upper C     SER   54 - HD13  LEU   60   4.56   8   0.25   0.36   + +++*+++
+    Upper O     SER   54 - HD12  LEU   60   4.17   3   0.15   0.28   +   * +
+    Upper O     SER   54 - HD13  LEU   60   3.57   6   0.20   0.30     ++ *+++
+    Upper O     ASN   56 - HD12  LEU   60   5.37   5   0.27   0.69   +   +++ *
+    Upper N     GLU   57 - HD12  LEU   60   5.49   7   0.25   0.39   + +++++ *
+    Upper CA    GLU   57 - HD12  LEU   60   4.91   4   0.21   0.50       +++ *
+    Upper HA    GLU   57 - HD12  LEU   60   3.83   4   0.21   0.51       +++ *
+    Upper HG23  ILE   59 - HB2   ALA   63   5.21   4   0.18   0.26      ++ *+
+    Upper O     ILE   59 - HD22  LEU   60   5.50   6   0.16   0.31  + +++   +*
+    Upper N     LEU   60 - HD23  LEU   60   4.84   7   0.25   0.41  +++++   +*
+    Upper H     LEU   60 - HD12  LEU   60   5.05   4   0.22   0.33   +   + + *
+    Upper H     LEU   60 - HD23  LEU   60   5.27   7   0.18   0.30  +*+++   ++
+    Upper CA    LEU   60 - HD23  LEU   60   3.46   7   0.24   0.44  +++++   +*
+    Upper HA    LEU   60 - HD23  LEU   60   3.73   6   0.17   0.40  ++++    +*
+    Upper CB    LEU   60 - HD11  LEU   64   5.31   4   0.17   0.34       +++ *
+    Upper HB2   LEU   60 - HD12  LEU   60   3.02   8   0.30   0.49  +++++* ++
+    Upper HB3   LEU   60 - HD11  LEU   64   4.91   8   0.26   0.47   + ++++++*
+    Upper CD1   LEU   60 - HD21  LEU   60   3.03   7   0.21   0.31  ++++*   ++
+    Upper HD11  LEU   60 - HD11  LEU   64   4.51   8   0.95   1.28  +++*++ ++
+    Upper HD11  LEU   60 - HD22  LEU   64   5.16   8   0.93   1.57  ++++++ +*
+    Upper HD21  LEU   60 - HD11  LEU   64   3.26   7   0.20   0.31   + ++* +++
+    Upper HD21  LEU   60 - HD22  LEU   64   3.30   6   0.38   0.86   + ++ + +*
+    Upper HD22  LEU   60 - C     LEU   60   3.52   3   0.12   0.23     +*   +
+    Upper HD22  LEU   60 - O     LEU   60   3.04   7   0.28   0.46  ++++*   ++
+    Upper HD22  LEU   60 - CB    ALA   63   4.47   5   0.21   0.34  +++   *  +
+    Upper HD22  LEU   60 - HB2   ALA   63   5.24   9   0.26   0.49  +++ ++*+++
+    Upper HD22  LEU   60 - HB3   ALA   63   3.95   9   0.31   0.45  +++++ *+++
+    Upper HD22  LEU   60 - HD22  LEU   64   3.69   3   0.10   0.46       +*+
+    Upper HD23  LEU   60 - C     LEU   60   3.08   7   0.37   0.63  +++++   +*
+    Upper HD23  LEU   60 - N     GLN   61   3.85   6   0.23   0.37   + ++ * ++
+    Upper HD23  LEU   60 - CA    GLN   61   4.49   5   0.25   0.52   +   +*+ +
+    Upper HD23  LEU   60 - HA    GLN   61   4.00   3   0.27   0.77       +*+
+    Upper HD23  LEU   60 - C     GLN   61   5.26   6   0.18   0.34  ++ ++   +*
+    Upper HD23  LEU   60 - O     GLN   61   5.38   6   0.21   0.43  ++ ++   +*
+    Upper HD23  LEU   60 - HB3   ALA   63   4.89   7   0.30   0.62  +++++   +*
+    Upper C     LEU   60 - HD11  LEU   64   4.83   7   0.25   0.44   + ++ *+++
+    Upper C     LEU   60 - HD13  LEU   64   4.35   7   0.21   0.32  ++*++   ++
+    Upper O     LEU   60 - HD11  LEU   64   4.29  10   0.43   0.60  ++++++*+++
+    Upper O     LEU   60 - HD13  LEU   64   3.77   8   0.34   0.49  ++*++ + ++
+    Upper O     LEU   60 - HD22  LEU   64   5.03   3   0.16   0.46       *++
+    Upper HG2   GLN   61 - HD11  ILE  101   4.20   9   0.41   0.55  +* +++++++
+    Upper HB3   LEU   64 - HD12  LEU   64   3.19  10   0.64   0.70  ++++++*+++
+    Upper HB3   LEU   64 - HD23  LEU   93   5.31   7   0.30   0.49   * ++ ++++
+    Upper HG    LEU   64 - HD13  LEU   67   5.14   3   0.11   0.32     *+   +
+    Upper CD1   LEU   64 - HD22  LEU   93   4.95   5   0.16   0.27   * +  ++ +
+    Upper HD12  LEU   64 - HD21  LEU   90   5.21  10   0.68   0.78  ++++++*+++
+    Upper HD12  LEU   64 - HG    LEU   93   5.23   7   0.20   0.35  *++++   ++
+    Upper HD12  LEU   64 - HD22  LEU   93   4.32   8   0.48   0.64  +++*+ + ++
+    Upper HD13  LEU   64 - HD11  ILE  101   4.27   5   0.19   0.38   * ++   ++
+    Upper HD21  LEU   64 - C     LEU   64   5.26   5   0.16   0.32      + *+++
+    Upper HD21  LEU   64 - O     LEU   64   5.44   8   0.47   0.68   + +++*+++
+    Upper HD21  LEU   64 - HD21  LEU   90   3.23  10   1.11   1.34  +++++*++++
+    Upper HD21  LEU   64 - CD1   LEU   93   3.25   3   0.13   0.57  + *  +
+    Upper HD21  LEU   64 - HD21  LEU   93   4.94   6   0.26   0.53  *+++ + +
+    Upper HZ2   TRP   65 - HG3   GLU  104   4.60   3   0.17   0.22     * +   +
+    Upper HB3   LEU   67 - HD12  LEU   67   3.25  10   0.40   0.55  ++*+++++++
+    Upper HD12  LEU   67 - HD22  LEU   67   3.10   7   0.41   0.64    *++++++
+    Upper HD12  LEU   67 - HG13  VAL   81   4.83   7   0.21   0.42    *++++++
+    Upper HD12  LEU   67 - HB1   ALA   86   4.48   5   0.17   0.31    ++  +*+
+    Upper HD12  LEU   67 - HD12  LEU   90   5.32   7   0.30   0.67   + ++ +++*
+    Upper HD12  LEU   67 - HD13  LEU   90   5.10   3   0.28   1.09  + +  *
+    Upper HD12  LEU   67 - HD21  LEU   90   5.32   8   0.44   0.78   + ++++++*
+    Upper HD22  LEU   67 - C     LEU   67   4.79   8   0.29   0.59   + ++++++*
+    Upper HD22  LEU   67 - O     LEU   67   4.84  10   0.60   0.85  +++++++++*
+    Upper HD22  LEU   67 - CG1   VAL   81   4.05   8   0.24   0.34  + +++++*+
+    Upper HD22  LEU   67 - HG11  VAL   81   4.27   4   0.17   0.34     ++ +*
+    Upper HD22  LEU   67 - HG12  VAL   81   4.61   8   0.28   0.38  + +++++*+
+    Upper HD22  LEU   67 - HG13  VAL   81   3.04   8   0.25   0.34  + *++++++
+    Upper HD22  LEU   67 - CG2   VAL   81   5.10   5   0.22   0.34  +++  +   *
+    Upper HD22  LEU   67 - HG21  VAL   81   5.02  10   0.34   0.46  +*++++++++
+    Upper HD22  LEU   67 - HB1   ALA   86   4.36   5   0.20   0.41     ++ +*+
+    Upper HD22  LEU   67 - HB2   ALA   86   4.07   4   0.14   0.26      +++ *
+    Upper HA    SER   68 - HD13  LEU   90   5.28  10   0.53   0.73  +++++*++++
+    Upper HG13  VAL   81 - HD12  LEU   90   5.04   4   0.13   0.25      + *++
+    Upper CG1   ILE   82 - HD11  LEU   87   3.61   8   0.25   0.36  + *++++++
+    Upper CG1   ILE   82 - HD23  LEU   87   5.10   5   0.17   0.23  +   ++* +
+    Upper HG12  ILE   82 - HD23  LEU   87   4.06   8   0.20   0.26  + ++++++*
+    Upper HG13  ILE   82 - HD11  LEU   87   4.54   8   0.29   0.40  + *++++++
+    Upper CD1   ILE   82 - HD11  LEU   87   4.01   8   0.18   0.24  + *++++++
+    Upper HD11  ILE   82 - HD11  LEU   87   3.62   3   0.15   0.20  *    ++
+    Upper HD12  ILE   82 - HD11  LEU   87   5.03   8   0.20   0.26  * +++++++
+    Upper H     ALA   86 - HG    LEU   87   5.09   8   0.42   0.61  + ++++*++
+    Upper CA    ALA   86 - HD12  LEU   90   4.59   7   0.26   0.39   + +* ++++
+    Upper HA    ALA   86 - HD12  LEU   90   5.12   4   0.14   0.26      * + ++
+    Upper CB    ALA   86 - HD12  LEU   90   4.03   6   0.18   0.29     +* ++++
+    Upper HB1   ALA   86 - HD12  LEU   90   3.49   6   0.20   0.28    ++* +++
+    Upper HB3   ALA   86 - HD12  LEU   90   4.99   4   0.14   0.23      * + ++
+    Upper C     ALA   86 - HD12  LEU   90   3.93   8   0.36   0.45   * +++++++
+    Upper O     ALA   86 - HD12  LEU   90   3.31  10   0.51   0.60  ++++*+++++
+    Upper N     LEU   87 - HD13  LEU   87   5.13   7   0.25   0.55  +*  +++ ++
+    Upper N     LEU   87 - HD12  LEU   90   4.65   7   0.24   0.42   * ++ ++++
+    Upper H     LEU   87 - HD13  LEU   87   4.78  10   0.41   0.87  +*++++++++
+    Upper H     LEU   87 - HD12  LEU   90   5.37   3   0.15   0.36   * +   +
+    Upper CA    LEU   87 - HD12  LEU   90   4.90   4   0.20   0.40   * + + +
+    Upper HB3   LEU   87 - HD13  LEU   87   3.11   9   0.29   0.35  +++++*+++
+    Upper HB3   LEU   87 - HG21  VAL   91   4.76   6   0.20   0.34  + ++* + +
+    Upper HD11  LEU   87 - CB    ALA  122   3.72   6   0.18   0.28  + + ++* +
+    Upper HD11  LEU   87 - HB2   ALA  122   4.05   6   0.21   0.40  + + ++* +
+    Upper HD11  LEU   87 - HB3   ALA  122   4.44   7   0.23   0.33  * + +++++
+    Upper HD11  LEU   87 - HG23  VAL  123   5.20   3   0.16   0.26    *   ++
+    Upper HD13  LEU   87 - CD    PRO   88   5.18   9   0.53   0.66  ++*++++++
+    Upper HD13  LEU   87 - HD3   PRO   88   4.20  10   0.69   0.84  ++*+++++++
+    Upper HD13  LEU   87 - HB2   ASP  125   5.24   3   0.13   0.26      *+  +
+    Upper HD13  LEU   87 - CA    ALA  126   5.23   8   0.32   0.46  * +++++++
+    Upper HD13  LEU   87 - HA    ALA  126   4.94   8   0.63   0.87  * +++++++
+    Upper HD21  LEU   87 - HD12  LEU   90   5.20  10   0.73   1.26  +++++++++*
+    Upper HD21  LEU   87 - HD12  ILE  112   3.72   3   0.14   0.27        + +*
+    Upper HD22  LEU   87 - N     PRO   88   4.92   9   0.25   0.35  +*+++++++
+    Upper HD22  LEU   87 - HD3   PRO   88   5.13   8   0.37   0.56  + *++++++
+    Upper HD22  LEU   87 - CG2   VAL   91   4.89   3   0.14   0.41  +*      +
+    Upper HD22  LEU   87 - HG21  VAL   91   4.45   9   0.47   0.64  +++++++ *+
+    Upper HD22  LEU   87 - N     ALA  126   5.18   9   0.33   0.42  + +*++++++
+    Upper HD22  LEU   87 - H     ALA  126   4.78   5   0.21   0.38     +++ + *
+    Upper HD22  LEU   87 - CA    ALA  126   4.64   9   0.48   0.57  * ++++++++
+    Upper HD22  LEU   87 - HA    ALA  126   5.02  10   0.61   0.75  *+++++++++
+    Upper HD22  LEU   87 - CB    ALA  126   3.17  10   0.50   0.59  *+++++++++
+    Upper HD22  LEU   87 - HB1   ALA  126   3.36   8   0.41   0.54  * +++++++
+    Upper C     LEU   87 - HD12  LEU   90   5.50   6   0.21   0.27  *+++ + +
+    Upper O     LEU   87 - HD12  LEU   90   5.40   3   0.12   0.32  * +  +
+    Upper HB1   ALA   89 - HD21  LEU   90   5.50   9   0.52   0.68  ++ +*+++++
+    Upper C     ALA   89 - HD11  LEU   93   5.03   9   0.27   0.46  + *+++++++
+    Upper O     ALA   89 - HD21  LEU   90   5.14   5   0.19   0.30  +++  *   +
+    Upper O     ALA   89 - HD11  LEU   93   4.42   4   0.21   0.39  + * ++
+    Upper O     ALA   89 - HD21  LEU   93   4.45   9   0.39   0.57  ++++* ++++
+    Upper N     LEU   90 - HD12  LEU   90   4.99   4   0.17   0.25  *   + + +
+    Upper N     LEU   90 - HD11  LEU   93   4.94   3   0.18   0.33  + *   +
+    Upper H     LEU   90 - HD12  LEU   90   4.59  10   0.40   0.48  *+++++++++
+    Upper HB2   LEU   90 - HD12  LEU   90   3.10   4   0.21   0.54  + + +*
+    Upper HB3   LEU   90 - HD22  LEU  109   3.90   5   0.15   0.36   *  ++  ++
+    Upper CG    LEU   90 - HD11  LEU   93   4.37   8   0.22   0.28   + ++*++++
+    Upper CG    LEU   90 - HD22  LEU  109   5.08   5   0.18   0.35   +  * + ++
+    Upper HG    LEU   90 - HD11  LEU   93   4.38  10   0.54   0.81  +++++*++++
+    Upper CD1   LEU   90 - HD22  LEU  109   4.48   7   0.28   0.49  ++  *++ ++
+    Upper HD11  LEU   90 - HD22  LEU   90   3.66   7   0.39   0.59   * ++ ++++
+    Upper HD11  LEU   90 - HB3   ALA  108   5.05   3   0.13   0.23         ++*
+    Upper HD11  LEU   90 - H     LEU  109   4.49   3   0.14   0.29   + +   *
+    Upper HD11  LEU   90 - HB2   LEU  109   5.16   3   0.10   0.24   * +   +
+    Upper HD11  LEU   90 - HD22  LEU  109   3.61   8   0.47   0.86  *++ +++ ++
+    Upper HD12  LEU   90 - HD22  LEU  109   4.50   9   0.57   1.29  * ++++++++
+    Upper HD13  LEU   90 - CD2   LEU   90   3.08   3   0.10   0.36  + +  *
+    Upper HD13  LEU   90 - HB3   ALA  108   4.77   3   0.10   0.34  + *  +
+    Upper HD13  LEU   90 - HD22  LEU  109   5.33   5   0.24   0.48   +  * + ++
+    Upper CD2   LEU   90 - HD11  LEU   93   3.38   7   0.17   0.26   + ++++* +
+    Upper HD21  LEU   90 - CG    LEU   93   4.54   5   0.16   0.33  +*+  +   +
+    Upper HD21  LEU   90 - HG    LEU   93   4.44  10   0.39   0.63  +*++++++++
+    Upper HD21  LEU   90 - HD23  LEU   93   5.27   8   0.51   0.71   * +++++++
+    Upper HD22  LEU   90 - C     LEU   90   4.12   8   0.34   0.46  * +++ ++++
+    Upper HD22  LEU   90 - O     LEU   90   4.11   9   0.56   0.73  +++++ +*++
+    Upper HD22  LEU   90 - N     VAL   91   5.23   7   0.29   0.41  +  ++ ++*+
+    Upper HD22  LEU   90 - CB    LEU   93   4.99   5   0.19   0.53  + *++  +
+    Upper HD22  LEU   90 - HB2   LEU   93   4.32   9   0.36   0.56  * ++++++++
+    Upper HD22  LEU   90 - O     ALA  105   4.56   8   0.35   0.52   * +++++++
+    Upper HD22  LEU   90 - H     LEU  109   5.03   8   0.54   0.79   + *++++++
+    Upper HD22  LEU   90 - CG    LEU  109   5.32   8   0.46   0.83   + *++++++
+    Upper HD22  LEU   90 - HG    LEU  109   4.26   8   0.48   0.81   + *++++++
+    Upper HD22  LEU   90 - HD13  LEU  109   5.37  10   1.01   1.35  ++++++*+++
+    Upper HA    VAL   91 - HD21  LEU  109   4.62   3   0.08   0.30    +*   +
+    Upper CB    VAL   91 - HD21  LEU  109   5.16   3   0.09   0.39    *+   +
+    Upper CG1   VAL   91 - HD13  LEU   94   4.00  10   0.52   0.61  +*++++++++
+    Upper HG11  VAL   91 - HD13  LEU   94   4.67  10   0.79   0.87  +*++++++++
+    Upper HG11  VAL   91 - HB2   ALA  128   4.55   3   0.15   0.37      *+  +
+    Upper HG12  VAL   91 - HD13  LEU   94   4.21  10   0.47   0.60  +*++++++++
+    Upper CG2   VAL   91 - HD11  LEU  109   4.34   3   0.14   0.28     +*  +
+    Upper CG2   VAL   91 - HD21  LEU  109   3.97   3   0.10   0.49    *+   +
+    Upper HG21  VAL   91 - HD11  LEU  109   5.25   6   0.26   0.42     +* ++++
+    Upper HG22  VAL   91 - HD11  LEU  109   3.78   9   0.43   0.61  ++ +++*+++
+    Upper HG22  VAL   91 - HD21  LEU  109   3.70   4   0.19   0.56  + *+   +
+    Upper HG23  VAL   91 - HD11  LEU  109   3.97   3   0.11   0.42     ++  *
+    Upper O     VAL   91 - HD13  LEU   94   3.86  10   0.53   0.61  +++++*++++
+    Upper CB    GLN   92 - HD21  LEU   93   5.22  10   0.54   0.69  ++*+++++++
+    Upper HB3   GLN   92 - HD21  LEU   93   4.19  10   0.64   0.76  ++*+++++++
+    Upper CB    LEU   93 - HD13  LEU   93   3.03   3   0.11   0.24  * +  +
+    Upper HB3   LEU   93 - HD13  LEU   93   3.25  10   0.40   0.47  +++++*++++
+    Upper HB3   LEU   93 - HD22  LEU   94   5.33   7   0.31   0.81  *++  ++ ++
+    Upper HD13  LEU   93 - C     LEU   93   5.34   4   0.17   0.38  * +  + +
+    Upper HD13  LEU   93 - O     ALA  105   5.30   7   0.24   0.34  *++  + +++
+    Upper HD22  LEU   93 - C     LEU   93   4.54   9   0.37   0.50  ++ +*+++++
+    Upper HD22  LEU   93 - O     LEU   93   4.72  10   0.73   0.82  ++++*+++++
+    Upper HD22  LEU   93 - CB    SER   96   4.80   7   0.20   0.25  ++ +* + ++
+    Upper HD22  LEU   93 - HB3   SER   96   4.81   7   0.20   0.24  ++ +* +++
+    Upper HD22  LEU   93 - OG    SER   96   5.04  10   0.28   0.33  *+++++++++
+    Upper HD22  LEU   93 - CG2   ILE  101   3.62   3   0.17   0.22    +  * +
+    Upper HD22  LEU   93 - HG22  ILE  101   3.33   5   0.19   0.25   +  * + ++
+    Upper HD22  LEU   93 - HG23  ILE  101   3.83   4   0.16   0.26    +  *++
+    Upper C     LEU   93 - HD22  LEU   94   4.66   7   0.22   0.54  *++  ++ ++
+    Upper O     LEU   93 - HD22  LEU   94   5.20   9   0.30   0.51  *+++ +++++
+    Upper CA    LEU   94 - HD13  LEU   94   4.50   4   0.19   0.22   +  * +  +
+    Upper CA    LEU   94 - HD22  LEU   94   3.64   5   0.16   0.26   +*   + ++
+    Upper CA    LEU   94 - HD23  LEU   94   3.43   4   0.18   0.39     +*  ++
+    Upper HA    LEU   94 - HD22  LEU   94   3.17   7   0.30   0.45   +*+  ++++
+    Upper CB    LEU   94 - HD21  LEU  102   4.93   3   0.13   0.22  +  +   *
+    Upper HB3   LEU   94 - HD13  LEU   94   3.12  10   0.43   0.55  ++++*+++++
+    Upper HB3   LEU   94 - HD21  LEU  102   4.42  10   0.49   0.56  ++++*+++++
+    Upper HD11  LEU   94 - HD21  LEU   94   3.34   9   0.69   0.90  +*+++ ++++
+    Upper HD11  LEU   94 - HD22  LEU  106   5.40  10   0.50   0.63  ++++*+++++
+    Upper HD11  LEU   94 - CG    LEU  109   4.61   5   0.16   0.26   +  *++  +
+    Upper HD11  LEU   94 - HG    LEU  109   5.03   6   0.19   0.30   +  *++ ++
+    Upper HD11  LEU   94 - CD1   LEU  109   3.10   4   0.16   0.26   +  *++
+    Upper HD11  LEU   94 - CD2   LEU  109   5.26   7   0.18   0.29  +*  +++ ++
+    Upper HD11  LEU   94 - HD21  LEU  109   4.72  10   0.87   1.37  ++*+++++++
+    Upper HD11  LEU   94 - HD22  LEU  132   4.47  10   0.56   0.68  ++++*+++++
+    Upper HD12  LEU   94 - HD22  LEU  106   4.16   9   0.41   0.60   +*+++++++
+    Upper HD12  LEU   94 - HD22  LEU  132   3.13  10   0.55   0.67  ++*+++++++
+    Upper HD13  LEU   94 - C     LEU   94   5.31  10   0.59   0.62  ++++*+++++
+    Upper HD13  LEU   94 - HB2   ALA  131   4.57  10   0.42   0.52  ++++++++*+
+    Upper CD2   LEU   94 - HD22  LEU  106   3.56  10   0.33   0.46  +++++*++++
+    Upper HD21  LEU   94 - HD21  LEU  106   4.20   7   0.29   0.82  *+++  + ++
+    Upper HD21  LEU   94 - CB    LEU  109   4.92   7   0.37   0.56   +++  +*++
+    Upper HD21  LEU   94 - HB2   LEU  109   4.31   7   0.30   0.47   +++  +*++
+    Upper HD21  LEU   94 - HB3   LEU  109   4.93   7   0.56   0.89   +*+  ++++
+    Upper HD21  LEU   94 - CG    LEU  109   4.85   7   0.22   0.35   ++*  ++++
+    Upper HD21  LEU   94 - CD1   LEU  109   3.69   8   0.38   0.60   *+++ ++++
+    Upper HD21  LEU   94 - HD13  LEU  109   3.91   6   0.53   1.00   *+ + + ++
+    Upper HD21  LEU   94 - HG    LEU  132   5.46   7   0.30   0.51   +++  +*++
+    Upper HD21  LEU   94 - HD22  LEU  132   3.72   9   1.35   1.75  ++++ ++*++
+    Upper HD22  LEU   94 - C     LEU   94   5.12   5   0.16   0.27   +*   + ++
+    Upper HD22  LEU   94 - HA    LEU  102   4.98   6   0.21   0.48  *++   + ++
+    Upper HD22  LEU   94 - HA    ALA  105   5.12   3   0.14   0.54  +   +*
+    Upper HD22  LEU   94 - CB    ALA  105   3.55   3   0.16   0.71  *   ++
+    Upper HD22  LEU   94 - HB2   ALA  105   4.12   3   0.23   0.93  *   ++
+    Upper HD22  LEU   94 - HB3   ALA  105   3.90   3   0.17   0.59  *+   +
+    Upper HD22  LEU   94 - HD13  LEU  109   4.27   3   0.16   0.66  +   *+
+    Upper HD23  LEU   94 - C     LEU   94   4.59   8   0.28   0.68   +++* ++++
+    Upper HD23  LEU   94 - O     LEU   94   4.77   8   0.43   0.99   +++* ++++
+    Upper HD23  LEU   94 - HA    LEU  102   5.38   6   0.16   0.32   + *  ++++
+    Upper HD23  LEU   94 - CG    LEU  102   5.16   5   0.17   0.31     +*  +++
+    Upper HD23  LEU   94 - HG    LEU  102   5.01   7   0.18   0.29   + *+ ++++
+    Upper HD23  LEU   94 - HD21  LEU  102   3.63   9   0.69   1.04  +++*+ ++++
+    Upper HD23  LEU   94 - HD11  LEU  106   4.72   3   0.11   0.48  +   *+
+    Upper HD23  LEU   94 - HD21  LEU  106   3.92   3   0.18   0.64  *   ++
+    Upper HD23  LEU   94 - HD22  LEU  106   3.40   3   0.28   1.29  +   +*
+    Upper HD23  LEU   94 - HD22  LEU  132   4.67   3   0.21   0.96  +   +*
+    Upper HD23  LEU   94 - HD12  LEU  135   4.46   3   0.12   0.44  +   +*
+    Upper HD23  LEU   94 - CD2   LEU  135   5.50   3   0.12   0.56  +   *+
+    Upper HD23  LEU   94 - HD22  LEU  135   4.85   3   0.22   0.67  +   *+
+    Upper C     LEU   94 - HD12  LEU  102   4.65   4   0.18   0.24   +* + +
+    Upper O     LEU   94 - HD12  LEU  102   3.56  10   0.32   0.35  ++++*+++++
+    Upper O     LEU   94 - HD21  LEU  102   4.04  10   0.37   0.52  +++++*++++
+    Upper HA    SER   95 - HD12  LEU  102   5.23   9   0.30   0.49  *++++++++
+    Upper N     SER   96 - HD12  LEU  102   5.44   8   0.24   0.31  *+++++++
+    Upper H     SER   96 - HD12  LEU  102   4.94  10   0.28   0.31  *+++++++++
+    Upper O     SER   96 - HD12  LEU  102   4.39   4   0.20   0.28  + +*   +
+    Upper C     ASN   98 - HD11  LEU  102   5.14   5   0.20   0.24   +*+  +  +
+    Upper O     ASN   98 - HD11  LEU  102   4.48  10   0.34   0.43  ++*+++++++
+    Upper CA    GLU   99 - HD11  LEU  102   4.91   5   0.20   0.24   *  + + ++
+    Upper HA    GLU   99 - HD11  LEU  102   3.87   5   0.20   0.24   *  + + ++
+    Upper C     GLU   99 - HD11  LEU  102   5.49   3   0.18   0.21   *  + +
+    Upper O     GLU   99 - HD23  LEU  102   5.38   3   0.21   0.52  +  *   +
+    Upper N     LEU  102 - HD23  LEU  102   4.93  10   0.41   0.49  *+++++++++
+    Upper H     LEU  102 - HD23  LEU  102   5.34  10   0.36   0.49  *+++++++++
+    Upper CA    LEU  102 - HD23  LEU  102   3.53  10   0.41   0.46  *+++++++++
+    Upper HA    LEU  102 - HD23  LEU  102   3.74  10   0.31   0.40  +++++*++++
+    Upper CB    LEU  102 - HD23  LEU  102   3.11   3   0.19   0.33  *  +   +
+    Upper CB    LEU  102 - HD11  LEU  106   5.33  10   0.49   0.66  *+++++++++
+    Upper HB3   LEU  102 - HD13  LEU  102   3.23  10   0.26   0.29  +++++*++++
+    Upper HB3   LEU  102 - HD11  LEU  106   4.98  10   0.57   0.80  *+++++++++
+    Upper CG    LEU  102 - HD11  LEU  106   4.77   8   0.39   0.52  *+ ++ ++++
+    Upper CD1   LEU  102 - HD11  LEU  106   5.14   8   0.31   0.48  ++ +* ++++
+    Upper HD12  LEU  102 - HD21  LEU  102   3.16   6   0.18   0.35   ++ * + ++
+    Upper HD13  LEU  102 - HD21  LEU  102   3.03   7   0.26   0.42   +* +++ ++
+    Upper HD13  LEU  102 - HD11  LEU  106   4.48   8   0.49   0.70  ++ +* ++++
+    Upper HD13  LEU  102 - HG12  ILE  143   3.13   6   0.20   0.29   *+ + + ++
+    Upper HD13  LEU  102 - HG13  ILE  143   4.59   6   0.19   0.26   +* + + ++
+    Upper HD13  LEU  102 - CD1   ILE  143   3.30  10   0.32   0.39  ++*+++++++
+    Upper HD13  LEU  102 - HD12  ILE  143   4.23  10   0.45   0.52  ++*+++++++
+    Upper CD2   LEU  102 - HD11  LEU  106   3.45   8   0.35   0.47  ++ +* ++++
+    Upper HD21  LEU  102 - HD21  LEU  106   4.53   8   0.31   0.42  ++ +* ++++
+    Upper HD21  LEU  102 - HD22  LEU  106   5.18   8   0.27   0.38  *+ +++ +++
+    Upper HD21  LEU  102 - CG    LEU  135   5.37   4   0.16   0.26   +    * ++
+    Upper HD21  LEU  102 - HD11  LEU  135   5.18   4   0.15   0.36  *  + + +
+    Upper HD21  LEU  102 - CD2   LEU  135   4.53   5   0.24   0.35   *+   + ++
+    Upper HD21  LEU  102 - HD21  LEU  135   3.97  10   0.87   1.03  ++*+++++++
+    Upper HD21  LEU  102 - HG21  ILE  143   3.82   5   0.15   0.27   +  * + ++
+    Upper HD22  LEU  102 - HB3   ALA  105   3.77   6   0.18   0.42   +* + + ++
+    Upper HD22  LEU  102 - HD11  LEU  106   3.86   8   0.30   0.41  ++ ++ +*++
+    Upper HD23  LEU  102 - C     LEU  102   3.19  10   0.53   0.58  *+++++++++
+    Upper HD23  LEU  102 - O     LEU  102   3.25  10   0.50   0.60  ++*+++++++
+    Upper HD23  LEU  102 - N     GLN  103   3.78  10   0.42   0.55  *+++++++++
+    Upper HD23  LEU  102 - H     GLN  103   4.23  10   0.33   0.51  *+++++++++
+    Upper HD23  LEU  102 - CA    GLN  103   4.44  10   0.32   0.44  *+++++++++
+    Upper HD23  LEU  102 - HA    GLN  103   3.95   3   0.19   0.32  *  +   +
+    Upper HD23  LEU  102 - HG3   GLN  103   4.85   3   0.09   0.31  *  +   +
+    Upper HD23  LEU  102 - C     GLN  103   5.31  10   0.31   0.34  *+++++++++
+    Upper HD23  LEU  102 - HB3   ALA  105   4.96   9   0.43   0.61   +*+++++++
+    Upper O     LEU  102 - HD11  LEU  106   4.36   4   0.19   0.43  + *  + +
+    Upper HG2   GLU  104 - HD1   TRP  107   4.53   6   0.24   0.51   + ++ * ++
+    Upper HB1   ALA  105 - HD22  LEU  106   5.33  10   0.52   0.64  ++++*+++++
+    Upper HB1   ALA  105 - HD12  LEU  109   4.68   5   0.18   0.33   +  * + ++
+    Upper C     ALA  105 - HD12  LEU  109   4.87   7   0.25   0.42   ++*  ++++
+    Upper O     ALA  105 - HD12  LEU  109   4.16   8   0.32   0.55  ++++  +*++
+    Upper N     LEU  106 - HD12  LEU  109   5.29   3   0.17   0.40     *   ++
+    Upper CB    LEU  106 - HD23  LEU  106   3.08   5   0.17   0.22     *  ++++
+    Upper HB3   LEU  106 - HD12  LEU  106   3.47   8   0.25   0.30  +*  ++++++
+    Upper HD11  LEU  106 - HD11  LEU  135   4.50   8   0.54   0.91  *+ ++ ++++
+    Upper HD11  LEU  106 - HD21  LEU  135   4.62   9   0.95   1.24  *++++ ++++
+    Upper HD11  LEU  106 - CG2   ILE  143   3.55   8   0.25   0.34  ++ ++ +*++
+    Upper HD11  LEU  106 - HG21  ILE  143   3.87   8   0.67   0.85  *+ ++ ++++
+    Upper HD11  LEU  106 - HG12  ILE  143   4.10   9   0.25   0.33  +++ +*++++
+    Upper HD12  LEU  106 - N     GLU  146   4.83   7   0.24   0.42   ++ +*+ ++
+    Upper HD12  LEU  106 - H     GLU  146   4.80   4   0.16   0.29   +*  ++
+    Upper HD12  LEU  106 - CA    GLU  146   4.16   8   0.33   0.48  +++ +*+ ++
+    Upper HD12  LEU  106 - HA    GLU  146   5.05  10   0.33   0.43  +++++*++++
+    Upper HD12  LEU  106 - CB    GLU  146   3.25   7   0.23   0.34  +*  +++ ++
+    Upper HD12  LEU  106 - C     GLU  146   3.99  10   0.36   0.66  +++++*++++
+    Upper HD12  LEU  106 - O     GLU  146   4.79  10   0.39   0.65  +++++*++++
+    Upper HD13  LEU  106 - N     GLU  146   5.48   8   0.22   0.34  ++ *+ ++++
+    Upper HD13  LEU  106 - H     GLU  146   5.25   8   0.24   0.37  ++ *+ ++++
+    Upper HD13  LEU  106 - CA    GLU  146   4.75   7   0.22   0.36  +  *+ ++++
+    Upper HD13  LEU  106 - HA    GLU  146   5.43   7   0.23   0.38  +  *+ ++++
+    Upper HD13  LEU  106 - CB    GLU  146   3.35   8   0.25   0.40  ++ *+ ++++
+    Upper HD13  LEU  106 - CG    GLU  146   3.82   8   0.29   0.44  ++ *+ ++++
+    Upper HD13  LEU  106 - HG2   GLU  146   4.48   8   0.30   0.49  ++ *+ ++++
+    Upper HD13  LEU  106 - HG3   GLU  146   4.60   8   0.25   0.36  ++ *+ ++++
+    Upper HD13  LEU  106 - CD    GLU  146   3.23   8   0.21   0.31  ++ *+ ++++
+    Upper HD13  LEU  106 - OE1   GLU  146   3.92   5   0.24   0.40  + ++ * +
+    Upper HD21  LEU  106 - HD21  LEU  135   4.61  10   0.56   0.72  +++*++++++
+    Upper HD22  LEU  106 - CD1   LEU  109   5.35   3   0.14   0.29   *+      +
+    Upper HD22  LEU  106 - HD12  LEU  109   4.30  10   0.77   1.24  +++++++*++
+    Upper HD22  LEU  106 - HD11  LEU  135   3.93   9   0.22   0.31  +*++++ +++
+    Upper HD23  LEU  106 - C     LEU  106   4.74   8   0.22   0.32  ++ ++ *+++
+    Upper HD23  LEU  106 - O     LEU  106   4.80  10   0.37   0.46  ++++++*+++
+    Upper HD23  LEU  106 - CA    GLU  146   5.05  10   0.44   0.78  +++++*++++
+    Upper HD23  LEU  106 - CB    GLU  146   4.63  10   0.42   0.83  +++++*++++
+    Upper HD23  LEU  106 - HB2   GLU  146   4.49  10   0.41   0.86  +++++*++++
+    Upper HD23  LEU  106 - HB3   GLU  146   3.92  10   0.38   0.79  ++*+++++++
+    Upper HD23  LEU  106 - C     GLU  146   4.16  10   0.36   0.63  +++++*++++
+    Upper HD23  LEU  106 - O     GLU  146   4.18  10   0.49   0.67  +++++*++++
+    Upper HD23  LEU  106 - H     ALA  150   4.92  10   0.43   0.53  *+++++++++
+    Upper HD23  LEU  106 - CB    ALA  150   4.45  10   0.34   0.46  +++*++++++
+    Upper HD23  LEU  106 - HB2   ALA  150   4.51  10   0.61   0.80  *+++++++++
+    Upper HD23  LEU  106 - HB3   ALA  150   3.56  10   0.52   0.70  *+++++++++
+    Upper CA    LEU  109 - HD23  LEU  109   3.24   3   0.09   0.31    ++   *
+    Upper HA    LEU  109 - HD22  LEU  109   3.02   3   0.10   0.39    ++   *
+    Upper CD1   LEU  109 - HD22  LEU  132   4.98   7   0.24   0.40   + ++ +++*
+    Upper HD11  LEU  109 - CD2   LEU  109   3.03  10   0.32   0.38  ++++*+++++
+    Upper HD11  LEU  109 - HD23  LEU  109   3.50   7   0.50   0.73  ++  *++ ++
+    Upper HD11  LEU  109 - HG13  VAL  123   5.34   9   0.47   0.69  + *+++++++
+    Upper HD11  LEU  109 - HB1   ALA  128   4.33  10   0.48   0.81  ++++*+++++
+    Upper HD11  LEU  109 - HB3   ALA  128   4.25   6   0.23   0.39   *+++ ++
+    Upper HD11  LEU  109 - HD12  LEU  132   5.16   5   0.37   0.92     +*+ ++
+    Upper HD11  LEU  109 - HD13  LEU  132   5.31   5   0.40   0.89  +*+   +  +
+    Upper HD11  LEU  109 - HD22  LEU  132   4.59   8   0.46   0.73  +++ +++ +*
+    Upper HD13  LEU  109 - HD21  LEU  109   3.28   3   0.18   0.74    ++   *
+    Upper HD21  LEU  109 - HB1   ALA  128   4.76   9   0.30   0.45  ++++++ +*+
+    Upper HD22  LEU  109 - C     LEU  109   4.77   3   0.07   0.25    *+   +
+    Upper HD22  LEU  109 - O     LEU  109   4.75   3   0.11   0.42    *+   +
+    Upper HD22  LEU  109 - HB    ILE  112   4.81   3   0.10   0.42    +*   +
+    Upper HD22  LEU  109 - HD12  ILE  112   4.26   3   0.18   0.31   * ++
+    Upper HD23  LEU  109 - C     LEU  109   3.70   3   0.17   0.51    *+   +
+    Upper HD23  LEU  109 - O     LEU  109   3.48  10   0.50   0.70  ++*+++++++
+    Upper HD23  LEU  109 - N     SER  110   4.91   3   0.09   0.37    *+   +
+    Upper HD23  LEU  109 - HB3   ALA  113   5.31   9   0.64   1.03  ++ ++++++*
+    Upper HD23  LEU  109 - CG1   VAL  123   4.61   6   0.14   0.24  ++  +*+ +
+    Upper HD23  LEU  109 - HG11  VAL  123   4.25   6   0.21   0.34  ++  ++* +
+    Upper HD23  LEU  109 - HG12  VAL  123   5.37   6   0.17   0.30  +*  +++ +
+    Upper HD23  LEU  109 - HB1   ALA  128   5.37   3   0.11   0.31   +   *  +
+    Upper CA    ILE  124 - HD11  LEU  129   5.06   5   0.13   0.26     ++* ++
+    Upper CB    ILE  124 - HD11  LEU  129   4.68   5   0.13   0.27     +++ +*
+    Upper CG2   ILE  124 - HD11  LEU  129   3.51   5   0.20   0.41     +*+ ++
+    Upper HG21  ILE  124 - HD23  LEU  129   5.48   3   0.12   0.36   *+      +
+    Upper HG22  ILE  124 - HD11  LEU  129   4.00   5   0.31   0.64     +*+ ++
+    Upper HG23  ILE  124 - HD11  ILE  124   4.20   4   0.11   0.28     ++*  +
+    Upper HD11  ILE  124 - HD11  LEU  129   5.12   4   0.11   0.30     * + ++
+    Upper HD11  ILE  124 - HD12  LEU  129   3.62   5   0.21   0.39  +*+   +  +
+    Upper HD11  ILE  124 - HD23  LEU  129   4.82   3   0.11   0.44   +*      +
+    Upper HD12  ILE  124 - HD12  LEU  129   5.21   5   0.13   0.30  +*+   +  +
+    Upper C     ILE  124 - HD11  LEU  129   5.41   5   0.20   0.43     *++ ++
+    Upper O     ILE  124 - HD11  LEU  129   4.90   6   0.23   0.46     *++ +++
+    Upper HB1   ALA  126 - O     GLY  127   5.36   8   0.19   0.25  + ++++*++
+    Upper H     ALA  128 - HG    LEU  129   4.86   5   0.23   0.73  *++   +  +
+    Upper CA    ALA  128 - HD12  LEU  132   4.36   7   0.36   0.57  ++ +*+ ++
+    Upper HA    ALA  128 - HD12  LEU  132   4.94   5   0.20   0.42     +++ +*
+    Upper CB    ALA  128 - HD12  LEU  132   3.79   5   0.24   0.48     ++* ++
+    Upper HB2   ALA  128 - HB3   ALA  131   4.61   3   0.14   0.22     * + +
+    Upper HB2   ALA  128 - HD22  LEU  132   4.77   4   0.12   0.31   *+   +  +
+    Upper HB3   ALA  128 - HD12  LEU  132   4.67   5   0.23   0.47     ++* ++
+    Upper C     ALA  128 - HD21  LEU  129   5.17   6   0.19   0.34     +++ +*+
+    Upper C     ALA  128 - HD12  LEU  132   3.71  10   0.50   0.63  +++++*++++
+    Upper O     ALA  128 - HD21  LEU  129   5.03   7   0.30   0.52   + +++ +*+
+    Upper N     LEU  129 - HD22  LEU  129   4.80   5   0.17   0.50  ++*   +  +
+    Upper N     LEU  129 - HD12  LEU  132   4.69  10   0.35   0.45  +++++*++++
+    Upper H     LEU  129 - HD11  LEU  129   4.81  10   0.35   0.39  +++++*++++
+    Upper H     LEU  129 - HD22  LEU  129   5.30   3   0.11   0.33  ++*
+    Upper H     LEU  129 - HD12  LEU  132   5.49   7   0.25   0.39   + ++* +++
+    Upper CA    LEU  129 - HD22  LEU  129   3.42   5   0.21   0.57  ++*   +  +
+    Upper CA    LEU  129 - HD12  LEU  132   5.00   8   0.31   0.43  +*+ ++++ +
+    Upper HA    LEU  129 - HD22  LEU  129   3.09   3   0.17   0.54   +*      +
+    Upper HA    LEU  129 - HD12  LEU  132   4.30   6   0.25   0.47  ++*  ++  +
+    Upper CB    LEU  129 - HD22  LEU  129   3.02   3   0.12   0.34  * +   +
+    Upper HB3   LEU  129 - HD11  LEU  129   3.39   3   0.11   0.27   *+      +
+    Upper HD11  LEU  129 - CD    PRO  130   5.39   5   0.22   0.54  +*+   +  +
+    Upper HD11  LEU  129 - HD3   PRO  130   4.41   5   0.37   0.71  +*+   +  +
+    Upper HD13  LEU  129 - CD2   LEU  129   3.15   5   0.14   0.28     +++ *+
+    Upper HD13  LEU  129 - HD22  LEU  129   3.35   5   0.45   0.90     +++ *+
+    Upper HD13  LEU  129 - HD23  LEU  129   3.02   6   0.42   0.76     +*+ +++
+    Upper HD13  LEU  129 - HB3   ASP  167   5.29   4   0.15   0.38  +*+      +
+    Upper HD13  LEU  129 - HB2   ALA  168   3.80   5   0.23   0.50     ++* ++
+    Upper HD21  LEU  129 - HD11  LEU  132   4.93   5   0.18   0.39  +++   *  +
+    Upper HD21  LEU  129 - HD12  LEU  132   5.34  10   0.92   1.07  +++++*++++
+    Upper HD21  LEU  129 - CD1   ILE  154   4.31   3   0.09   0.23      *+ +
+    Upper HD21  LEU  129 - HD11  ILE  154   5.08   3   0.08   0.23      *+ +
+    Upper HD21  LEU  129 - HD13  ILE  154   3.93   5   0.15   0.28     ++* ++
+    Upper HD22  LEU  129 - C     LEU  129   3.84   5   0.24   0.65  ++*   +  +
+    Upper HD22  LEU  129 - O     LEU  129   3.85   5   0.26   0.75  ++*   +  +
+    Upper HD22  LEU  129 - N     PRO  130   4.85   5   0.19   0.47  ++*   +  +
+    Upper HD22  LEU  129 - CG2   VAL  133   5.20   4   0.15   0.45  +++      *
+    Upper HD22  LEU  129 - HG21  VAL  133   4.90   4   0.19   0.44  ++  +    *
+    Upper HD22  LEU  129 - HG22  VAL  133   5.30   7   0.25   0.35  +++ ++ + *
+    Upper HD22  LEU  129 - HG23  VAL  133   4.71   3   0.15   0.47   ++      *
+    Upper HD22  LEU  129 - O     ALA  164   4.52   5   0.19   0.47     ++* ++
+    Upper HD22  LEU  129 - N     ALA  168   5.24   6   0.26   0.45     ++*+++
+    Upper HD22  LEU  129 - H     ALA  168   4.81   5   0.21   0.43     ++* ++
+    Upper HD22  LEU  129 - CA    ALA  168   4.81   7   0.25   0.44  +  +++*++
+    Upper HD22  LEU  129 - HA    ALA  168   5.10   7   0.34   0.64  *  ++++++
+    Upper HD22  LEU  129 - CB    ALA  168   3.42   6   0.22   0.42  +  +++*+
+    Upper HD22  LEU  129 - HB1   ALA  168   3.79   3   0.10   0.34  * +   +
+    Upper HD22  LEU  129 - HB2   ALA  168   3.06   8   0.39   0.51  ++ +++*++
+    Upper HD23  LEU  129 - CA    ALA  164   4.89   3   0.11   0.41   *+      +
+    Upper HD23  LEU  129 - HA    ALA  164   5.45   3   0.09   0.32   *+      +
+    Upper HD23  LEU  129 - CB    ALA  164   4.66   3   0.11   0.41   *+      +
+    Upper HD23  LEU  129 - HB1   ALA  164   3.78   3   0.11   0.40   +*      +
+    Upper HD23  LEU  129 - HB2   ALA  164   4.93   3   0.11   0.39   *+      +
+    Upper HD23  LEU  129 - C     ALA  164   3.87   3   0.10   0.36   *+      +
+    Upper HD23  LEU  129 - O     ALA  164   3.70   3   0.15   0.38   *+      +
+    Upper O     LEU  129 - HD13  LEU  151   5.47   3   0.12   0.29   +*  +
+    Upper HB1   ALA  131 - HD22  LEU  132   5.36   3   0.17   0.32      * + +
+    Upper HB1   ALA  131 - HD12  LEU  135   4.87   8   0.27   0.44  ++ +++ ++*
+    Upper O     ALA  131 - HD12  LEU  135   3.84   3   0.17   0.30     + +  *
+    Upper O     ALA  131 - HD22  LEU  135   4.78  10   0.46   0.64  ++++++*+++
+    Upper CA    LEU  132 - HD13  LEU  151   4.79   7   0.27   0.42  ++* ++++
+    Upper HA    LEU  132 - HD13  LEU  151   5.43   7   0.29   0.37  +++ *+++
+    Upper CB    LEU  132 - HD13  LEU  151   4.34   7   0.24   0.42  ++* ++++
+    Upper CB    LEU  132 - HD22  LEU  151   4.63   4   0.13   0.34  *   ++ +
+    Upper HB3   LEU  132 - HD21  LEU  132   3.38   8   0.22   0.27  *++ ++++ +
+    Upper HB3   LEU  132 - HD13  LEU  151   3.55  10   0.53   0.63  ++*+++++++
+    Upper HB3   LEU  132 - HD22  LEU  151   4.29   8   0.35   0.64  *++ ++++ +
+    Upper HB3   LEU  132 - HD23  LEU  151   4.31   6   0.22   0.36  ++  +* + +
+    Upper CG    LEU  132 - HD23  LEU  151   5.15   4   0.13   0.24      +* + +
+    Upper HG    LEU  132 - HD12  LEU  135   4.21   8   0.42   0.62  *+ +++ +++
+    Upper CD1   LEU  132 - HD23  LEU  151   4.35   5   0.18   0.36     +++  *+
+    Upper HD11  LEU  132 - HD13  LEU  151   5.09   4   0.21   0.60    + ++ *
+    Upper HD11  LEU  132 - HD22  LEU  151   4.31   6   0.23   0.58  *+  ++ + +
+    Upper HD11  LEU  132 - HD23  LEU  151   3.28  10   0.49   0.72  +++*++++++
+    Upper HD12  LEU  132 - HD23  LEU  151   4.74   4   0.22   0.62  +*    +  +
+    Upper HD13  LEU  132 - HD22  LEU  132   3.38   5   0.21   0.47  +++   +  *
+    Upper HD13  LEU  132 - HD23  LEU  132   3.92   5   0.13   0.28  *++   +  +
+    Upper HD13  LEU  132 - HA    ALA  150   5.10   4   0.16   0.38  ++    +  *
+    Upper HD13  LEU  132 - CB    ALA  150   3.51   7   0.31   0.60  +*+ +++  +
+    Upper HD13  LEU  132 - HB2   ALA  150   3.49   9   0.39   0.75  *++ ++++++
+    Upper HD13  LEU  132 - HB3   ALA  150   4.12   6   0.41   0.78  +*+  ++  +
+    Upper HD13  LEU  132 - HD23  LEU  151   4.86   5   0.29   0.75     +++ +*
+    Upper HD21  LEU  132 - O     ALA  147   4.47   9   0.28   0.41  +++++ *+++
+    Upper HD21  LEU  132 - N     LEU  151   5.08   6   0.15   0.29   +++  * ++
+    Upper HD21  LEU  132 - H     LEU  151   4.73   9   0.33   0.49  ++++ +*+++
+    Upper HD21  LEU  132 - HG    LEU  151   4.63  10   0.41   0.56  +++++++++*
+    Upper HD23  LEU  132 - O     LEU  132   4.22  10   0.46   0.61  +++*++++++
+    Upper HD23  LEU  132 - CB    LEU  135   4.75   8   0.28   0.38    ++++++*+
+    Upper HD23  LEU  132 - HB2   LEU  135   4.11   9   0.37   0.51   +++++++*+
+    Upper HD23  LEU  132 - HB3   LEU  135   5.11   8   0.30   0.45    ++++*+++
+    Upper C     LEU  132 - HD13  LEU  151   3.93   7   0.27   0.41  *++ ++++
+    Upper O     LEU  132 - HD22  LEU  136   3.97   5   0.19   0.45     *+  +++
+    Upper O     LEU  132 - HD13  LEU  151   3.89   8   0.26   0.35  +++++* ++
+    Upper N     VAL  133 - HD11  LEU  136   4.95   4   0.17   0.27    *+    ++
+    Upper N     VAL  133 - HD13  LEU  151   3.96   7   0.23   0.39  +*+ ++++
+    Upper H     VAL  133 - HD13  LEU  151   4.47   7   0.23   0.42  +*+ ++++
+    Upper HG11  VAL  133 - HB2   ALA  170   4.77   7   0.22   0.35  +  +++ +*+
+    Upper HG12  VAL  133 - HD13  LEU  136   4.17   6   0.23   0.43     + +*+++
+    Upper CG2   VAL  133 - HD11  LEU  136   4.87   5   0.17   0.23     *+  +++
+    Upper HG22  VAL  133 - HD11  LEU  136   4.46   3   0.18   0.32      *+ +
+    Upper HG22  VAL  133 - HD22  LEU  151   4.26   4   0.13   0.36    *+  + +
+    Upper HG23  VAL  133 - HD11  LEU  136   4.74   7   0.24   0.39    ++++ ++*
+    Upper C     VAL  133 - HD22  LEU  136   5.46   5   0.12   0.27     ++  +*+
+    Upper HB3   GLN  134 - HD22  LEU  135   5.46  10   0.45   0.52  *+++++++++
+    Upper CA    LEU  135 - HD22  LEU  136   5.40   8   0.56   0.86  ++ ++ ++*+
+    Upper CB    LEU  135 - HD22  LEU  136   5.13   6   0.59   0.94     *+ ++++
+    Upper QB    LEU  135 - HD22  LEU  136   4.69   5   0.13   0.25     *+  +++
+    Upper HB2   LEU  135 - HD22  LEU  136   4.27   6   0.54   0.92     *+ ++++
+    Upper HB3   LEU  135 - HD22  LEU  136   5.23  10   0.67   0.95  ++++++*+++
+    Upper HD11  LEU  135 - C     LEU  135   5.29  10   0.45   0.63  ++*+++++++
+    Upper HD11  LEU  135 - CG2   ILE  143   5.05   3   0.15   0.26  *   ++
+    Upper HD11  LEU  135 - HG22  ILE  143   4.56   8   0.28   0.54  ++ ++* +++
+    Upper HD11  LEU  135 - O     ILE  143   5.18   9   0.49   0.60  *+ +++++++
+    Upper HD11  LEU  135 - N     ALA  147   4.92   8   0.31   0.54  +++ +*+ ++
+    Upper HD11  LEU  135 - H     ALA  147   4.97   5   0.26   0.55  +++ +*
+    Upper HD11  LEU  135 - CA    ALA  147   4.19  10   0.36   0.56  ++*+++++++
+    Upper HD11  LEU  135 - HA    ALA  147   3.64  10   0.38   0.61  ++*+++++++
+    Upper HD11  LEU  135 - CB    ALA  147   3.68   7   0.25   0.40    +++ *+++
+    Upper HD11  LEU  135 - HB1   ALA  147   4.51   7   0.25   0.49    +++ *+++
+    Upper HD11  LEU  135 - C     ALA  147   5.43  10   0.36   0.54  ++*+++++++
+    Upper HD21  LEU  135 - C     LEU  135   5.01  10   0.32   0.41  ++++++*+++
+    Upper HD21  LEU  135 - O     LEU  135   5.15  10   0.65   0.74  ++++++*+++
+    Upper HD21  LEU  135 - HB2   SER  138   4.32   3   0.16   0.23      * +  +
+    Upper HD21  LEU  135 - OG    SER  138   5.44  10   0.25   0.31  ++++*+++++
+    Upper HD21  LEU  135 - HG22  ILE  143   3.18   4   0.19   0.29  + +  *+
+    Upper C     LEU  135 - HD22  LEU  136   4.64  10   0.55   0.73  ++++++++*+
+    Upper O     LEU  135 - HD22  LEU  136   5.25  10   0.61   0.72  +++++++++*
+    Upper N     LEU  136 - HD22  LEU  136   3.77   9   0.34   0.48  ++ *++++++
+    Upper H     LEU  136 - HD22  LEU  136   3.69   5   0.21   0.39     ++  +*+
+    Upper CA    LEU  136 - HD22  LEU  136   3.64   4   0.11   0.28  +*+  +
+    Upper CA    LEU  136 - HD23  LEU  136   3.38   4   0.10   0.27  ++*  +
+    Upper HA    LEU  136 - HD22  LEU  136   3.20   4   0.25   0.46  +*+  +
+    Upper CB    LEU  136 - HD23  LEU  144   4.42   6   0.20   0.23   ++++ *  +
+    Upper HB2   LEU  136 - HD22  LEU  174   5.25   3   0.10   0.25  + *  +
+    Upper HB2   LEU  136 - HD11  LEU  177   4.85   4   0.12   0.25  ++*  +
+    Upper HB3   LEU  136 - HD13  LEU  136   3.48   8   0.20   0.24  ++ +++ *++
+    Upper HB3   LEU  136 - HD23  LEU  144   4.21  10   0.27   0.34  ++*+++++++
+    Upper HB3   LEU  136 - HD11  LEU  177   3.28   3   0.13   0.23  + *  +
+    Upper CG    LEU  136 - HD23  LEU  144   5.02   6   0.21   0.29     ++ *+++
+    Upper HD11  LEU  136 - CB    LEU  151   5.44   9   0.34   0.49  +++*++ +++
+    Upper HD11  LEU  136 - HB2   LEU  151   5.28   9   0.32   0.41  +++*++ +++
+    Upper HD11  LEU  136 - HB3   LEU  151   5.47   3   0.11   0.33     +    *+
+    Upper HD11  LEU  136 - CG    LEU  151   4.61   9   0.59   0.72  ++++++ *++
+    Upper HD11  LEU  136 - HG    LEU  151   5.08   9   0.66   0.89  ++++++ *++
+    Upper HD11  LEU  136 - CD1   LEU  151   3.10   9   0.62   0.78  ++++++ *++
+    Upper HD11  LEU  136 - HD12  LEU  151   3.10   9   0.60   0.85  +++++* +++
+    Upper HD11  LEU  136 - CD2   LEU  151   5.27   9   0.60   0.91  +++*++ +++
+    Upper HD11  LEU  136 - HD22  LEU  151   4.86  10   0.78   1.59  ++*+++++++
+    Upper HD11  LEU  136 - HB3   ALA  170   4.30   7   0.22   0.30  +++ *+++
+    Upper HD12  LEU  136 - HD21  LEU  136   3.05   5   0.19   0.44  +*+  ++
+    Upper HD12  LEU  136 - HB1   ALA  173   3.57   6   0.19   0.28  + +* + + +
+    Upper HD12  LEU  136 - HB2   ALA  173   5.20   9   0.24   0.33  +++*++ +++
+    Upper HD12  LEU  136 - HD11  LEU  177   5.14  10   0.59   1.35  ++++++*+++
+    Upper HD12  LEU  136 - HD13  LEU  177   3.94  10   0.58   1.21  ++++++*+++
+    Upper HD13  LEU  136 - HG    SER  137   5.50   9   0.24   0.30  ++*+++ +++
+    Upper HD13  LEU  136 - CB    ALA  173   3.84   8   0.22   0.31  +++* + +++
+    Upper HD13  LEU  136 - HB2   ALA  173   4.16   9   0.44   0.56  ++*+++ +++
+    Upper HD13  LEU  136 - HD22  LEU  174   4.53   9   0.31   0.41  *+++++ +++
+    Upper HD13  LEU  136 - HD13  LEU  177   5.09   9   0.59   0.75  ++*+++ +++
+    Upper CD2   LEU  136 - HD23  LEU  144   4.34   6   0.16   0.25     ++ *+++
+    Upper CD2   LEU  136 - HD22  LEU  174   4.28   4   0.15   0.29     ++ * +
+    Upper HD21  LEU  136 - HD12  LEU  148   5.43   6   0.16   0.35     ++ *+++
+    Upper HD21  LEU  136 - HD22  LEU  148   4.64   8   0.48   0.85  + +*++ +++
+    Upper HD21  LEU  136 - CB    LEU  151   4.89   3   0.10   0.29  ++*
+    Upper HD21  LEU  136 - CG    LEU  151   4.57   4   0.19   0.50  +++  *
+    Upper HD21  LEU  136 - HG    LEU  151   4.78   4   0.15   0.46  +++  *
+    Upper HD21  LEU  136 - CD1   LEU  151   3.34   4   0.26   0.69  +++  *
+    Upper HD21  LEU  136 - HD11  LEU  151   3.82   4   0.34   0.88  +++  *
+    Upper HD21  LEU  136 - HD13  LEU  151   3.40   3   0.14   0.34  ++   *
+    Upper HD21  LEU  136 - HB2   ALA  170   4.93   4   0.27   0.73  ++*  +
+    Upper HD21  LEU  136 - CG    LEU  174   5.20  10   0.27   0.32  +++++*++++
+    Upper HD21  LEU  136 - HG    LEU  174   4.96   9   0.26   0.33  +++++*+++
+    Upper HD21  LEU  136 - HD11  LEU  174   5.21   9   0.46   0.79  ++* ++++++
+    Upper HD21  LEU  136 - CD2   LEU  174   4.24   3   0.17   0.22     +  * +
+    Upper HD21  LEU  136 - HD21  LEU  174   3.50  10   0.54   0.72  +*++++++++
+    Upper HD21  LEU  136 - HD22  LEU  174   4.00  10   1.05   1.18  +++*++++++
+    Upper HD21  LEU  136 - HD13  LEU  177   5.12   6   0.33   0.62     ++ ++*+
+    Upper HD22  LEU  136 - C     LEU  136   5.12   4   0.11   0.29  +*+  +
+    Upper HD22  LEU  136 - HA    LEU  144   5.38  10   0.48   0.57  +++*++++++
+    Upper HD22  LEU  136 - HD23  LEU  144   4.29  10   0.55   0.83  +*++++++++
+    Upper HD22  LEU  136 - CA    ALA  147   4.31   6   0.16   0.33     ++ *+++
+    Upper HD22  LEU  136 - HA    ALA  147   4.90   6   0.29   0.56     ++ *+++
+    Upper HD22  LEU  136 - CB    ALA  147   3.51   6   0.47   0.74     ++ +*++
+    Upper HD22  LEU  136 - HB2   ALA  147   3.77   6   0.65   1.05     ++ +*++
+    Upper HD22  LEU  136 - HB3   ALA  147   4.21   8   0.48   0.68    ++++*+++
+    Upper HD22  LEU  136 - HD13  LEU  151   3.87   3   0.10   0.33     +    *+
+    Upper HD23  LEU  136 - C     LEU  136   4.57   4   0.13   0.37  ++*  +
+    Upper HD23  LEU  136 - O     LEU  136   4.79   4   0.16   0.47  ++*  +
+    Upper HD23  LEU  136 - HA    LEU  144   5.45   4   0.22   0.61  *++  +
+    Upper HD23  LEU  136 - HG    LEU  144   5.47   4   0.10   0.28  ++*  +
+    Upper HD23  LEU  136 - CD2   LEU  144   4.33   4   0.15   0.42  ++*  +
+    Upper HD23  LEU  136 - HD22  LEU  144   4.30  10   0.59   0.91  ++*+++++++
+    Upper HD23  LEU  136 - HD23  LEU  144   3.49   4   0.49   1.10  ++*  +
+    Upper HD23  LEU  136 - HB3   ALA  147   5.19   3   0.13   0.52   +*  +
+    Upper HD23  LEU  136 - HD12  LEU  148   4.14  10   0.35   0.50  ++++++*+++
+    Upper HD23  LEU  136 - HD22  LEU  148   4.25   6   0.41   0.78     *+ ++++
+    Upper HD23  LEU  136 - HD12  LEU  151   4.25   3   0.08   0.31     +    *+
+    Upper HD23  LEU  136 - HD21  LEU  174   4.16   6   0.18   0.40     ++ *+++
+    Upper HD23  LEU  136 - HD22  LEU  174   3.88   6   0.73   1.40     ++ *+++
+    Upper HD23  LEU  136 - CD1   LEU  177   4.43   6   0.15   0.27     ++ +*++
+    Upper HD23  LEU  136 - HD11  LEU  177   4.06  10   0.62   0.77  +++++++*++
+    Upper HD23  LEU  136 - HD13  LEU  177   4.03   6   0.40   0.69     ++ +*++
+    Upper C     LEU  136 - HD11  LEU  177   4.04  10   0.21   0.23  +++++++++*
+    Upper O     LEU  136 - HD23  LEU  144   3.48   9   0.25   0.30   +++++*+++
+    Upper N     SER  137 - HD11  LEU  177   5.20  10   0.29   0.31  +++++++++*
+    Upper CA    SER  137 - HD12  LEU  144   5.25  10   0.33   0.36  ++++++*+++
+    Upper HA    SER  137 - HD12  LEU  144   4.46  10   0.35   0.39  ++++++*+++
+    Upper HA    SER  137 - HD11  LEU  177   5.11  10   0.32   0.46  ++++++*+++
+    Upper CB    SER  137 - HD21  LEU  177   5.49   8   0.24   0.27  + *++ ++++
+    Upper OG    SER  137 - HD21  LEU  177   4.91  10   0.42   0.47  ++*+++++++
+    Upper C     SER  137 - HD12  LEU  144   5.38  10   0.47   0.50  +++++++++*
+    Upper N     SER  138 - HD12  LEU  144   5.05  10   0.40   0.42  ++++*+++++
+    Upper H     SER  138 - HD12  LEU  144   4.67   9   0.25   0.31  +* +++++++
+    Upper C     SER  138 - HD12  LEU  144   5.35  10   0.51   0.56  ++*+++++++
+    Upper O     SER  138 - HD12  LEU  144   4.27  10   0.57   0.65  *+++++++++
+    Upper O     ASN  140 - HG    LEU  144   5.21   3   0.17   0.21  * +  +
+    Upper HB3   GLU  141 - HD11  LEU  144   5.28   4   0.20   0.34  +++  *
+    Upper O     GLU  141 - HD11  LEU  144   4.60  10   0.30   0.39  +*++++++++
+    Upper O     GLU  141 - HD21  LEU  144   5.36  10   0.61   0.66  ++*+++++++
+    Upper O     ILE  143 - HB2   ALA  147   4.44   6   0.18   0.26     ++ *+++
+    Upper N     LEU  144 - HD21  LEU  144   4.77  10   0.41   0.45  *+++++++++
+    Upper H     LEU  144 - HD21  LEU  144   5.24  10   0.43   0.46  *+++++++++
+    Upper CA    LEU  144 - HD21  LEU  144   3.37  10   0.35   0.39  *+++++++++
+    Upper CB    LEU  144 - HD21  LEU  144   3.03  10   0.33   0.35  *+++++++++
+    Upper CG    LEU  144 - HD12  LEU  148   4.53  10   0.29   0.48  +*++++++++
+    Upper HG    LEU  144 - HD12  LEU  148   5.20  10   0.26   0.47  +*++++++++
+    Upper CD1   LEU  144 - HD12  LEU  148   5.00  10   0.45   0.52  +*++++++++
+    Upper HD11  LEU  144 - HA    ILE  185   5.41   9   0.25   0.29  +++++ +*++
+    Upper HD11  LEU  144 - CD1   ILE  185   3.55   9   0.29   0.37  *++++ ++++
+    Upper HD11  LEU  144 - HD11  ILE  185   3.51   8   0.24   0.28  ++ *+ ++++
+    Upper HD11  LEU  144 - HD12  ILE  185   4.46   9   0.31   0.43  *++++ ++++
+    Upper HD12  LEU  144 - HD22  LEU  177   4.48   4   0.20   0.29  ++ +  *
+    Upper HD12  LEU  144 - HD23  LEU  177   3.27   8   0.23   0.34  +* ++ ++++
+    Upper HD13  LEU  144 - HD12  LEU  148   4.35  10   1.14   1.25  +++++++++*
+    Upper CD2   LEU  144 - HD12  LEU  148   3.10  10   0.26   0.46  +*++++++++
+    Upper HD21  LEU  144 - O     LEU  144   3.04  10   0.51   0.59  +*++++++++
+    Upper HD21  LEU  144 - N     GLN  145   3.63  10   0.48   0.59  +*++++++++
+    Upper HD21  LEU  144 - H     GLN  145   4.11  10   0.38   0.48  +*++++++++
+    Upper HD21  LEU  144 - CA    GLN  145   4.30  10   0.42   0.56  +*++++++++
+    Upper HD21  LEU  144 - HA    GLN  145   3.84  10   0.33   0.49  +*++++++++
+    Upper HD21  LEU  144 - HB2   GLN  145   5.39  10   0.44   0.58  +*++++++++
+    Upper HD21  LEU  144 - C     GLN  145   5.14  10   0.31   0.45  +*++++++++
+    Upper HD21  LEU  144 - O     GLN  145   5.40   6   0.23   0.45  +*  ++  ++
+    Upper HD22  LEU  144 - HD22  LEU  148   5.12   9   0.36   0.65  + ++++*+++
+    Upper HD22  LEU  144 - HD22  LEU  177   4.78   4   0.21   0.32  +++  *
+    Upper HD22  LEU  144 - HD23  LEU  177   3.17   8   0.27   0.39  ++* ++ +++
+    Upper HD23  LEU  144 - HB1   ALA  147   4.13   5   0.20   0.36     *+  +++
+    Upper HD23  LEU  144 - HD11  LEU  177   3.57  10   0.28   0.34  ++++++*+++
+    Upper HD23  LEU  144 - HD13  LEU  177   4.87   3   0.18   0.27   *+  +
+    Upper O     LEU  144 - HD11  LEU  148   3.72   4   0.16   0.24  +   + *+
+    Upper CA    GLN  145 - HD11  LEU  148   3.92   6   0.18   0.24    + ++*+ +
+    Upper CG    GLN  145 - HD11  LEU  148   5.50   9   0.31   0.38  + ++++*+++
+    Upper HG2   GLN  145 - HG3   GLU  146   4.47   4   0.15   0.24     *+  ++
+    Upper HG3   GLN  145 - HD11  LEU  148   4.95   9   0.41   0.49  + ++++*+++
+    Upper C     GLN  145 - HD11  LEU  148   4.45   9   0.38   0.49  + ++++*+++
+    Upper O     GLN  145 - HD11  LEU  148   4.14   9   0.59   0.70  + ++++*+++
+    Upper CB    LEU  148 - HD21  LEU  148   3.20   9   0.23   0.24  +*++++ +++
+    Upper HB2   LEU  148 - HD21  LEU  148   3.97   9   0.21   0.24  *+++++ +++
+    Upper HB3   LEU  148 - HD11  LEU  148   3.55   9   0.34   0.38  + +++++++*
+    Upper HD11  LEU  148 - C     LEU  148   5.38   9   0.32   0.42  + ++++*+++
+    Upper HD11  LEU  148 - H     TRP  149   5.32   9   0.59   0.72  + +++++++*
+    Upper HD11  LEU  148 - HA    GLU  188   5.41   6   0.21   0.26  ++*+ +  +
+    Upper HD11  LEU  148 - CB    GLU  188   3.71   3   0.18   0.23    ++ *
+    Upper HD11  LEU  148 - HB2   GLU  188   4.30   3   0.18   0.22     + *  +
+    Upper HD11  LEU  148 - CG    GLU  188   3.76   9   0.35   0.41  + *+++++++
+    Upper HD11  LEU  148 - HG2   GLU  188   3.29   9   0.46   0.54  + ++++*+++
+    Upper HD11  LEU  148 - HG3   GLU  188   3.77   8   0.23   0.37  + *++++ ++
+    Upper HD11  LEU  148 - CD    GLU  188   5.23   9   0.38   0.42  + *+++++++
+    Upper HD12  LEU  148 - HD22  LEU  174   5.08   8   0.27   0.50  +  +++*+++
+    Upper HD12  LEU  148 - HB3   LEU  177   4.99  10   0.36   0.44  *+++++++++
+    Upper HD12  LEU  148 - CG    LEU  177   5.21  10   0.42   0.48  *+++++++++
+    Upper HD12  LEU  148 - CD1   LEU  177   3.98  10   0.38   0.44  *+++++++++
+    Upper HD12  LEU  148 - HD12  LEU  177   3.32  10   1.19   1.27  +*++++++++
+    Upper HD12  LEU  148 - HD23  LEU  177   4.95  10   0.80   0.88  +++++++++*
+    Upper HD12  LEU  148 - HG22  ILE  185   5.18  10   0.27   0.31  +++++++++*
+    Upper HD12  LEU  148 - HB2   ALA  189   4.71  10   0.53   0.63  ++*+++++++
+    Upper CD2   LEU  148 - HD12  LEU  151   5.49   3   0.12   0.24  + *  +
+    Upper HD21  LEU  148 - C     LEU  148   4.93  10   0.45   0.52  ++++++*+++
+    Upper HD21  LEU  148 - O     LEU  148   4.97  10   0.56   0.69  ++++++*+++
+    Upper HD21  LEU  148 - CA    GLU  188   4.76   9   0.22   0.26  *+++++ +++
+    Upper HD21  LEU  148 - HA    GLU  188   5.12  10   0.50   0.54  ++++*+++++
+    Upper HD21  LEU  148 - C     GLU  188   3.56   9   0.20   0.24  *+++++ +++
+    Upper HD21  LEU  148 - HB3   TRP  191   5.49  10   0.42   0.48  +++++++*++
+    Upper HD21  LEU  148 - N     ALA  192   4.66  10   0.32   0.37  ++++++*+++
+    Upper HD21  LEU  148 - H     ALA  192   4.03   9   0.24   0.28  + +++++*++
+    Upper HD21  LEU  148 - CA    ALA  192   4.59  10   0.36   0.46  ++++++*+++
+    Upper HD21  LEU  148 - HA    ALA  192   5.04  10   0.63   0.70  ++++++*+++
+    Upper HD21  LEU  148 - CB    ALA  192   3.37  10   0.32   0.44  ++++++*+++
+    Upper HD21  LEU  148 - HB2   ALA  192   3.48  10   0.52   0.58  ++++++*+++
+    Upper HD22  LEU  148 - HA    LEU  174   4.88   3   0.15   0.28  ++   *
+    Upper HD22  LEU  148 - HG    LEU  174   5.26   4   0.20   0.30  +*+  +
+    Upper HD22  LEU  148 - HD11  LEU  174   4.89   9   0.44   0.67  ++++++ *++
+    Upper HD22  LEU  148 - CD2   LEU  174   3.15   5   0.21   0.30  +*++ +
+    Upper HD22  LEU  148 - HD21  LEU  174   3.20   5   0.18   0.25   *+ +   ++
+    Upper HD22  LEU  148 - HD12  LEU  177   3.53  10   1.34   1.37  *+++++++++
+    Upper HD22  LEU  148 - HB2   ALA  189   3.68   5   0.23   0.35  +++  +*
+    Upper HD23  LEU  148 - HD12  LEU  151   4.58   6   0.24   0.54  ++* ++ +
+    Upper O     LEU  148 - HD12  LEU  151   5.20   7   0.36   0.67  +++ ++*+
+    Upper HE1   TRP  149 - HG3   GLU  188   4.66   8   0.24   0.29  +  ++++*++
+    Upper HB1   ALA  150 - HD23  LEU  151   5.24   7   0.40   0.58  ++ +++ +*
+    Upper CB    LEU  151 - HD21  LEU  151   3.07   6   0.17   0.31  *+  ++ + +
+    Upper HB3   LEU  151 - HD12  LEU  151   3.36   3   0.12   0.38   ++   *
+    Upper HD11  LEU  151 - HD21  LEU  151   3.19   3   0.25   0.96     *    ++
+    Upper HD11  LEU  151 - CG1   VAL  165   4.77   3   0.11   0.43     +    *+
+    Upper HD11  LEU  151 - HG12  VAL  165   4.93   3   0.13   0.35     +    +*
+    Upper HD11  LEU  151 - HG13  VAL  165   4.11   3   0.15   0.56     +    *+
+    Upper HD11  LEU  151 - HB1   ALA  170   3.95   3   0.18   0.71     +    +*
+    Upper HD11  LEU  151 - HB3   ALA  170   3.73   3   0.08   0.34     +    +*
+    Upper HD11  LEU  151 - HD13  LEU  174   5.17  10   0.71   0.97  ++++*+++++
+    Upper HD12  LEU  151 - HD21  LEU  174   4.10   4   0.15   0.30  +*+  +
+    Upper HD12  LEU  151 - HD22  LEU  174   5.24   7   0.44   0.69  +*+ ++++
+    Upper HD21  LEU  151 - C     LEU  151   4.43   8   0.26   0.37  +*+ ++++ +
+    Upper HD21  LEU  151 - O     LEU  151   4.37   8   0.35   0.61  +++ ++++ *
+    Upper HD21  LEU  151 - HB3   ALA  155   5.08  10   0.79   0.89  +++++*++++
+    Upper HD21  LEU  151 - CB    VAL  165   4.33   3   0.15   0.22  +       +*
+    Upper HD21  LEU  151 - HB    VAL  165   5.23   8   0.25   0.37  ++ +++ ++*
+    Upper HD21  LEU  151 - CG1   VAL  165   3.40   8   0.31   0.55  ++ +++ ++*
+    Upper HD21  LEU  151 - HG11  VAL  165   3.35  10   0.31   0.39  +++++++++*
+    Upper HD21  LEU  151 - HG12  VAL  165   4.17   8   0.36   0.70  ++ +++ ++*
+    Upper HD21  LEU  151 - CG2   VAL  165   4.21   5   0.20   0.31  ++  +* +
+    Upper HD21  LEU  151 - HG21  VAL  165   3.86   7   0.30   0.48  +++ +* + +
+    Upper HD21  LEU  151 - HG23  VAL  165   5.27   5   0.19   0.31  *+  ++ +
+    Upper HD21  LEU  151 - HB1   ALA  170   5.04   3   0.12   0.52     +    *+
+    Upper HA    ILE  162 - HG21  VAL  165   4.43   4   0.15   0.22   ++  *   +
+    Upper CB    ILE  166 - HD12  LEU  171   4.06   9   0.26   0.35   +++++++*+
+    Upper HB    ILE  166 - HD12  LEU  171   4.89  10   0.36   0.43  ++++++++*+
+    Upper CG2   ILE  166 - HD12  LEU  171   3.35   5   0.23   0.42   +  + + *+
+    Upper HG22  ILE  166 - HG    LEU  171   5.04   3   0.09   0.27  + *    +
+    Upper HG22  ILE  166 - HD11  LEU  171   3.85   3   0.10   0.25   *    +  +
+    Upper HG22  ILE  166 - HD12  LEU  171   4.29   5   0.20   0.41   +  + + *+
+    Upper HG23  ILE  166 - H     ALA  170   5.25   6   0.17   0.28  ++  + * ++
+    Upper HG23  ILE  166 - HG    LEU  171   3.33   4   0.18   0.52  + *+   +
+    Upper HG23  ILE  166 - HD12  LEU  171   3.03   5   0.18   0.36   +  * + ++
+    Upper CG1   ILE  166 - HD12  LEU  171   3.63   8   0.31   0.43  + ++++ *++
+    Upper HG13  ILE  166 - HD12  LEU  171   4.59   5   0.30   0.48  + ++ + *
+    Upper CD1   ILE  166 - HD12  LEU  171   3.78   5   0.22   0.31  + *+ + +
+    Upper HD12  ILE  166 - HD12  LEU  171   4.61   5   0.25   0.36  + *+ + +
+    Upper H     ALA  170 - HG    LEU  171   5.21   3   0.12   0.39  + +*
+    Upper CA    ALA  170 - HD13  LEU  174   4.42  10   0.41   0.45  +++++++++*
+    Upper HA    ALA  170 - HD13  LEU  174   4.97   8   0.24   0.30  +++++  ++*
+    Upper CB    ALA  170 - HD13  LEU  174   3.95  10   0.33   0.41  *+++++++++
+    Upper HB1   ALA  170 - HD13  LEU  174   3.19  10   0.36   0.45  +++++++++*
+    Upper HB2   ALA  170 - HB3   ALA  173   4.64   9   0.24   0.30  *++++++++
+    Upper HB2   ALA  170 - HD13  LEU  174   3.94   4   0.18   0.33  ++*  +
+    Upper HB3   ALA  170 - HD13  LEU  174   4.88   9   0.31   0.41  *+++++ +++
+    Upper C     ALA  170 - HD13  LEU  174   3.67  10   0.48   0.53  +++++++++*
+    Upper O     ALA  170 - HD13  LEU  174   3.24  10   0.53   0.60  +++++++*++
+    Upper N     LEU  171 - HD13  LEU  174   4.22  10   0.34   0.38  +++++++++*
+    Upper H     LEU  171 - HD13  LEU  174   4.90  10   0.26   0.33  +*++++++++
+    Upper CA    LEU  171 - HD13  LEU  174   4.45   6   0.20   0.28   +  ++* ++
+    Upper HB3   LEU  171 - HD13  LEU  171   3.26  10   0.38   0.46  ++*+++++++
+    Upper HD11  LEU  171 - HD3   PRO  172   4.25   3   0.11   0.32  +  * +
+    Upper HD12  LEU  171 - HA    GLN  203   4.84   9   0.32   0.55  +++++ +*++
+    Upper HD13  LEU  171 - HD22  LEU  171   3.02   5   0.33   0.68   +  + * ++
+    Upper HD13  LEU  171 - HD3   PRO  172   5.10   3   0.10   0.34  + *    +
+    Upper HD13  LEU  171 - O     ALA  206   4.43   4   0.23   0.51    + +*  +
+    Upper HD21  LEU  171 - CD1   LEU  174   5.33   3   0.16   0.32  + *   +
+    Upper HD21  LEU  171 - HD13  LEU  174   4.73  10   0.67   0.87  +++++++*++
+    Upper HD21  LEU  171 - CG2   ILE  196   5.17   5   0.13   0.25   +  + + *+
+    Upper HD21  LEU  171 - HG21  ILE  196   4.16   5   0.14   0.27   +  + * ++
+    Upper HD21  LEU  171 - HD13  ILE  196   4.53   5   0.16   0.27   +  +  ++*
+    Upper HD22  LEU  171 - C     LEU  171   4.19  10   0.32   0.56  +++++*++++
+    Upper HD22  LEU  171 - O     LEU  171   4.26   8   0.39   0.69   ++ +*++++
+    Upper HD22  LEU  171 - N     PRO  172   5.14  10   0.44   0.52  +*++++++++
+    Upper HD22  LEU  171 - HD3   PRO  172   5.26   9   0.43   0.51  ++*++ ++++
+    Upper HD22  LEU  171 - HG21  VAL  175   5.02   5   0.16   0.35   +  + * ++
+    Upper HD22  LEU  171 - HB2   ALA  206   4.56   5   0.14   0.29   +  + + +*
+    Upper HD22  LEU  171 - O     ALA  206   4.52   6   0.24   0.38  +++*   + +
+    Upper HD22  LEU  171 - HB2   ALA  210   5.45  10   0.56   0.67  +++++*++++
+    Upper HD23  LEU  171 - HA    GLN  203   5.40   6   0.20   0.64   +  +*+ ++
+    Upper HB1   ALA  173 - HD22  LEU  174   4.87  10   0.77   0.83  ++++++*+++
+    Upper HB1   ALA  173 - HD13  LEU  177   5.02   3   0.17   0.29  + +  *
+    Upper C     ALA  173 - HD22  LEU  174   4.79  10   0.39   0.43  +++++++*++
+    Upper O     ALA  173 - HD22  LEU  174   4.87  10   0.38   0.45  +++++++*++
+    Upper H     LEU  174 - HD13  LEU  174   4.36   6   0.21   0.26     ++ +*++
+    Upper HB3   LEU  174 - HD12  LEU  174   3.02  10   0.39   0.49  ++*+++++++
+    Upper HB3   LEU  174 - HD13  LEU  193   3.72   9   0.31   0.44  ++ *++++++
+    Upper HB3   LEU  174 - HD21  LEU  193   4.46   3   0.09   0.26  + +*
+    Upper CD1   LEU  174 - HD22  LEU  193   4.16   6   0.18   0.36   +  + +*++
+    Upper HD11  LEU  174 - HD22  LEU  193   4.77   6   0.35   0.62   +  + +*++
+    Upper HD12  LEU  174 - HD23  LEU  174   3.55  10   0.62   0.66  +++++++*++
+    Upper HD12  LEU  174 - O     ALA  189   5.16  10   0.44   0.58  ++++++*+++
+    Upper HD12  LEU  174 - H     LEU  193   4.82   6   0.24   0.32  *+++ ++
+    Upper HD12  LEU  174 - HD13  LEU  193   4.86  10   0.79   1.22  *+++++++++
+    Upper HD12  LEU  174 - HD22  LEU  193   3.19   6   0.42   0.85   *  + ++++
+    Upper HD22  LEU  174 - CG    LEU  177   4.84   9   0.28   0.34   +++++*+++
+    Upper HD22  LEU  174 - HG    LEU  177   4.78   9   0.26   0.33   +++++*+++
+    Upper HD22  LEU  174 - CD1   LEU  177   3.76  10   0.30   0.40  ++++++*+++
+    Upper HD22  LEU  174 - HD12  LEU  177   3.71  10   0.67   0.87  ++++++*+++
+    Upper HD23  LEU  174 - HB2   LEU  177   4.82   5   0.19   0.29   +  +  ++*
+    Upper HD23  LEU  174 - HD21  LEU  178   5.50  10   1.36   1.44  +++++++*++
+    Upper HD23  LEU  174 - C     ALA  189   4.81  10   0.31   0.38  ++++++*+++
+    Upper HD23  LEU  174 - O     ALA  189   4.29  10   0.55   0.62  ++++++*+++
+    Upper HD23  LEU  174 - HB1   ALA  192   3.57   3   0.09   0.24  + +  *
+    Upper HD23  LEU  174 - H     LEU  193   5.35  10   0.39   0.44  ++++++*+++
+    Upper HD23  LEU  174 - HG    LEU  193   4.60   4   0.22   0.42  + *+ +
+    Upper C     LEU  174 - HD21  LEU  193   5.49   4   0.15   0.42  + *+ +
+    Upper O     LEU  174 - HD13  LEU  193   4.53   6   0.15   0.31   +  + *+++
+    Upper N     VAL  175 - HD21  LEU  193   5.06   4   0.11   0.30  + *+ +
+    Upper CA    VAL  175 - HD21  LEU  193   5.45   4   0.14   0.38  + *+ +
+    Upper HA    VAL  175 - HD21  LEU  193   4.95   4   0.18   0.51  + *+ +
+    Upper CB    VAL  175 - HD13  LEU  178   4.52  10   0.24   0.28  +++++++*++
+    Upper CG1   VAL  175 - HD13  LEU  178   4.08  10   0.26   0.30  +++++++*++
+    Upper HG11  VAL  175 - HD13  LEU  178   4.81  10   0.26   0.29  +++++*++++
+    Upper HG12  VAL  175 - HD13  LEU  178   4.50   6   0.21   0.29   + ++  *++
+    Upper HG13  VAL  175 - HD13  LEU  178   3.08  10   0.26   0.27  +++++++*++
+    Upper HG22  VAL  175 - HD11  LEU  178   3.77   5   0.21   0.24     ++ * ++
+    Upper HG22  VAL  175 - HD13  LEU  178   4.37   3   0.19   0.23         *++
+    Upper CB    GLN  176 - HD21  LEU  177   5.49  10   0.28   0.33  ++*+++++++
+    Upper HB3   GLN  176 - HD21  LEU  177   4.57  10   0.43   0.48  +++++*++++
+    Upper CA    LEU  177 - HD12  LEU  177   4.49  10   0.22   0.23  +++++*++++
+    Upper CB    LEU  177 - HD21  LEU  178   5.49  10   0.30   0.34  ++*+++++++
+    Upper HB2   LEU  177 - HD21  LEU  178   4.60   5   0.20   0.24   +* +   ++
+    Upper HD12  LEU  177 - C     LEU  177   5.29  10   0.63   0.63  ++++++*+++
+    Upper HD12  LEU  177 - HB1   ALA  189   4.93   7   0.24   0.28    +++ *+++
+    Upper HD12  LEU  177 - HB2   ALA  189   3.21  10   0.28   0.33  ++++++*+++
+    Upper HD22  LEU  177 - C     LEU  177   4.34  10   0.32   0.40  ++++++*+++
+    Upper HD22  LEU  177 - O     LEU  177   4.56  10   0.70   0.73  ++++++*+++
+    Upper HD22  LEU  177 - CB    SER  180   4.89   5   0.20   0.22    ++ +*+
+    Upper HD22  LEU  177 - HB2   SER  180   3.85  10   0.23   0.25  ++++++*+++
+    Upper HD22  LEU  177 - OG    SER  180   5.39  10   0.29   0.32  +++*++++++
+    Upper C     LEU  177 - HD21  LEU  178   4.93  10   0.33   0.34  +*++++++++
+    Upper HA    LEU  178 - HD21  LEU  178   3.35  10   0.39   0.43  +++*++++++
+    Upper CB    LEU  178 - HD23  LEU  186   4.40  10   0.35   0.37  +++++*++++
+    Upper HB2   LEU  178 - HD23  LEU  186   5.26  10   0.31   0.33  +++++*++++
+    Upper HB3   LEU  178 - HD23  LEU  186   3.88  10   0.47   0.50  +++++*++++
+    Upper HB3   LEU  178 - HD2   LYS  215   4.93  10   0.41   0.50  +++++++++*
+    Upper CG    LEU  178 - HD23  LEU  186   5.22  10   0.40   0.41  +++++++++*
+    Upper HG    LEU  178 - HD13  LEU  193   3.29   9   0.40   0.55  ++ ++++++*
+    Upper CD1   LEU  178 - HD21  LEU  193   5.30  10   0.46   0.79  ++*+++++++
+    Upper HD11  LEU  178 - HD21  LEU  193   4.28  10   0.80   1.02  ++*+++++++
+    Upper HD11  LEU  178 - HD23  LEU  193   5.33   6   0.23   0.39   +  * ++++
+    Upper HD11  LEU  178 - HB1   ALA  210   5.18  10   0.42   0.51  +++++*++++
+    Upper HD12  LEU  178 - CD2   LEU  178   3.04  10   0.23   0.25  ++++++*+++
+    Upper HD12  LEU  178 - HD22  LEU  178   3.55  10   0.56   0.58  +++++++++*
+    Upper HD12  LEU  178 - HD21  LEU  190   3.73  10   1.18   1.21  +++++++++*
+    Upper HD13  LEU  178 - HB1   ALA  210   5.24  10   0.63   0.75  ++++*+++++
+    Upper CD2   LEU  178 - HD23  LEU  186   4.72  10   0.36   0.38  ++++++*+++
+    Upper CD2   LEU  178 - HD21  LEU  190   3.26  10   0.44   0.49  ++*+++++++
+    Upper HD21  LEU  178 - HD23  LEU  186   5.22  10   0.35   0.41  +++++*++++
+    Upper HD21  LEU  178 - CB    ALA  189   3.47  10   0.42   0.47  ++++++*+++
+    Upper HD21  LEU  178 - HB2   ALA  189   3.71  10   0.56   0.66  ++++++*+++
+    Upper HD21  LEU  178 - HB3   ALA  189   4.23  10   0.43   0.48  +*++++++++
+    Upper HD22  LEU  178 - HD23  LEU  186   3.66  10   0.35   0.37  ++++++*+++
+    Upper HD23  LEU  178 - HD23  LEU  186   5.30   7   0.29   0.36   ++ + +++*
+    Upper HD23  LEU  178 - CD2   LEU  190   3.64  10   0.54   0.57  ++*+++++++
+    Upper HD23  LEU  178 - HD23  LEU  190   4.54  10   0.38   0.44  +++++*++++
+    Upper HD23  LEU  178 - HB3   LEU  193   5.29   7   0.28   0.39   ++ + *+++
+    Upper HD23  LEU  178 - HB2   ALA  212   5.01   3   0.20   0.27  +  + *
+    Upper C     LEU  178 - HD13  LEU  186   4.37  10   0.23   0.24  ++*+++++++
+    Upper C     LEU  178 - HD23  LEU  186   3.65  10   0.45   0.46  +*++++++++
+    Upper O     LEU  178 - H     SER  180   3.10   6   0.20   0.22   *  + ++++
+    Upper O     LEU  178 - HD13  LEU  186   3.18  10   0.54   0.55  +++++++*++
+    Upper N     SER  179 - HD13  LEU  186   5.16  10   0.24   0.26  ++*+++++++
+    Upper N     SER  179 - HD23  LEU  186   4.93  10   0.36   0.38  +*++++++++
+    Upper CA    SER  179 - HD13  LEU  186   5.03  10   0.46   0.47  +++++*++++
+    Upper HA    SER  179 - HD13  LEU  186   4.26  10   0.54   0.55  +++++*++++
+    Upper HA    SER  179 - HD23  LEU  186   5.08  10   0.58   0.59  +*++++++++
+    Upper C     SER  179 - HD13  LEU  186   5.22  10   0.41   0.43  +++++*++++
+    Upper N     SER  180 - HD13  LEU  186   4.83  10   0.37   0.38  ++*+++++++
+    Upper H     SER  180 - HD13  LEU  186   4.36  10   0.39   0.40  +++++++++*
+    Upper H     SER  180 - HD23  LEU  186   4.78  10   0.37   0.42  +*++++++++
+    Upper C     SER  180 - HD13  LEU  186   5.26   6   0.21   0.22  + +* +++
+    Upper O     SER  180 - HD13  LEU  186   4.22   6   0.20   0.22  + +* +++
+    Upper C     ASN  182 - HD12  LEU  186   5.35  10   0.23   0.25  ++++++*+++
+    Upper O     ASN  182 - HD12  LEU  186   4.80  10   0.41   0.43  +*++++++++
+    Upper CA    GLU  183 - HD12  LEU  186   5.07   8   0.21   0.23  ++ ++ +*++
+    Upper HA    GLU  183 - HD12  LEU  186   4.03  10   0.22   0.24  +++++++*++
+    Upper HG3   GLU  183 - HD12  LEU  186   4.83   6   0.20   0.23    ++  *+++
+    Upper N     LEU  186 - HD22  LEU  186   5.02  10   0.39   0.40  ++++++*+++
+    Upper H     LEU  186 - HD22  LEU  186   5.46  10   0.38   0.38  ++++++*+++
+    Upper CA    LEU  186 - HD22  LEU  186   3.59  10   0.38   0.39  ++++++*+++
+    Upper HA    LEU  186 - HD22  LEU  186   3.68   3   0.20   0.20     +  * +
+    Upper CB    LEU  186 - HD22  LEU  186   3.14  10   0.30   0.30  +*++++++++
+    Upper HB3   LEU  186 - HD11  LEU  186   3.15  10   0.32   0.34  +++++*++++
+    Upper HB3   LEU  186 - HD22  LEU  186   3.01  10   0.77   0.77  +*++++++++
+    Upper CD1   LEU  186 - HD21  LEU  219   4.33   5   0.20   0.27  + *+ + +
+    Upper HD11  LEU  186 - HD11  LEU  190   4.36  10   0.51   0.53  +++++++*++
+    Upper HD12  LEU  186 - HD21  LEU  219   4.67   7   0.26   0.36  ++*+ +++
+    Upper HD13  LEU  186 - HD21  LEU  219   4.02   5   0.21   0.26  ++*+ +
+    Upper CD2   LEU  186 - HD21  LEU  190   4.49  10   0.56   0.60  *+++++++++
+    Upper HD21  LEU  186 - HD21  LEU  190   4.42  10   0.51   0.55  ++*+++++++
+    Upper HD22  LEU  186 - C     LEU  186   3.40  10   0.49   0.50  +++++++*++
+    Upper HD22  LEU  186 - O     LEU  186   3.39  10   0.53   0.55  ++*+++++++
+    Upper HD22  LEU  186 - N     GLN  187   4.11  10   0.35   0.36  +++++*++++
+    Upper HD22  LEU  186 - H     GLN  187   4.56  10   0.24   0.25  +++++*++++
+    Upper HD22  LEU  186 - CA    GLN  187   4.82  10   0.27   0.28  +++++*++++
+    Upper HD22  LEU  186 - HD11  LEU  190   3.21  10   0.47   0.51  ++++++*+++
+    Upper HD23  LEU  186 - HD21  LEU  190   4.08  10   0.94   0.97  *+++++++++
+    Upper O     LEU  186 - HD13  LEU  190   3.84  10   0.33   0.37  ++++++*+++
+    Upper HA    GLN  187 - HD13  LEU  190   3.17   9   0.21   0.23  +++++* +++
+    Upper HB3   GLN  187 - OE1   GLU  188   4.97   7   0.24   0.36  +  +++*++
+    Upper C     GLN  187 - HD13  LEU  190   4.92   9   0.21   0.23  +* +++++++
+    Upper HB1   ALA  189 - HD21  LEU  190   5.13  10   0.26   0.30  ++++++*+++
+    Upper HB2   LEU  190 - HD13  LEU  190   3.10  10   0.36   0.38  +++++++*++
+    Upper HD11  LEU  190 - CD2   LEU  190   3.07  10   0.33   0.34  ++*+++++++
+    Upper HD11  LEU  190 - HD21  LEU  190   3.54  10   0.26   0.30  +++++*++++
+    Upper HD11  LEU  190 - HD22  LEU  190   4.01   7   0.20   0.21   ++ + +++*
+    Upper HD11  LEU  190 - HD21  LEU  216   4.52   9   0.50   0.71  ++ +*+++++
+    Upper HD11  LEU  190 - CG    LEU  219   4.87   5   0.18   0.21   +  + + +*
+    Upper HD11  LEU  190 - HG    LEU  219   5.49  10   0.31   0.33  ++++*+++++
+    Upper HD11  LEU  190 - CD1   LEU  219   3.41  10   0.28   0.30  +++++++++*
+    Upper HD11  LEU  190 - HD12  LEU  219   3.15  10   0.64   0.69  ++++++++*+
+    Upper HD11  LEU  190 - HD13  LEU  219   3.02  10   0.79   0.80  +++*++++++
+    Upper HD12  LEU  190 - H     TRP  191   5.47  10   0.32   0.38  ++++*+++++
+    Upper HD12  LEU  190 - HB2   GLU  230   4.74  10   0.37   0.41  ++++++++*+
+    Upper HD12  LEU  190 - CG    GLU  230   3.15   6   0.20   0.25   +  + ++*+
+    Upper HD12  LEU  190 - OE2   GLU  230   5.37   6   0.18   0.24   +  + ++*+
+    Upper HD13  LEU  190 - H     TRP  191   5.43  10   0.45   0.52  ++++++*+++
+    Upper HD21  LEU  190 - HD12  LEU  193   4.26   9   0.50   0.59  ++ *++++++
+    Upper HD22  LEU  190 - C     LEU  190   4.28  10   0.32   0.40  +++++*++++
+    Upper HD22  LEU  190 - O     LEU  190   4.44  10   0.55   0.62  +++++*++++
+    Upper HD22  LEU  190 - N     TRP  191   5.38   6   0.23   0.32  +++++*
+    Upper HD22  LEU  190 - HD12  LEU  216   5.43   4   0.51   1.15  + +* +
+    Upper HD22  LEU  190 - HD21  LEU  216   4.31   6   0.35   0.61   +  + +*++
+    Upper HD22  LEU  190 - HD23  LEU  216   4.01   4   0.19   0.53  + *+ +
+    Upper HD22  LEU  190 - CG    GLU  230   5.48   4   0.19   0.24  + *+ +
+    Upper HD22  LEU  190 - HG3   GLU  230   4.73  10   0.24   0.32  ++*+++++++
+    Upper HD22  LEU  190 - OE1   GLU  230   5.29  10   0.24   0.26  +++++*++++
+    Upper HD22  LEU  190 - HB2   ALA  234   4.74  10   0.37   0.41  ++++*+++++
+    Upper HD23  LEU  190 - HD12  LEU  193   5.47   3   0.13   0.26  +  + *
+    Upper HD23  LEU  190 - HD12  LEU  216   5.44   4   0.18   0.47  + *+ +
+    Upper HD23  LEU  190 - HD21  LEU  216   3.09   6   0.38   0.65   +  + +++*
+    Upper O     LEU  190 - HD12  LEU  193   4.67   3   0.14   0.21  +  + *
+    Upper HB1   ALA  192 - HD22  LEU  193   5.24   6   0.43   0.73   +  + *+++
+    Upper C     ALA  192 - HD22  LEU  193   5.17   6   0.27   0.46   +  + +*++
+    Upper O     ALA  192 - HD22  LEU  193   5.28   6   0.28   0.51   +  + +*++
+    Upper N     LEU  193 - HD22  LEU  193   4.45   3   0.17   0.27   +    +*
+    Upper CA    LEU  193 - HD23  LEU  193   3.73   4   0.14   0.35  + ++ *
+    Upper HA    LEU  193 - HD23  LEU  193   3.39   4   0.16   0.41  + +* +
+    Upper HB3   LEU  193 - HD12  LEU  193   3.32   6   0.22   0.29   +  + *+++
+    Upper CD1   LEU  193 - HD21  LEU  193   3.04   4   0.11   0.29  + *+ +
+    Upper HD11  LEU  193 - HD23  LEU  193   3.22   7   0.23   0.34   ++ + +*++
+    Upper HD11  LEU  193 - HG11  VAL  207   4.61   4   0.20   0.36  + *+ +
+    Upper HD11  LEU  193 - CG2   VAL  207   5.40   6   0.20   0.59   +* + + ++
+    Upper HD11  LEU  193 - HG22  VAL  207   4.52   6   0.17   0.52   +* + + ++
+    Upper HD13  LEU  193 - HD21  LEU  193   3.28   5   0.20   0.29  + +* + +
+    Upper HD22  LEU  193 - HG13  ILE  196   5.13   3   0.15   0.26   +      +*
+    Upper HD23  LEU  193 - C     LEU  193   4.48   4   0.19   0.50  + *+ +
+    Upper HD23  LEU  193 - O     LEU  193   4.45   4   0.24   0.64  + *+ +
+    Upper HD23  LEU  193 - HB    ILE  196   4.51   4   0.12   0.33  + *+ +
+    Upper HD23  LEU  193 - HB3   ALA  197   5.46  10   0.68   0.96  +++++++++*
+    Upper HD23  LEU  193 - HG11  VAL  207   4.48   6   0.14   0.28   +  + +*++
+    Upper HD23  LEU  193 - CG2   VAL  207   3.72   6   0.15   0.27   +  + *+++
+    Upper HD23  LEU  193 - HG21  VAL  207   3.94   9   0.36   0.45  ++ +++*+++
+    Upper HB3   SER  194 - HZ2   LYS  237   4.39   5   0.17   0.31   +  +* + +
+    Upper HA    LYS  204 - HG23  VAL  207   3.80   4   0.15   0.20      + + *+
+    Upper HD2   LYS  204 - HZ2   LYS  204   3.09   3   0.18   0.24  +  * +
+    Upper HD3   LYS  204 - HD23  LEU  238   5.01   6   0.21   0.26   *  + ++++
+    Upper HA    GLN  205 - HD21  LEU  238   5.49  10   0.45   0.53  +++++++*++
+    Upper HG11  VAL  207 - HD12  LEU  216   5.16   3   0.09   0.26  *  + +
+    Upper HG11  VAL  207 - HD13  LEU  238   4.29   6   0.16   0.24   +  + +*++
+    Upper HG11  VAL  207 - HD23  LEU  238   4.32   3   0.18   0.23    * + +
+    Upper HG21  VAL  207 - HD11  LEU  238   4.80   4   0.23   0.46  * ++ +
+    Upper HG21  VAL  207 - HD22  LEU  238   3.10  10   0.64   0.65  ++++++*+++
+    Upper HG21  VAL  207 - HD23  LEU  238   4.13  10   0.52   0.60  ++++++*+++
+    Upper HG22  VAL  207 - HD11  LEU  238   5.40   3   0.08   0.23  *  + +
+    Upper HG22  VAL  207 - HD22  LEU  238   4.36   3   0.19   0.21    * +   +
+    Upper CB    LYS  208 - HD12  LEU  238   5.10   3   0.17   0.21  +  * +
+    Upper HB2   LYS  208 - HD12  LEU  238   4.48   3   0.19   0.28  +  + *
+    Upper HB2   LYS  208 - HD21  LEU  238   3.92   4   0.20   0.32  * ++ +
+    Upper HG2   LYS  208 - HA2   GLY  211   5.23   3   0.10   0.30  +  + *
+    Upper HG2   LYS  208 - HD12  LEU  238   5.33  10   0.31   0.36  +++++*++++
+    Upper HG3   LYS  208 - HD22  LEU  213   4.88  10   0.38   0.45  ++++++*+++
+    Upper HE2   LYS  208 - HD12  LEU  213   3.24   3   0.10   0.22  +  * +
+    Upper HE3   LYS  208 - HD11  LEU  213   4.78   4   0.11   0.22  + ++ *
+    Upper HZ3   LYS  208 - HD12  LEU  213   5.40  10   0.28   0.39  +++*++++++
+    Upper O     LYS  208 - HD12  LEU  213   4.85   7   0.26   0.32   ++ + ++*+
+    Upper CA    ALA  212 - HD11  LEU  216   4.69   6   0.14   0.24   +  + *+++
+    Upper HB1   ALA  212 - HD23  LEU  216   5.38   4   0.20   0.51  + ++ *
+    Upper C     ALA  212 - HD23  LEU  213   5.17   6   0.23   0.39   +  * ++++
+    Upper C     ALA  212 - HD11  LEU  216   3.73   6   0.27   0.45   +  * ++++
+    Upper O     ALA  212 - HD11  LEU  216   3.60   6   0.35   0.56   +  * ++++
+    Upper N     LEU  213 - HD12  LEU  213   4.84  10   0.29   0.30  +++++++++*
+    Upper N     LEU  213 - HD23  LEU  213   4.27   5   0.12   0.21   +  + +* +
+    Upper N     LEU  213 - HD11  LEU  216   3.77   6   0.24   0.40   +  + *+++
+    Upper H     LEU  213 - HD12  LEU  213   4.30  10   0.35   0.39  ++*+++++++
+    Upper H     LEU  213 - HD11  LEU  216   4.36   6   0.14   0.24   +  + *+++
+    Upper CA    LEU  213 - HD21  LEU  213   3.60   4   0.24   0.43  + *+ +
+    Upper CA    LEU  213 - HD23  LEU  213   3.67   6   0.12   0.21   +  * ++++
+    Upper CA    LEU  213 - HD11  LEU  216   3.70   6   0.32   0.45   +  + +++*
+    Upper HA    LEU  213 - HD21  LEU  213   3.16   4   0.22   0.33  + *+ +
+    Upper HA    LEU  213 - HD23  LEU  213   3.02   6   0.19   0.32   +  * ++++
+    Upper CB    LEU  213 - HD12  LEU  213   3.15   6   0.24   0.28   +  + +++*
+    Upper CB    LEU  213 - HD21  LEU  213   3.02   4   0.17   0.42  + ++ *
+    Upper CB    LEU  213 - HD11  LEU  216   4.77   6   0.29   0.40   +  + +++*
+    Upper QB    LEU  213 - HD12  LEU  213   3.06   6   0.15   0.21   +  + +++*
+    Upper HB2   LEU  213 - HD21  LEU  213   4.03   4   0.08   0.21  + +* +
+    Upper HB3   LEU  213 - HD11  LEU  216   5.26  10   0.43   0.44  +++++++++*
+    Upper HB3   LEU  213 - HD22  LEU  235   4.10   4   0.24   0.49  + ++ *
+    Upper CG    LEU  213 - HD11  LEU  216   4.78   6   0.15   0.23   +  + +++*
+    Upper HG    LEU  213 - HD11  LEU  216   4.50   6   0.15   0.26   +  + +++*
+    Upper HG    LEU  213 - HD12  LEU  238   3.06  10   0.28   0.32  +++++++++*
+    Upper CD1   LEU  213 - HD22  LEU  213   3.00   6   0.24   0.41   +  + +*++
+    Upper CD1   LEU  213 - HD12  LEU  238   4.90  10   0.51   0.52  +++++++++*
+    Upper HD11  LEU  213 - HD22  LEU  213   3.04   6   0.29   0.49   +  + +++*
+    Upper HD12  LEU  213 - H     GLU  214   5.15  10   0.82   0.84  ++*+++++++
+    Upper HD13  LEU  213 - HD12  LEU  238   4.65  10   1.29   1.35  ++*+++++++
+    Upper CD2   LEU  213 - HD12  LEU  238   3.89   4   0.14   0.26  + +* +
+    Upper HD21  LEU  213 - C     LEU  213   4.52   4   0.33   0.63  * ++ +
+    Upper HD21  LEU  213 - O     LEU  213   4.69   9   0.40   0.69  *++++++ ++
+    Upper HD21  LEU  213 - HD11  LEU  216   4.54  10   0.47   0.58  ++++*+++++
+    Upper HD21  LEU  213 - CD1   LEU  235   5.34   4   0.14   0.35  + +* +
+    Upper HD21  LEU  213 - HD11  LEU  235   4.98   4   0.23   0.59  + *+ +
+    Upper HD22  LEU  213 - HD12  LEU  238   4.19   4   0.37   0.93  + ++ *
+    Upper HD22  LEU  213 - O     LEU  238   5.09  10   0.59   0.73  ++++++*+++
+    Upper HD22  LEU  213 - HA    GLN  239   4.55   6   0.43   0.67   +  + +*++
+    Upper HD22  LEU  213 - HG3   GLN  239   4.26   6   0.15   0.23   +  + *+++
+    Upper HD22  LEU  213 - HE21  GLN  239   3.57   6   0.21   0.36   +  + +*++
+    Upper HD23  LEU  213 - O     LEU  213   5.32   6   0.15   0.26   +  * ++++
+    Upper HD23  LEU  213 - HB2   LEU  216   4.85   6   0.14   0.24   +  * ++++
+    Upper HD23  LEU  213 - HD11  LEU  216   3.46   6   0.45   0.77   +  * ++++
+    Upper HD23  LEU  213 - HD12  LEU  238   3.17  10   0.40   0.49  ++++*+++++
+    Upper HD23  LEU  213 - HD21  LEU  238   5.27   4   0.12   0.31  + ++ *
+    Upper C     LEU  213 - HD11  LEU  216   4.62   6   0.31   0.41   +  + +*++
+    Upper C     LEU  213 - HD22  LEU  235   4.95   7   0.21   0.22  ++  + +*++
+    Upper O     LEU  213 - HD11  LEU  216   4.70  10   0.24   0.27  +++++++*++
+    Upper O     LEU  213 - HD13  LEU  235   5.16  10   0.43   0.52  *+++++++++
+    Upper O     LEU  213 - HD22  LEU  235   4.45  10   0.39   0.45  +++++++*++
+    Upper CB    LYS  215 - HD11  LEU  219   5.18  10   0.44   0.46  ++++*+++++
+    Upper HB2   LYS  215 - HD21  LEU  216   5.16   6   0.23   0.39   +  + +*++
+    Upper HB2   LYS  215 - HD11  LEU  219   5.14   4   0.14   0.24  + *+ +
+    Upper HB3   LYS  215 - HD11  LEU  219   4.33  10   0.68   0.78  ++++*+++++
+    Upper C     LYS  215 - HD21  LEU  216   5.04   6   0.21   0.29   +  + *+++
+    Upper O     LYS  215 - HD21  LEU  216   5.36  10   0.30   0.33  ++++++*+++
+    Upper H     LEU  216 - HD11  LEU  216   4.45   6   0.13   0.23   +  + ++*+
+    Upper CA    LEU  216 - HD21  LEU  216   3.51   4   0.12   0.31  + *+ +
+    Upper CA    LEU  216 - HD22  LEU  216   3.60   4   0.09   0.22  + ++ *
+    Upper CA    LEU  216 - HD13  LEU  235   4.89   4   0.15   0.27  + *+ +
+    Upper HA    LEU  216 - HD22  LEU  216   3.14   4   0.12   0.30  + ++ *
+    Upper CB    LEU  216 - HD13  LEU  235   4.37   4   0.11   0.24  * ++ +
+    Upper HB2   LEU  216 - HD11  LEU  216   3.05  10   0.39   0.43  ++*+++++++
+    Upper HB2   LEU  216 - HD13  LEU  235   4.37   4   0.10   0.26  + +* +
+    Upper CD1   LEU  216 - HD23  LEU  216   3.04   4   0.14   0.34  + *+ +
+    Upper CD1   LEU  216 - HD13  LEU  238   3.11   6   0.14   0.24   +  + *+++
+    Upper HD11  LEU  216 - CD2   LEU  235   4.62   4   0.11   0.28  + +* +
+    Upper HD11  LEU  216 - HD23  LEU  235   3.79  10   0.54   0.63  +++*++++++
+    Upper HD11  LEU  216 - HD11  LEU  238   3.78   6   0.21   0.36   +  + *+++
+    Upper HD12  LEU  216 - CD2   LEU  216   3.13   4   0.11   0.26  + *+ +
+    Upper HD12  LEU  216 - HA    ALA  231   5.38   6   0.17   0.28   +  + *+++
+    Upper HD12  LEU  216 - CB    ALA  234   3.98  10   0.38   0.46  +++++*++++
+    Upper HD12  LEU  216 - HB2   ALA  234   4.54  10   0.60   0.74  +++++*++++
+    Upper HD12  LEU  216 - HB3   ALA  234   4.34   4   0.24   0.37  + *+ +
+    Upper HD12  LEU  216 - HD11  LEU  238   3.65   4   0.10   0.28  + *+ +
+    Upper HD13  LEU  216 - HD22  LEU  216   3.41   6   0.46   0.77   +  + +*++
+    Upper HD13  LEU  216 - HA    ALA  231   5.07   6   0.15   0.27   +  + *+++
+    Upper HD13  LEU  216 - HB1   ALA  234   3.52   6   0.16   0.28   +  + +*++
+    Upper HD13  LEU  216 - HB2   ALA  234   5.27   6   0.14   0.25   +  + +*++
+    Upper HD13  LEU  216 - HD13  LEU  235   5.00   4   0.20   0.51  * ++ +
+    Upper HD13  LEU  216 - HD21  LEU  235   4.86   4   0.13   0.34  + ++ *
+    Upper HD13  LEU  216 - HD23  LEU  235   3.42   4   0.24   0.60  + ++ *
+    Upper CD2   LEU  216 - HD13  LEU  238   5.47   6   0.13   0.22   +  + *+++
+    Upper HD21  LEU  216 - C     LEU  216   4.78   4   0.17   0.43  * ++ +
+    Upper HD21  LEU  216 - O     LEU  216   5.05   4   0.25   0.63  * ++ +
+    Upper HD21  LEU  216 - CB    LEU  219   5.13   4   0.17   0.35  * ++ +
+    Upper HD21  LEU  216 - HB2   LEU  219   4.25   4   0.21   0.47  * ++ +
+    Upper HD21  LEU  216 - CG    LEU  219   5.23  10   0.34   0.38  +*++++++++
+    Upper HD21  LEU  216 - HG    LEU  219   5.24  10   0.41   0.48  +*++++++++
+    Upper HD21  LEU  216 - CD1   LEU  219   4.48   6   0.32   0.45   +  + +++*
+    Upper HD21  LEU  216 - HD11  LEU  219   4.36  10   0.43   0.57  ++++++++*+
+    Upper HD21  LEU  216 - HD12  LEU  219   5.30   6   0.24   0.42   +  + +++*
+    Upper HD21  LEU  216 - HD13  LEU  219   3.67   6   0.21   0.35   +  + +++*
+    Upper HD22  LEU  216 - C     LEU  216   4.45   4   0.25   0.44  + ++ *
+    Upper HD22  LEU  216 - O     LEU  216   4.54  10   0.59   0.71  +++++*++++
+    Upper HD22  LEU  216 - CB    LEU  219   5.36   4   0.13   0.35  + ++ *
+    Upper HD22  LEU  216 - HB2   LEU  219   4.36   4   0.19   0.48  + ++ *
+    Upper HD22  LEU  216 - C     ALA  231   4.00   6   0.19   0.32   *  + ++++
+    Upper HD22  LEU  216 - O     ALA  231   3.64   6   0.26   0.44   *  + ++++
+    Upper HD22  LEU  216 - N     GLN  232   5.32   6   0.18   0.29   *  + ++++
+    Upper HD22  LEU  216 - H     LEU  235   4.29   6   0.15   0.26   +  * ++++
+    Upper HD22  LEU  216 - CA    LEU  235   5.41   6   0.13   0.22   *  + ++++
+    Upper HD22  LEU  216 - CB    LEU  235   5.36   6   0.15   0.25   +  + +++*
+    Upper HD22  LEU  216 - CG    LEU  235   5.19   6   0.25   0.41   +  + +++*
+    Upper HD22  LEU  216 - HG    LEU  235   4.23   6   0.26   0.44   +  + ++*+
+    Upper HD22  LEU  216 - HD13  LEU  235   5.42  10   1.04   1.40  ++++++*+++
+    Upper HD23  LEU  216 - CA    ALA  234   4.73   4   0.11   0.28  + *+ +
+    Upper HD23  LEU  216 - HA    ALA  234   5.42   4   0.20   0.52  + *+ +
+    Upper HD23  LEU  216 - CB    ALA  234   3.40   4   0.21   0.55  + *+ +
+    Upper HD23  LEU  216 - HB2   ALA  234   3.84   4   0.30   0.78  + *+ +
+    Upper HD23  LEU  216 - HD13  LEU  238   5.15   4   0.53   1.11  + *+ +
+    Upper C     LEU  216 - HD13  LEU  235   4.10   4   0.18   0.28  + *+ +
+    Upper O     LEU  216 - HD13  LEU  235   4.22   4   0.14   0.24  + *+ +
+    Upper N     GLU  217 - HD13  LEU  235   3.97   4   0.16   0.22  + +* +
+    Upper HB2   GLU  217 - HD13  LEU  235   5.35  10   0.31   0.31  +++++++*++
+    Upper CD    GLU  217 - HD22  LEU  235   5.13   9   0.24   0.29  ++*++++ ++
+    Upper O     GLN  218 - HD22  LEU  219   3.98   7   0.21   0.24   ++ + +*++
+    Upper CA    LEU  219 - HD23  LEU  219   3.73   9   0.22   0.23   +++++++*+
+    Upper HA    LEU  219 - HD23  LEU  219   3.23  10   0.24   0.27  ++++*+++++
+    Upper HB3   LEU  219 - HD23  LEU  219   3.01  10   0.30   0.35  +++++*++++
+    Upper HD13  LEU  219 - O     LEU  219   5.29  10   0.31   0.35  *+++++++++
+    Upper HD22  LEU  219 - H     GLN  220   5.44   9   0.24   0.28  +++++ *+++
+    Upper HD23  LEU  219 - C     LEU  219   4.77  10   0.31   0.34  +++++++++*
+    Upper HD23  LEU  219 - O     LEU  219   4.81  10   0.32   0.35  +++++++++*
+    Upper HD23  LEU  219 - CB    HIS  222   4.65   7   0.21   0.23  ++++ ++*
+    Upper HD23  LEU  219 - HB2   HIS  222   4.04  10   0.27   0.30  +++++++*++
+    Upper O     LEU  219 - HB1   ALA  231   3.50   6   0.16   0.26   +  + +*++
+    Upper HA    GLN  220 - HB1   ALA  231   3.69   6   0.15   0.25   +  + +++*
+    Upper HE22  GLN  220 - HD12  LEU  235   3.76  10   0.37   0.42  +++++++++*
+    Upper HA    GLN  232 - HD12  LEU  235   4.32   4   0.21   0.27  + ++ *
+    Upper HG3   GLN  232 - HD12  LEU  235   5.34   4   0.09   0.24  + ++ *
+    Upper O     GLN  232 - HD12  LEU  235   5.39  10   0.58   0.62  ++++++*+++
+    Upper HA    ALA  234 - HE3   LYS  237   4.83   5   0.18   0.26   +    ++*+
+    Upper HB1   ALA  234 - HD11  LEU  238   5.19   4   0.13   0.37  + ++ *
+    Upper N     LEU  235 - HD21  LEU  235   5.00   6   0.20   0.24   +  + +*++
+    Upper CA    LEU  235 - HD21  LEU  235   3.59  10   0.26   0.28  +++++++*++
+    Upper CA    LEU  235 - HD23  LEU  235   3.33   4   0.18   0.26  + ++ *
+    Upper HA    LEU  235 - HD21  LEU  235   3.39   6   0.19   0.24   +  + +*++
+    Upper CD1   LEU  235 - HD22  LEU  235   3.09   4   0.19   0.23  + ++ *
+    Upper HD12  LEU  235 - C     LEU  235   5.22  10   0.32   0.37  +++++*++++
+    Upper HD12  LEU  235 - H     GLU  236   5.37  10   0.35   0.38  +++++*++++
+    Upper HD12  LEU  235 - OE1   GLN  239   4.86   6   0.24   0.30   +  + ++*+
+    Upper HD21  LEU  235 - C     LEU  235   3.81  10   0.42   0.47  ++*+++++++
+    Upper HD21  LEU  235 - O     LEU  235   3.65  10   0.58   0.67  ++*+++++++
+    Upper HD21  LEU  235 - N     GLU  236   4.84  10   0.26   0.32  +++++*++++
+    Upper HD21  LEU  235 - HA    GLU  236   5.32   4   0.25   0.41  + ++ *
+    Upper HD21  LEU  235 - HB2   LEU  238   4.79   6   0.21   0.36   +  + *+++
+    Upper HD23  LEU  235 - C     LEU  235   4.06   4   0.23   0.41  + ++ *
+    Upper HD23  LEU  235 - O     LEU  235   3.94   4   0.32   0.56  + *+ +
+    Upper HD23  LEU  235 - N     GLU  236   5.31   4   0.11   0.27  + ++ *
+    Upper HD23  LEU  235 - H     LEU  238   5.37  10   0.39   0.49  ++++*+++++
+    Upper HD23  LEU  235 - HB2   LEU  238   3.85   6   0.16   0.26   +  + ++*+
+    Upper HD23  LEU  235 - CG    LEU  238   5.47   6   0.14   0.24   +  + ++*+
+    Upper HD23  LEU  235 - CD1   LEU  238   5.01   6   0.12   0.21   +  + *+++
+    Upper HD23  LEU  235 - HD13  LEU  238   4.12   6   0.20   0.34   +  + +*++
+    Upper HB3   LYS  237 - HD23  LEU  238   4.87  10   0.41   0.46  +*++++++++
+    Upper HD12  LEU  238 - HD21  LEU  238   3.19   9   0.42   0.55  +++++ +*++
+    Upper HD12  LEU  238 - C     LEU  238   5.49   4   0.24   0.37  + ++ *
+    Upper HD21  LEU  238 - O     LEU  238   4.69  10   0.54   0.55  ++++*+++++
+    VdW   N     GLU    2 - H     LEU    3   2.40   3   0.19   0.22     +  *  +
+    VdW   CB    LEU    3 - CD    PRO    4   3.20  10   0.28   0.29  *+++++++++
+    VdW   CD2   LEU    3 - CG2   ILE   28   3.20  10   0.22   0.24  ++++++*+++
+    VdW   CD2   LEU    3 - HG21  ILE   28   2.60  10   0.25   0.29  ++++++*+++
+    VdW   HD22  LEU    3 - CD1   ILE   28   2.60   8   0.22   0.29  +  +++*+++
+    VdW   O     MET    6 - CB    ALA   21   2.90   7   0.22   0.27  +++*+ +  +
+    VdW   HA    VAL    7 - CG    LEU   10   2.60   3   0.19   0.26       + *+
+    VdW   HA    VAL    7 - HG    LEU   10   2.00   9   0.26   0.38  +++++++*+
+    VdW   HA    VAL    7 - CD1   LEU   10   2.60  10   0.26   0.28  ++*+++++++
+    VdW   HA    VAL    7 - HD11  LEU   10   2.00  10   0.33   0.40  ++*+++++++
+    VdW   HG11  VAL    7 - O     ALA   42   2.30   6   0.19   0.25  +++*+  +
+    VdW   HG11  VAL    7 - HA3   GLY   43   2.00   4   0.19   0.28     *  +++
+    VdW   CG2   VAL    7 - HB1   ALA   42   2.60   3   0.19   0.22       + +*
+    VdW   HG21  VAL    7 - HB1   ALA   42   2.00   6   0.20   0.21   +   ++++*
+    VdW   CD1   LEU   10 - CD1   LEU   25   3.20  10   0.32   0.34  +++++*++++
+    VdW   CD1   LEU   10 - HD12  LEU   25   2.60  10   0.32   0.44  +++++*++++
+    VdW   HD11  LEU   10 - CD1   LEU   25   2.60   9   0.24   0.26  ++ ++*++++
+    VdW   CD2   LEU   10 - CD1   LEU   25   3.20   3   0.07   0.24       + +*
+    VdW   HD21  LEU   10 - HD11  LEU   25   2.00   3   0.10   0.34       + *+
+    VdW   HD22  LEU   10 - N     LEU   22   2.45   6   0.16   0.26  ++ *+ +  +
+    VdW   HD22  LEU   10 - HA    LEU   22   2.00   3   0.06   0.21       * ++
+    VdW   O     LEU   10 - HG    LEU   18   2.30   9   0.25   0.28  *+ +++++++
+    VdW   O     LEU   10 - HD13  LEU   18   2.30   3   0.15   0.21       * ++
+    VdW   HA    SER   12 - CD    PRO   13   2.60  10   0.22   0.24  ++++++++*+
+    VdW   CD2   LEU   18 - C     LEU   18   3.10   8   0.21   0.23  ++++* ++ +
+    VdW   CD2   LEU   18 - HD11  LEU   22   2.60   7   0.25   0.35  +++++ +*
+    VdW   HD22  LEU   18 - HD11  LEU   22   2.00   8   0.28   0.44  +++++ +* +
+    VdW   HD23  LEU   18 - C     LEU   18   2.50  10   0.48   0.49  +++++++++*
+    VdW   HD23  LEU   18 - N     GLN   19   2.45  10   0.28   0.31  +++++++++*
+    VdW   O     ALA   21 - CG    LEU   25   2.90   4   0.22   0.26    +  * ++
+    VdW   O     ALA   21 - HG    LEU   25   2.30   6   0.20   0.23    +  +++*+
+    VdW   CD2   LEU   22 - HD12  LEU   51   2.60   8   0.30   0.40  ++++++ *+
+    VdW   HD23  LEU   22 - HD12  LEU   51   2.00   7   0.18   0.26  *+ +++ ++
+    VdW   HA    LEU   25 - CD1   ILE   28   2.60   8   0.23   0.26  +*+++++  +
+    VdW   HA    SER   26 - CB    ALA   66   2.60   9   0.27   0.39  ++ +++*+++
+    VdW   HB3   SER   30 - ND2   ASN   69   2.45   7   0.22   0.28  ++* ++ ++
+    VdW   CG2   ILE   40 - HD12  LEU   45   2.60   7   0.20   0.22  + + + +*++
+    VdW   HG21  ILE   40 - HB2   ALA   80   2.00   7   0.21   0.25   * +++ +++
+    VdW   HG23  ILE   40 - HD12  LEU   45   2.00  10   0.29   0.32  +++*++++++
+    VdW   HD13  ILE   40 - CB    ALA   80   2.60   9   0.24   0.30  + ++++*+++
+    VdW   N     LEU   45 - CD    PRO   46   3.05  10   0.25   0.26  ++*+++++++
+    VdW   N     LEU   45 - HD2   PRO   46   2.45  10   0.33   0.34  ++*+++++++
+    VdW   HA    LEU   45 - CD2   LEU   45   2.60  10   0.23   0.26  +*++++++++
+    VdW   HA    LEU   45 - HD22  LEU   45   2.00  10   0.31   0.35  ++*+++++++
+    VdW   HB3   LEU   45 - HB2   ALA   84   2.00   5   0.22   0.34  + +*  ++
+    VdW   HD11  LEU   45 - CB    ALA   80   2.60  10   0.26   0.30  +*++++++++
+    VdW   CD1   LEU   48 - HB1   ALA   66   2.60   5   0.17   0.33  +   +* ++
+    VdW   HD12  LEU   48 - HB1   ALA   66   2.00   8   0.30   0.52  +*+ ++ +++
+    VdW   CD2   LEU   48 - HA    ALA   63   2.60   8   0.21   0.30   + +*+++++
+    VdW   CA    VAL   49 - HG    LEU   52   2.60   7   0.31   0.48  *+ ++ + ++
+    VdW   HA    VAL   49 - CG    LEU   52   2.60   7   0.34   0.48  *+ ++ + ++
+    VdW   HA    VAL   49 - HG    LEU   52   2.00   8   0.45   0.64  *++++ + ++
+    VdW   HA    VAL   49 - CD1   LEU   52   2.60   7   0.26   0.38  ++ ++ * ++
+    VdW   HA    VAL   49 - HD11  LEU   52   2.00   7   0.22   0.43  ++ ++ * ++
+    VdW   CG1   VAL   49 - O     GLY   85   2.90   9   0.30   0.41  +++++++ +*
+    VdW   HG11  VAL   49 - O     GLY   85   2.30   3   0.14   0.27  ++       *
+    VdW   HG21  VAL   49 - O     ALA   84   2.30   3   0.17   0.39    +  + *
+    VdW   O     VAL   49 - HG    LEU   52   2.30   3   0.12   0.33  ++       *
+    VdW   HB2   LEU   51 - CB    ALA   63   2.60  10   0.40   0.49  ++*+++++++
+    VdW   HB2   LEU   51 - HB3   ALA   63   2.00   6   0.19   0.29  +*+++   +
+    VdW   HB3   LEU   51 - HG22  ILE   59   2.00   8   0.27   0.37  +++++* ++
+    VdW   CD1   LEU   51 - HB2   ALA   63   2.60   3   0.17   0.23  *+      +
+    VdW   HD13  LEU   51 - CB    ALA   63   2.60  10   0.39   0.47  ++++++*+++
+    VdW   HD13  LEU   51 - HB2   ALA   63   2.00  10   0.29   0.31  ++++++*+++
+    VdW   HD22  LEU   51 - CG2   ILE   59   2.60   8   0.29   0.37  ++++++ *+
+    VdW   O     LEU   51 - CG    LEU   60   2.90   3   0.14   0.36        *+ +
+    VdW   O     LEU   51 - HG    LEU   60   2.30  10   0.48   0.75  ++++++*+++
+    VdW   CA    LEU   52 - HG    LEU   60   2.60   9   0.23   0.29  ++ +++*+++
+    VdW   CA    LEU   52 - CD2   LEU   60   3.20   3   0.08   0.31       +*+
+    VdW   HA    LEU   52 - CG    LEU   60   2.60   9   0.28   0.44  ++ +++*+++
+    VdW   HA    LEU   52 - HG    LEU   60   2.00   6   0.19   0.25  ++ ++   *+
+    VdW   HA    LEU   52 - CD2   LEU   60   2.60  10   0.53   0.78  ++++++*+++
+    VdW   HA    LEU   52 - HD21  LEU   60   2.00   3   0.08   0.27       ++*
+    VdW   HA    LEU   52 - HD22  LEU   60   2.00   7   0.44   0.66  +++++   +*
+    VdW   HA    LEU   52 - HD23  LEU   60   2.00   3   0.10   0.35       +*+
+    VdW   CD1   LEU   52 - CD1   LEU   67   3.20   3   0.13   0.38    +  + *
+    VdW   CD1   LEU   52 - HD11  LEU   67   2.60   3   0.12   0.44    +  * +
+    VdW   HD11  LEU   52 - CD1   LEU   67   2.60   3   0.12   0.45    +  * +
+    VdW   HD12  LEU   52 - HB1   ALA   89   2.00   6   0.19   0.39  *+ ++ + +
+    VdW   CD2   LEU   52 - CD2   LEU   64   3.20   4   0.19   0.33   +   +*+
+    VdW   CD2   LEU   52 - HD21  LEU   64   2.60   3   0.16   0.60  *++
+    VdW   CD2   LEU   52 - HD12  LEU   67   2.60   3   0.11   0.46    *  + +
+    VdW   HD21  LEU   52 - CD1   LEU   67   2.60   4   0.13   0.40       +++ *
+    VdW   HD21  LEU   52 - HD12  LEU   67   2.00   6   0.23   0.40     +++*++
+    VdW   HD22  LEU   52 - CD2   LEU   64   2.60   8   0.43   0.61   + +++++*+
+    VdW   HD22  LEU   52 - HD21  LEU   64   2.00   8   0.34   0.57  + *++++++
+    VdW   HD22  LEU   52 - HD23  LEU   64   2.00   5   0.19   0.51   + ++   +*
+    VdW   HD23  LEU   52 - HB1   ALA   63   2.00   3   0.13   0.38       ++*
+    VdW   O     LEU   52 - HD13  LEU   60   2.30   8   0.22   0.31  ++++*+ ++
+    VdW   HA    SER   54 - CD    PRO   55   2.60   8   0.21   0.23  +++++* ++
+    VdW   CD2   LEU   60 - CG    LEU   64   3.20   5   0.22   0.36  +++  + *
+    VdW   CD2   LEU   60 - CD1   LEU   64   3.20   3   0.20   0.34  +    * +
+    VdW   CD2   LEU   60 - HD12  LEU   64   2.60   7   0.21   0.32  ++ + ++* +
+    VdW   HD21  LEU   60 - C     LEU   60   2.50   7   0.32   0.49  *++++   ++
+    VdW   HD21  LEU   60 - O     LEU   60   2.30   7   0.23   0.36  ++*++   ++
+    VdW   HD22  LEU   60 - HD21  LEU   64   2.00   5   0.14   0.34   + *+   ++
+    VdW   HD23  LEU   60 - CD1   LEU   64   2.60   6   0.13   0.23  ++*++   +
+    VdW   HD23  LEU   60 - HD12  LEU   64   2.00   4   0.15   0.27   + *+   +
+    VdW   O     GLU   62 - HB2   TRP   65   2.30   4   0.12   0.25   *  +   ++
+    VdW   HD11  LEU   64 - CD1   LEU   93   2.60   5   0.18   0.29  +  *+ + +
+    VdW   CD2   LEU   64 - HD22  LEU   90   2.60   3   0.18   0.35     +  +*
+    VdW   CD2   LEU   64 - CD1   LEU   93   3.20   9   0.28   0.35  ++*++ ++++
+    VdW   CD2   LEU   64 - HD12  LEU   93   2.60   9   0.30   0.45  ++*++ ++++
+    VdW   HD22  LEU   64 - HD22  LEU   90   2.00   4   0.15   0.37     ++ * +
+    VdW   HD22  LEU   64 - CD1   LEU   93   2.60   9   0.47   0.62  +* +++++++
+    VdW   HD22  LEU   64 - HD12  LEU   93   2.00   6   0.24   0.36  *+++ + +
+    VdW   HE1   TRP   65 - CD    GLU  104   2.45   3   0.14   0.25     +  +  *
+    VdW   CD1   LEU   67 - HB2   ALA   86   2.60   6   0.21   0.37  + + ++ *+
+    VdW   HD23  LEU   67 - HB3   ALA   86   2.00   5   0.15   0.34    + +* ++
+    VdW   N     ALA   71 - H     SER   72   2.40   4   0.20   0.22   +   ++  *
+    VdW   HG12  ILE   82 - HG    LEU   87   2.00   9   0.23   0.32  ++*++++++
+    VdW   O     ALA   86 - CB    LEU   90   2.90   6   0.17   0.27   + *+ + ++
+    VdW   O     ALA   86 - CG    LEU   90   2.90   7   0.25   0.44   + ++ +++*
+    VdW   O     ALA   86 - HG    LEU   90   2.30   5   0.19   0.40   +  + + +*
+    VdW   N     LEU   87 - HD2   PRO   88   2.45   9   0.24   0.34  + *+++++++
+    VdW   CA    LEU   87 - HD21  LEU   87   2.60   7   0.17   0.24  * +++++ +
+    VdW   CB    LEU   87 - CD    PRO   88   3.20   8   0.23   0.38   * +++++++
+    VdW   HB3   LEU   87 - HD3   PRO   88   2.00   6   0.16   0.23   + ++ *++
+    VdW   CD2   LEU   87 - HA    VAL  123   2.60   6   0.19   0.35  ++  + + +*
+    VdW   CD2   LEU   87 - CB    ALA  126   3.20   8   0.32   0.45  + +++++*+
+    VdW   CD2   LEU   87 - HB2   ALA  126   2.60   5   0.16   0.28    ++ + *+
+    VdW   HD23  LEU   87 - HA    VAL  123   2.00   8   0.29   0.46  + ++*++++
+    VdW   HD23  LEU   87 - CB    ALA  126   2.60   8   0.33   0.45  + +++*+++
+    VdW   HD23  LEU   87 - HB3   ALA  126   2.00   8   0.24   0.35  + ++*++++
+    VdW   HA    LEU   90 - HD13  LEU   93   2.00   9   0.39   0.50   ++*++++++
+    VdW   HA    VAL   91 - CD1   LEU  109   2.60   3   0.09   0.26    +*   +
+    VdW   CG1   VAL   91 - C     GLY  127   3.10   4   0.17   0.25   * + + +
+    VdW   CG1   VAL   91 - O     GLY  127   2.90  10   0.41   0.44  *+++++++++
+    VdW   HG11  VAL   91 - O     GLY  127   2.30  10   0.32   0.46  *+++++++++
+    VdW   HG13  VAL   91 - HA    ALA  128   2.00  10   0.34   0.39  ++++++++*+
+    VdW   HG22  VAL   91 - CB    ALA  128   2.60   9   0.26   0.32  ++*++ ++++
+    VdW   CB    LEU   93 - CB    ALA  105   3.20   5   0.23   0.45  *+++     +
+    VdW   HB2   LEU   93 - CB    ALA  105   2.60  10   0.50   0.74  *+++++++++
+    VdW   HB2   LEU   93 - HB2   ALA  105   2.00   8   0.28   0.50  ++* +++ ++
+    VdW   CD1   LEU   93 - HB2   ALA  105   2.60   8   0.22   0.29  *+ + +++++
+    VdW   HD11  LEU   93 - CB    ALA  105   2.60   3   0.16   0.36  *    + +
+    VdW   HD11  LEU   93 - HB2   ALA  105   2.00  10   0.29   0.39  *+++++++++
+    VdW   CD2   LEU   93 - CG2   ILE  101   3.20   9   0.25   0.29  +* +++++++
+    VdW   HD21  LEU   93 - CG2   ILE  101   2.60   5   0.24   0.47  + * ++   +
+    VdW   O     LEU   93 - HG    LEU  102   2.30   8   0.25   0.33  ++ + ++*++
+    VdW   HA    LEU   94 - CD2   LEU  102   2.60   9   0.29   0.42  ++ ++++*++
+    VdW   HA    LEU   94 - HD22  LEU  102   2.00   7   0.44   0.59   ++ +++ +*
+    VdW   CD1   LEU   94 - CD1   LEU  109   3.20   3   0.17   0.32    *+   +
+    VdW   HD13  LEU   94 - CD1   LEU  109   2.60  10   0.35   0.43  ++++*+++++
+    VdW   HD13  LEU   94 - HD12  LEU  109   2.00   6   0.19   0.35   +* + + ++
+    VdW   CD2   LEU   94 - HG    LEU  106   2.60   6   0.23   0.50  +  +*  +++
+    VdW   CD2   LEU   94 - HD11  LEU  109   2.60   3   0.14   0.24     +   +*
+    VdW   HD22  LEU   94 - HD11  LEU  109   2.00   7   0.20   0.42   +++  ++*+
+    VdW   HD23  LEU   94 - HD23  LEU  106   2.00   7   0.23   0.53   +*+  ++++
+    VdW   OG    SER   96 - HD2   PRO   97   2.30   4   0.20   0.25  +  + * +
+    VdW   CD1   LEU  102 - HG21  ILE  143   2.60   5   0.18   0.23    + + + +*
+    VdW   HD13  LEU  102 - HG21  ILE  143   2.00   9   0.27   0.33  ++ +*+++++
+    VdW   CD2   LEU  102 - C     LEU  102   3.10   7   0.25   0.40  ++ * + +++
+    VdW   CD2   LEU  102 - CD1   LEU  106   3.20   6   0.19   0.29  +*  + + ++
+    VdW   CD2   LEU  102 - HD13  LEU  106   2.60   8   0.32   0.48  ++ *+ ++++
+    VdW   HD21  LEU  102 - C     LEU  102   2.50   7   0.40   0.53   *+ +++ ++
+    VdW   HD21  LEU  102 - O     LEU  102   2.30   5   0.16   0.28   +  * + ++
+    VdW   HD21  LEU  102 - HD13  LEU  106   2.00   7   0.22   0.43  ++ +  +*++
+    VdW   CA    GLN  103 - OE1   GLU  146   2.90   6   0.17   0.26   * ++ + ++
+    VdW   HA    GLN  103 - CD    GLU  146   2.50   5   0.16   0.26   *  + + ++
+    VdW   HA    GLN  103 - OE2   GLU  146   2.30   8   0.28   0.36  +* ++ ++++
+    VdW   CB    LEU  106 - HB3   GLU  146   2.60  10   0.35   0.47  +++++*++++
+    VdW   HB3   LEU  106 - HB3   GLU  146   2.00   7   0.23   0.33  *+ ++  +++
+    VdW   CD1   LEU  106 - CB    GLU  146   3.20   9   0.22   0.29  + *+++++++
+    VdW   HD11  LEU  106 - CB    GLU  146   2.60   8   0.51   0.68  *+ ++ ++++
+    VdW   HD11  LEU  106 - HB2   GLU  146   2.00   8   0.36   0.50  +* ++ ++++
+    VdW   HD11  LEU  106 - HB3   GLU  146   2.00   8   0.25   0.36  *+ ++ ++++
+    VdW   CD2   LEU  106 - CD1   LEU  135   3.20   7   0.21   0.29  +  +* ++++
+    VdW   CD2   LEU  106 - HA    ALA  147   2.60   6   0.30   0.60  ++* +++
+    VdW   HD21  LEU  106 - CA    ALA  147   2.60   8   0.25   0.46  ++* ++++ +
+    VdW   HA    LEU  109 - CD2   LEU  109   2.60   3   0.13   0.22   *    +  +
+    VdW   HA    LEU  109 - HD23  LEU  109   2.00   6   0.19   0.33   +  +++ *+
+    VdW   HG12  ILE  124 - HG    LEU  129   2.00   3   0.09   0.29   +*      +
+    VdW   HD11  ILE  124 - CB    ALA  164   2.60   8   0.31   0.45   +++ ++++*
+    VdW   N     ALA  128 - H     LEU  129   2.40   7   0.20   0.22  ++  +++ +*
+    VdW   O     ALA  128 - CB    LEU  132   2.90   3   0.10   0.23     ++  *
+    VdW   O     ALA  128 - CG    LEU  132   2.90  10   0.52   0.63  +++++*++++
+    VdW   O     ALA  128 - HG    LEU  132   2.30  10   0.63   0.73  *+++++++++
+    VdW   O     ALA  128 - CD1   LEU  132   2.90   5   0.23   0.38     ++* ++
+    VdW   N     LEU  129 - HD2   PRO  130   2.45   7   0.23   0.28  +  +*+ +++
+    VdW   HA    LEU  129 - HD22  LEU  129   2.00   5   0.17   0.38     *++ ++
+    VdW   CB    LEU  129 - CD    PRO  130   3.20   9   0.24   0.31  ++*+ +++++
+    VdW   HB3   LEU  129 - CB    ALA  168   2.60   5   0.18   0.40     *++ ++
+    VdW   HB3   LEU  129 - HB2   ALA  168   2.00   5   0.18   0.38     +++ +*
+    VdW   CD1   LEU  129 - CB    ALA  164   3.20   3   0.07   0.26   *+      +
+    VdW   HD11  LEU  129 - O     ALA  164   2.30   3   0.11   0.28      *+  +
+    VdW   CD2   LEU  129 - HA    VAL  165   2.60   6   0.23   0.47  *  +++ ++
+    VdW   HD21  LEU  129 - HA    VAL  165   2.00   5   0.16   0.35     +++ +*
+    VdW   HD21  LEU  129 - HB3   ALA  168   2.00   5   0.13   0.26     +*+ ++
+    VdW   C     LEU  129 - HB2   ALA  168   2.50   5   0.16   0.35     ++* ++
+    VdW   O     LEU  129 - CG2   VAL  133   2.90   4   0.11   0.25     * + ++
+    VdW   CB    LEU  132 - HG    LEU  151   2.60   7   0.21   0.33  *++ ++++
+    VdW   CD1   LEU  132 - HB1   ALA  150   2.60   5   0.25   0.43  ++*   +  +
+    VdW   HD12  LEU  132 - HB1   ALA  150   2.00   5   0.24   0.39  *+ + +  +
+    VdW   HA    VAL  133 - HD13  LEU  136   2.00   5   0.18   0.24  +++ *  +
+    VdW   CG1   VAL  133 - O     GLY  169   2.90   9   0.25   0.29  *+++++ +++
+    VdW   HG21  VAL  133 - HB1   ALA  168   2.00   5   0.18   0.50  ++*   +  +
+    VdW   HG22  VAL  133 - N     ALA  170   2.45   9   0.26   0.36  ++++++ *++
+    VdW   CB    LEU  135 - CB    ALA  147   3.20  10   0.52   0.55  +++++++++*
+    VdW   CB    LEU  135 - HB3   ALA  147   2.60  10   0.45   0.54  ++++*+++++
+    VdW   HB2   LEU  135 - CB    ALA  147   2.60  10   0.71   0.84  ++++++*+++
+    VdW   HB2   LEU  135 - HB2   ALA  147   2.00  10   0.41   0.48  +++++++++*
+    VdW   HB2   LEU  135 - HB3   ALA  147   2.00   6   0.23   0.46     ++ *+++
+    VdW   HB3   LEU  135 - HB3   ALA  147   2.00   8   0.24   0.32  ++ +++ ++*
+    VdW   HD12  LEU  135 - CB    ALA  147   2.60   8   0.29   0.38  +* +++ +++
+    VdW   HD12  LEU  135 - HB2   ALA  147   2.00  10   0.38   0.47  ++*+++++++
+    VdW   CD2   LEU  135 - CG2   ILE  143   3.20  10   0.40   0.43  +++++++*++
+    VdW   HD22  LEU  135 - CG2   ILE  143   2.60  10   0.55   0.59  +*++++++++
+    VdW   O     LEU  135 - HA    LEU  144   2.30   8   0.26   0.36  ++ +*+ +++
+    VdW   HA    LEU  136 - HD21  LEU  144   2.00  10   0.32   0.40  ++++++*+++
+    VdW   CD1   LEU  136 - CD1   LEU  151   3.20   9   0.37   0.54  ++*+++ +++
+    VdW   CD1   LEU  136 - HD13  LEU  151   2.60   6   0.18   0.35  +++ +* +
+    VdW   CD1   LEU  136 - CD2   LEU  174   3.20   5   0.23   0.44      + *+++
+    VdW   CD1   LEU  136 - HD23  LEU  174   2.60   5   0.19   0.44      + *+++
+    VdW   HD12  LEU  136 - CD2   LEU  174   2.60   9   0.42   0.50  ++++*+ +++
+    VdW   HD13  LEU  136 - CD1   LEU  151   2.60   9   0.31   0.45  ++*+++ +++
+    VdW   CD2   LEU  136 - HB1   ALA  147   2.60   5   0.15   0.30     ++  +*+
+    VdW   CD2   LEU  136 - HG    LEU  148   2.60   9   0.30   0.46  +*++++ +++
+    VdW   HD22  LEU  136 - HG    LEU  148   2.00   4   0.13   0.26     ++  *+
+    VdW   HD22  LEU  136 - CD1   LEU  151   2.60   4   0.10   0.27  ++*  +
+    VdW   HD22  LEU  136 - HD12  LEU  151   2.00   3   0.08   0.25  ++   *
+    VdW   HD23  LEU  136 - HG    LEU  148   2.00   4   0.13   0.36  +*+  +
+    VdW   C     LEU  136 - HG    LEU  144   2.50  10   0.27   0.30  +++++*++++
+    VdW   O     LEU  136 - CG    LEU  144   2.90  10   0.32   0.39  +*++++++++
+    VdW   O     LEU  136 - HG    LEU  144   2.30  10   0.30   0.35  +*++++++++
+    VdW   O     LEU  136 - CD2   LEU  177   2.90  10   0.33   0.41  ++++++*+++
+    VdW   O     LEU  136 - HD23  LEU  177   2.30  10   0.80   0.86  ++++++++*+
+    VdW   OG    SER  138 - HD2   PRO  139   2.30   3   0.19   0.20     *+   +
+    VdW   HA    ILE  143 - OE2   GLU  146   2.30   5   0.17   0.23  +  *+ ++
+    VdW   O     ILE  143 - HB2   GLU  146   2.30   5   0.17   0.24     ++  ++*
+    VdW   HD12  LEU  144 - CG2   ILE  185   2.60   5   0.18   0.21    *+   +++
+    VdW   HD12  LEU  144 - CD1   ILE  185   2.60   6   0.23   0.33  +* ++ ++
+    VdW   HD13  LEU  144 - CD2   LEU  177   2.60   3   0.19   0.26  *+       +
+    VdW   HD13  LEU  144 - HD23  LEU  177   2.00   3   0.17   0.22  +    *+
+    VdW   CD2   LEU  144 - C     LEU  144   3.10   9   0.26   0.31  + +++*++++
+    VdW   CD2   LEU  144 - HD11  LEU  148   2.60  10   0.46   0.70  +*++++++++
+    VdW   HD23  LEU  144 - C     LEU  144   2.50  10   0.62   0.65  +++++*++++
+    VdW   HD23  LEU  144 - O     LEU  144   2.30   3   0.16   0.25  + +  *
+    VdW   CD1   LEU  148 - HB3   GLU  188   2.60   9   0.36   0.40  + *+++++++
+    VdW   HD13  LEU  148 - HB3   GLU  188   2.00   6   0.19   0.26  +  ++  ++*
+    VdW   CD2   LEU  148 - CD2   LEU  174   3.20  10   0.52   0.55  +++*++++++
+    VdW   CD2   LEU  148 - HD22  LEU  174   2.60  10   0.36   0.44  +++*++++++
+    VdW   CD2   LEU  148 - HA    ALA  189   2.60  10   0.52   0.58  +++*++++++
+    VdW   CD2   LEU  148 - HB3   ALA  192   2.60   8   0.22   0.27  ++ +++ +*+
+    VdW   HD21  LEU  148 - CD2   LEU  174   2.60   9   0.32   0.54  ++*+++ +++
+    VdW   HD21  LEU  148 - HD22  LEU  174   2.00   6   0.25   0.42  ++*+ +  +
+    VdW   HD21  LEU  148 - HA    ALA  189   2.00  10   0.41   0.57  ++++++*+++
+    VdW   HD22  LEU  148 - HA    ALA  189   2.00   7   0.20   0.26  +  *++ +++
+    VdW   HD23  LEU  148 - CD2   LEU  174   2.60   7   0.39   0.62   + ++ *+++
+    VdW   CD1   TRP  149 - OE2   GLU  188   2.90  10   0.32   0.38  +++++++*++
+    VdW   CD1   LEU  151 - HB2   ALA  170   2.60   3   0.10   0.31     *    ++
+    VdW   CG2   ILE  166 - HD11  LEU  171   2.60   5   0.21   0.50  + *+ + +
+    VdW   CG2   ILE  166 - HD13  LEU  171   2.60   5   0.24   0.52   *  + + ++
+    VdW   HG21  ILE  166 - CD1   ILE  166   2.60   4   0.14   0.24  + +  * +
+    VdW   HG23  ILE  166 - HD13  LEU  171   2.00   3   0.11   0.25   *    +  +
+    VdW   CG1   ILE  166 - HD11  LEU  171   2.60   4   0.13   0.31  +  * + +
+    VdW   HG12  ILE  166 - HD11  LEU  171   2.00   3   0.09   0.25  +  *   +
+    VdW   O     GLY  169 - HB3   ALA  173   2.30   3   0.13   0.28  + +  *
+    VdW   O     ALA  170 - N     LEU  174   2.75  10   0.25   0.30  ++++++*+++
+    VdW   O     ALA  170 - CG    LEU  174   2.90  10   0.27   0.34  ++++++*+++
+    VdW   O     ALA  170 - HG    LEU  174   2.30  10   0.31   0.38  ++++++++*+
+    VdW   N     LEU  171 - HD2   PRO  172   2.45   9   0.24   0.28  +*+++ ++++
+    VdW   CB    LEU  171 - CD    PRO  172   3.20   9   0.23   0.30  + +++*++++
+    VdW   HD12  LEU  171 - CB    ALA  206   2.60   5   0.19   0.40   +  * + ++
+    VdW   O     LEU  171 - CG2   VAL  175   2.90   5   0.22   0.32   *  + + ++
+    VdW   CA    VAL  175 - HG    LEU  178   2.60  10   0.24   0.27  +*++++++++
+    VdW   HA    VAL  175 - CG    LEU  178   2.60   7   0.23   0.27   *+ + ++++
+    VdW   HA    VAL  175 - HG    LEU  178   2.00   9   0.26   0.32  +*+++ ++++
+    VdW   HA    VAL  175 - CD1   LEU  178   2.60  10   0.32   0.35  +*++++++++
+    VdW   HA    VAL  175 - HD12  LEU  178   2.00  10   0.34   0.36  +*++++++++
+    VdW   CG2   VAL  175 - CB    ALA  210   3.20   9   0.23   0.27  ++*++ ++++
+    VdW   CG2   VAL  175 - HB1   ALA  210   2.60  10   0.28   0.35  ++++*+++++
+    VdW   HG21  VAL  175 - CB    ALA  210   2.60   9   0.24   0.29  ++++* ++++
+    VdW   HG22  VAL  175 - HB1   ALA  210   2.00   6   0.18   0.28   +  + +++*
+    VdW   HG23  VAL  175 - HD11  LEU  193   2.00   3   0.18   0.31  +  + *
+    VdW   C     VAL  175 - HG    LEU  178   2.50   4   0.17   0.23  + *+ +
+    VdW   CB    LEU  177 - CB    ALA  189   3.20  10   0.43   0.49  ++++++*+++
+    VdW   CB    LEU  177 - HB3   ALA  189   2.60  10   0.38   0.39  +++*++++++
+    VdW   HB2   LEU  177 - CB    ALA  189   2.60  10   0.84   0.87  +++*++++++
+    VdW   HB2   LEU  177 - HB2   ALA  189   2.00  10   0.38   0.46  ++++++*+++
+    VdW   HB2   LEU  177 - HB3   ALA  189   2.00  10   0.51   0.60  ++*+++++++
+    VdW   HD13  LEU  177 - HB2   ALA  189   2.00   4   0.18   0.25  ++*  +
+    VdW   O     LEU  177 - HA    LEU  186   2.30  10   0.25   0.29  +++++++++*
+    VdW   O     LEU  177 - HG    LEU  186   2.30   9   0.23   0.28  +*++++ +++
+    VdW   CA    LEU  178 - CD2   LEU  186   3.20  10   0.31   0.32  +*++++++++
+    VdW   HA    LEU  178 - CD2   LEU  186   2.60  10   0.61   0.63  +*++++++++
+    VdW   HA    LEU  178 - HD21  LEU  186   2.00  10   0.48   0.50  ++++++++*+
+    VdW   HA    LEU  178 - HD22  LEU  186   2.00   3   0.20   0.22  +*   +
+    VdW   CD1   LEU  178 - HB2   ALA  212   2.60  10   0.30   0.43  +++++*++++
+    VdW   HD11  LEU  178 - HD13  LEU  193   2.00   7   0.22   0.34  ++ * ++++
+    VdW   CD2   LEU  178 - HB1   ALA  189   2.60  10   0.33   0.38  ++++++++*+
+    VdW   CD2   LEU  178 - HD22  LEU  190   2.60  10   0.42   0.45  ++++++++*+
+    VdW   CD2   LEU  178 - HD12  LEU  193   2.60   9   0.22   0.27  ++ ++++*++
+    VdW   HD23  LEU  178 - HB1   ALA  189   2.00  10   0.43   0.48  +++*++++++
+    VdW   C     LEU  178 - HG    LEU  186   2.50  10   0.28   0.29  +*++++++++
+    VdW   O     LEU  178 - CG    LEU  186   2.90  10   0.32   0.33  +++++++++*
+    VdW   O     LEU  178 - CD1   LEU  186   2.90  10   0.22   0.24  ++++++*+++
+    VdW   O     LEU  178 - HD22  LEU  186   2.30  10   0.22   0.24  ++*+++++++
+    VdW   CB    SER  179 - HD2   LYS  215   2.60   4   0.16   0.24      + * ++
+    VdW   OG    SER  180 - HD2   PRO  181   2.30   3   0.20   0.21   +*      +
+    VdW   HD11  LEU  186 - HD12  LEU  219   2.00   3   0.16   0.21  * +  +
+    VdW   CD2   LEU  186 - C     LEU  186   3.10  10   0.24   0.24  ++++*+++++
+    VdW   CD2   LEU  186 - HD13  LEU  190   2.60  10   0.26   0.30  ++*+++++++
+    VdW   HD23  LEU  186 - HD13  LEU  190   2.00   5   0.21   0.24  ++++ *
+    VdW   CG    GLN  187 - HG12  ILE  227   2.60   8   0.21   0.25  *+++ +++ +
+    VdW   CB    LEU  190 - CG    GLU  230   3.20   6   0.22   0.25   +  + ++*+
+    VdW   HB2   LEU  190 - CG    GLU  230   2.60   7   0.26   0.33   *+ + ++++
+    VdW   CD1   LEU  190 - CD1   LEU  219   3.20   9   0.23   0.27  +++*+++ ++
+    VdW   HD13  LEU  190 - CD1   LEU  219   2.60  10   0.29   0.33  *+++++++++
+    VdW   O     ILE  196 - HB3   GLN  203   2.30   5   0.20   0.26   ++   + +*
+    VdW   O     ALA  197 - HG3   LYS  204   2.30   4   0.19   0.22   +*   +  +
+    VdW   HB    VAL  207 - CD2   LEU  238   2.60   4   0.22   0.28  + ++ *
+    VdW   HB    VAL  207 - HD22  LEU  238   2.00  10   0.32   0.34  ++*+++++++
+    VdW   CG    LYS  208 - CD1   LEU  213   3.20  10   0.27   0.30  +++++*++++
+    VdW   CG    LYS  208 - HD12  LEU  213   2.60   4   0.23   0.35  + ++ *
+    VdW   HG3   LYS  208 - HD12  LEU  213   2.00  10   0.33   0.37  ++*+++++++
+    VdW   HB1   ALA  212 - CD1   LEU  238   2.60   6   0.14   0.24   +  + +++*
+    VdW   O     ALA  212 - HG    LEU  216   2.30   6   0.30   0.43   +  + +*++
+    VdW   HA    LEU  213 - CD1   LEU  216   2.60   6   0.18   0.31   +  + ++*+
+    VdW   HA    LEU  213 - HD13  LEU  216   2.00   6   0.15   0.26   +  + +*++
+    VdW   HG    LEU  213 - CD1   LEU  238   2.60   4   0.10   0.28  + ++ *
+    VdW   HG    LEU  213 - HD13  LEU  238   2.00   7   0.27   0.35   ++ * ++++
+    VdW   CD2   LEU  213 - CD2   LEU  235   3.20  10   0.33   0.40  *+++++++++
+    VdW   CD2   LEU  213 - HD23  LEU  235   2.60  10   0.28   0.32  *+++++++++
+    VdW   CD2   LEU  213 - CB    LEU  238   3.20   4   0.20   0.23  + +* +
+    VdW   CD2   LEU  213 - HB2   LEU  238   2.60   5   0.17   0.21   +  + * ++
+    VdW   CD2   LEU  213 - HD13  LEU  238   2.60   3   0.08   0.21  +  + *
+    VdW   HD21  LEU  213 - CB    LEU  238   2.60   4   0.12   0.31  + ++ *
+    VdW   HD22  LEU  213 - CD2   LEU  235   2.60  10   0.26   0.32  ++*+++++++
+    VdW   HD22  LEU  213 - HD23  LEU  235   2.00   6   0.26   0.32   *  + ++++
+    VdW   HD23  LEU  213 - CB    LEU  238   2.60   6   0.35   0.59   +  + ++*+
+    VdW   HD23  LEU  213 - HB2   LEU  238   2.00   6   0.35   0.60   +  + *+++
+    VdW   CG    LYS  215 - NZ    LYS  215   2.90   6   0.15   0.25  +*++ + +
+    VdW   O     LYS  215 - HG    LEU  219   2.30  10   0.28   0.32  +++++++*++
+    VdW   CB    LEU  216 - CG    LEU  235   3.20   6   0.17   0.21   +  + *+++
+    VdW   CB    LEU  216 - HG    LEU  235   2.60  10   0.64   0.66  ++++++*+++
+    VdW   HB2   LEU  216 - HG    LEU  235   2.00   6   0.32   0.54   +  + *+++
+    VdW   HB3   LEU  216 - CG    LEU  235   2.60   4   0.16   0.29  * ++ +
+    VdW   HB3   LEU  216 - HG    LEU  235   2.00  10   0.46   0.70  *+++++++++
+    VdW   HD13  LEU  216 - C     ALA  234   2.50   4   0.09   0.22  * ++ +
+    VdW   HD13  LEU  216 - N     LEU  235   2.45   3   0.08   0.21  + +*
+    VdW   HD22  LEU  216 - CB    ALA  234   2.60   4   0.12   0.33  + ++ *
+    VdW   HD22  LEU  216 - HB3   ALA  234   2.00   4   0.09   0.24  + ++ *
+    VdW   HD23  LEU  216 - CB    ALA  234   2.60   6   0.17   0.28   +  + ++*+
+    VdW   O     LEU  216 - N     LEU  219   2.75   6   0.21   0.24   +  + *+++
+    VdW   O     LEU  216 - HG2   GLN  220   2.30   6   0.20   0.21      +++*++
+    VdW   N     LEU  219 - H     GLN  220   2.40  10   0.23   0.23  ++++*+++++
+    VdW   CB    LEU  219 - CB    ALA  231   3.20   6   0.28   0.34   +  * ++++
+    VdW   CB    LEU  219 - HB2   ALA  231   2.60   9   0.29   0.37  +++++ +*++
+    VdW   HB2   LEU  219 - CB    ALA  231   2.60   6   0.18   0.27   +  + +*++
+    VdW   HB2   LEU  219 - HB2   ALA  231   2.00   6   0.21   0.24  ++*+ + +
+    VdW   O     ALA  231 - HB2   LEU  235   2.30   6   0.22   0.29   +  + +*++
+    VdW   HA    LEU  238 - HD23  LEU  238   2.00   3   0.17   0.22  + *  +
+    Angle PHI   GLY   43           88.70  108.70   6   5.20   8.40  + +*++ +
+    Angle PSI   GLY   43           32.00   52.00   9   6.22   7.52   ++*+++++*
+    Angle PSI   LEU   60          -50.80  -30.80   5   4.15   6.25  *++++
+    Angle PSI   GLY   85           40.00   60.00   7   8.51  19.81  ++ ++ + +*
+    Angle PHI   ALA   86         -126.80 -106.80   3   4.73  15.03   +    +  *
+    Angle PSI   ALA   86          -19.20    0.80   7   5.93   9.87     ++++*++
+    Angle PSI   VAL   91          -45.70  -25.70   7   5.91   9.04  ++  ++* ++
+    Angle PHI   ASN   98          -78.80  -58.80  10   6.14   6.84  ++*+++++++
+    Angle PSI   GLY  127           39.80   59.80  10  15.75  19.64  ++++*+++++
+    Angle PHI   ALA  128         -128.30 -108.30  10  17.54  23.62  ++++*+++++
+    Angle PSI   ALA  128            5.50   25.50  10  15.57  18.95  +++*++++++
+    Angle PSI   ASN  140          106.60  126.60   8   5.57   6.99  +* ++ ++++
+    Angle PHI   GLU  141          -66.70  -46.70   8   5.91   7.37  *+++++++
+    Angle PSI   LEU  144          -64.30  -44.30   6   5.36   6.92  +++ +*  +
+    Angle PSI   ALA  150          -60.90  -40.90   4   4.81   8.50  *+   + +
+    Angle PSI   ALA  164          -51.10  -31.10   3   3.27   6.30  + *      +
+    Angle PSI   GLY  169           30.70   50.70  10  11.06  12.69  ++++++++*+
+    Angle PHI   ALA  170         -109.50  -89.50  10  10.47  13.62  ++++*+++++
+    Angle PSI   ALA  170          -28.90   -8.90   8   6.98   9.67  + +++++* +
+    Angle PHI   SER  179         -105.80  -85.80  10   8.96   9.30  +*++++++++
+    Angle PHI   GLY  211           89.10  109.10   6   5.93   8.25   +  + +++*
+    Angle PSI   LEU  219            5.40   25.40   6   5.28   6.57   +  + +*++
+    Angle PHI   GLN  232          -78.30  -58.30   4   4.61   7.88  + ++ *
+    Angle PHI   GLU  233          -87.10  -67.10   6   3.96   6.81   +  + *+++
+    Angle PSI   GLU  233          -49.30  -29.30   6   5.31   8.49   +  * ++++
+    1370 violated distance restraints.
+    353 violated van der Waals restraints.
+    25 violated angle restraints.
+ 
+    RMSDs for residues 3..238:
+    Average backbone RMSD to mean   :    0.30 +/- 0.07 A (0.24..0.47 A; 10 structures)
+    Average heavy atom RMSD to mean :    0.34 +/- 0.07 A (0.26..0.52 A; 10 structures)
