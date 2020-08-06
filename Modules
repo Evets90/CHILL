@@ -2,7 +2,7 @@ Modules are pre-made sharable code packages that are used to implement default f
 CHILL will not run unless you download the modules that it uses, visible after the "import" keyword.
 
 
-Modules needed to run CHILL:
+Modules needed to run CHILL (dependencies):
 -pandas
 -tkinter
 -os
@@ -13,6 +13,7 @@ Modules needed to run CHILL:
 -re
 -pyperclip
 -biopandas
+-cfscrape
 
 How to install them:
 0) Have python 3 already installed.

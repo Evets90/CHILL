@@ -39,7 +39,7 @@ import Journal_club_special
 
 
 # Version
-version = "Version: 0.033"
+version = "Version: 0.034"
 
 # Logos paths
 logoSaS = Path.cwd() / "Logos/SaS.gif"
@@ -445,7 +445,7 @@ class CheckSeriesPage(tk.Frame):
     def selectfile1(self):
         self.filename1 = filedialog.askopenfilename(initialdir=path.dirname(__file__))
         self.lab1.configure(text=self.filename1)
-        dt = pd.read_csv(self.filename1, sep=' ', header=None)
+        dt = pd.read_csv(self.filename1, sep='\s+', header=None)
         colnum = []
         for num in range(0, int(len(dt.columns))):
             colnum.append(num+1)
@@ -457,7 +457,7 @@ class CheckSeriesPage(tk.Frame):
         elif self.combo.get() == "":
             messagebox.showerror("Warning", "You did not select any column.")
         else:
-            dt = pd.read_csv(self.filename1, sep=' ', header=None)
+            dt = pd.read_csv(self.filename1, sep='\s+', header=None)
             col = int(self.combo.get()) - 1
             try:
                 dt[col] + 1
@@ -2366,6 +2366,42 @@ class JournalClubPage(tk.Frame):
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_cell_structure(Journal_club.volumes_url[self.comboJ.get()])
             self.comboI['values'] = issues
+        elif self.comboJ.get() == "Journal of Magnetic Resonance":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_jmr(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == "BBA - biomembranes":
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_bba_biomembranes(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Protein expression and purification':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_peap(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Current opinion in structural biology':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_cosb(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Current opinion in chemical biology':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_cocb(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Chemistry & biology':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_chemistry_and_biology(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Journal of molecular biology':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_jmb(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Methods in enzymology':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_methods_enzymology(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
+        elif self.comboJ.get() == 'Progress in NMR spectroscopy':
+            self.comboV['state'] = "disabled"
+            issues = Journal_club.get_issues_progress_nmr(Journal_club.volumes_url[self.comboJ.get()])
+            self.comboI['values'] = issues
         elif self.comboJ.get() == "Angewandte":
             self.comboV['state'] = "disabled"
             issues = Journal_club.get_issues_angewandte(Journal_club.volumes_url[self.comboJ.get()])
@@ -2552,6 +2588,24 @@ class JournalClubPage(tk.Frame):
                 articles = Journal_club.acs_biochemistry(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "ACS - Chemical Biology":
                 articles = Journal_club.acs_chemicalbiology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Journal of Magnetic Resonance":
+                articles = Journal_club.jmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'BBA - biomembranes':
+                articles = Journal_club.bba_biomembranes(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Protein expression and purification':
+                articles = Journal_club.peap(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Current opinion in structural biology':
+                articles = Journal_club.cosb(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Current opinion in chemical biology':
+                articles = Journal_club.cocb(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Chemistry & biology':
+                articles = Journal_club.chemistry_and_biology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Journal of molecular biology':
+                articles = Journal_club.jmb(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == 'Methods in enzymology':
+                articles = Journal_club.methods_enzymology(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
+            elif self.comboJ.get() == "Progress in NMR spectroscopy":
+                articles = Journal_club.progress_nmr(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "ACS - Chemical Reviews":
                 articles = Journal_club.acs_chemicalreviews(issue_link, Journal_club.modes_dictionary[self.comboM.get()])
             elif self.comboJ.get() == "ACS - Journal of Medicinal Chemistry":

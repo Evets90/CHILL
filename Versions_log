@@ -1,13 +1,28 @@
-CURRENT VERSION (0.033)
-Added function, page and test files for:
-    Average structures
-    OVW: Analyze methyl violations
-    CYANA: Batch iteration
-    CYANA: Test input
-    UPL: Side chains manager
-Journal club (and special) - added new keywords from JCs of 06/12/19 and 07/02/20
+CURRENT VERSION (0.034)
+Journal club - added CAPTCHA evasion for all Wileys and Elsevier journals
+               implemented a more robust approach to get titles and links (no more regex)
+               added the previously blocked Elsevier journals:
+                    Journal of Magnetic Resonance
+                    BBA - biomembranes
+                    Protein expression and purification
+                    Current opinion in structural biology
+                    Current opinion in chemical biology
+                    Chemistry & biology
+                    Journal of molecular biology
+                    Methods in enzymology
+                    Progress in NMR spectroscopy
+                    [New total journals: 44]
 
 PAST VERSIONS:
+v0.033
+    Added function, page and test files for:
+        Average structures
+        OVW: Analyze methyl violations
+        CYANA: Batch iteration
+        CYANA: Test input
+        UPL: Side chains manager
+    Journal club (and special) - added new keywords from JCs of 06/12/19 and 07/02/20
+
 v0.032:
     ! Fully implemenented the new Journal club special page
     Journal club - added ACS - Chemical Biology
